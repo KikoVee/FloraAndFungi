@@ -14,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
 
     private int sugarAmount;
     private int nitrateAmount;
+    private int expansionCost = 1;
 
     public GameObject nitrateObject;
 
@@ -57,13 +58,13 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         {
             UseNitrogen();
         }
-        
+
     }
     
     private void FixedUpdate()
     {
         GetLocationOnGrid();
-        
+
         if (recordMovements == true)
         {
             timer -= Time.deltaTime;
@@ -89,25 +90,31 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
                 ChangeCellColor(pos);
                 // Debug.Log("current cell is " + currentCell + "is walkable");
             }
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);
         }
     }
 
     private void ChangeCellColor(Vector3 pos)
     {
-        hexGrid.ColorCell(pos, rangeColor);
+        if (TrySpendSugarAmount(expansionCost))
+        {
+            hexGrid.ColorCell(pos, rangeColor);
+            ChangeSugarAmount(-expansionCost);  
+            Debug.Log("change color");
+        }
+        else
+        {
+            Debug.Log("not enough sugar");
+        }
     }
     
-    public void AddSugar(int sugar)
+    public void ChangeSugarAmount(int sugar)
     {
         sugarAmount += sugar;
     }
     public void AddNitrate(int nitrate)
     {
         nitrateAmount += nitrate;
-    }
-    public void AddExpansion()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -118,7 +125,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         {
             int points = collectable.pointValue;
             _gameManager.AddSugar(points);
-            AddSugar(points);
+            ChangeSugarAmount(points);
             Destroy(other.gameObject);
         }
 
@@ -144,7 +151,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         switch (itemType)
         {
             case UpgradeTypes.ItemType.Nitrate:  AddNitrate(1); break;
-            case UpgradeTypes.ItemType.Expansion:  AddExpansion(); break;
+            //case UpgradeTypes.ItemType.Expansion:  AddExpansion(); break;
  
         }
         //add warning if can't afford
