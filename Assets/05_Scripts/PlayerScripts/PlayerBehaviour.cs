@@ -19,6 +19,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
 
     private Transform spawnPoint;
     public HexGrid hexGrid;
+    private Color rangeColor = Color.green;
 
     private bool recordMovements = false;
     public GameObject wayPointObject;
@@ -54,14 +55,15 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         }
         if (Input.GetMouseButtonDown(1))
         {
-            UseNitrate();
+            UseNitrogen();
         }
         
-        GetLocationOnGrid();
     }
     
     private void FixedUpdate()
     {
+        GetLocationOnGrid();
+        
         if (recordMovements == true)
         {
             timer -= Time.deltaTime;
@@ -75,14 +77,26 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
 
     public void GetLocationOnGrid()
     {
-        Vector3 pos = transform.position;
-        HexCell currentCell;
-        currentCell = hexGrid.GetCell(pos);
-        if (currentCell.walkable == true)
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
         {
-            Debug.Log("current cell is " + currentCell + "is walkable");
+            Vector3 pos = hit.point;
+            HexCell currentCell;
+            currentCell = hexGrid.GetCell(pos);
+            if (currentCell.walkable != true)
+            {
+                ChangeCellColor(pos);
+                // Debug.Log("current cell is " + currentCell + "is walkable");
+            }
         }
     }
+
+    private void ChangeCellColor(Vector3 pos)
+    {
+        hexGrid.ColorCell(pos, rangeColor);
+    }
+    
     public void AddSugar(int sugar)
     {
         sugarAmount += sugar;
@@ -150,7 +164,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         }
     }
 
-    private void UseNitrate()
+    private void UseNitrogen()
     {
         if (nitrateAmount > 0)
         {

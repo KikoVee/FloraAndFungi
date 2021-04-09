@@ -22,6 +22,13 @@ public class HexMapEditor : MonoBehaviour {
 		}
 	}
 
+	public void ChangeColor(HexCell currentCell)
+	{
+		Vector3 pos = currentCell.transform.position;
+		hexGrid.ColorCell(pos, activeColor);
+
+	}
+
 	void HandleInput () {
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
