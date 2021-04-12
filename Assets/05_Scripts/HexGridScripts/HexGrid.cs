@@ -16,6 +16,7 @@ public class HexGrid : MonoBehaviour
 	public Text cellLabelPrefab;
 	public HexGridChunk chunkPrefab;
 	HexGridChunk[] chunks;
+	private HexMesh hexMesh;
 
 	HexCell[] cells;
 
@@ -32,6 +33,7 @@ public class HexGrid : MonoBehaviour
 
 		CreateChunks();
 		CreateStartCells();
+		hexMesh = GetComponentInChildren<HexMesh>();
 	}
 
 	private void CreateStartCells()
@@ -62,14 +64,19 @@ public class HexGrid : MonoBehaviour
 
 	public HexCell GetCell(Vector3 position)
 	{
-		
+		position = transform.InverseTransformPoint(position);
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
 		int index = coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
-		HexCell cell = cells[index];
-		return cell;
+		//HexCell cell = cells[index];
+		return cells[index];
 	}
 
-
+	public HexCell GetCell(HexCoordinates coordinates)
+	{
+		int z = coordinates.Z;
+		int x = coordinates.X + z / 2;
+		return cells[x + z * cellCountX];
+	}
 
 	public void ColorCell (Vector3 position, Color color) {
 		position = transform.InverseTransformPoint(position);
@@ -79,6 +86,11 @@ public class HexGrid : MonoBehaviour
 		cell.Color = color;
 		cell.walkable = true;
 		//hexMesh.Triangulate(cells);
+	}
+
+	public void Refresh()
+	{
+		hexMesh.Triangulate(cells);
 	}
 
 	void CreateCell (int x, int z, int i) {

@@ -80,7 +80,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+  /*      if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
         {
             Vector3 pos = hit.point;
             HexCell currentCell;
@@ -91,7 +91,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
                 // Debug.Log("current cell is " + currentCell + "is walkable");
             }
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);
-        }
+        }*/
     }
 
     private void ChangeCellColor(Vector3 pos)
