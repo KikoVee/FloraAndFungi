@@ -3,9 +3,26 @@
 public class HexCell : MonoBehaviour {
 
 	public HexCoordinates coordinates;
+	public RectTransform uiRect;
 
-	public Color color;
+	public Color Color
+	{
+		get { return color; }
+		set
+		{
+			if (color == value)
+			{
+				return;
+			}
+
+			color = value;
+			Refresh();
+		}
+	}
+
+	Color color;
 	public bool walkable;
+	public HexGridChunk chunk;
 
 	[SerializeField] private HexCell[] neighbors;
 	
@@ -18,5 +35,13 @@ public class HexCell : MonoBehaviour {
 	{
 		neighbors[(int) direction] = cell;
 		cell.neighbors[(int) direction.Opposite()] = this;
+	}
+
+	void Refresh()
+	{
+		if (chunk)
+		{
+			chunk.Refresh();
+		}
 	}
 }

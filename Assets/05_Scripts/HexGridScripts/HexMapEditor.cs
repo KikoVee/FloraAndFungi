@@ -36,6 +36,7 @@ public class HexMapEditor : MonoBehaviour {
 			hexGrid.ColorCell(hit.point, activeColor);
 		}
 	}
+	
 
 	public void SelectColor (int index) {
 		activeColor = colors[index];

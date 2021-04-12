@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class HexGridChunk : MonoBehaviour
 {
-    private HexCell[] cells;
+     HexCell[] cells;
 
-    private HexMesh hexMesh;
+     HexMesh hexMesh;
 
-    private Canvas gridCanvas;
+     Canvas gridCanvas;
 
     void Awake()
     {
@@ -28,7 +28,13 @@ public class HexGridChunk : MonoBehaviour
     public void AddCell(int index, HexCell cell)
     {
         cells[index] = cell;
+        cell.chunk = this;
         cell.transform.SetParent(transform, false);
-       // cell.SetParent(gridCanvas.transform, false);
+        cell.uiRect.SetParent(gridCanvas.transform, false);
+    }
+
+    public void Refresh()
+    {
+        hexMesh.Triangulate(cells);
     }
 }
