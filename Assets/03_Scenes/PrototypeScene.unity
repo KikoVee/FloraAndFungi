@@ -1798,11 +1798,11 @@ PrefabInstance:
       objectReference: {fileID: 1805327636}
     - target: {fileID: 1185675687471605278, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
       propertyPath: width
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1185675687471605278, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
       propertyPath: height
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1185675687471605278, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
       propertyPath: defaultColor.r
