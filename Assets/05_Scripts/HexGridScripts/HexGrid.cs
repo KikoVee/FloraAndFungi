@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class HexGrid : MonoBehaviour {
 
-	public int width = 6;
-	public int height = 6;
+	public int width = 5;
+	public int height = 5;
 
 	public Color defaultColor = Color.white;
 	public Color touchedColor = Color.magenta;
