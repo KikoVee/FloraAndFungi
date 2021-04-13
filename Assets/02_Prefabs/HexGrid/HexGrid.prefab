@@ -207,6 +207,7 @@ MonoBehaviour:
   - {r: 0.18553106, g: 0.3679245, b: 0.14057493, a: 0}
   - {r: 1, g: 1, b: 1, a: 0}
   hexGrid: {fileID: 1185675687471605278}
+  mushroomPrefab: {fileID: 8250899903893643389, guid: 44c33313c75de43dcb71e7fd93511472, type: 3}
 --- !u!1 &1185675685834396390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,11 +1104,9 @@ MonoBehaviour:
   chunkCountX: 4
   chunkCountZ: 3
   defaultColor: {r: 0.0495283, g: 0.1981132, b: 0.123470604, a: 1}
-  touchedColor: {r: 1, g: 0, b: 1, a: 1}
   cellPrefab: {fileID: 11422220, guid: 94c2312396697489abc866a188f80152, type: 3}
   cellLabelPrefab: {fileID: 2390866793732979913}
   chunkPrefab: {fileID: 6390087632372534218, guid: 19f1ec3b81145491ab6f7ec646f380f3, type: 3}
-  camera: {fileID: 0}
 --- !u!1001 &1185675687394732730
 PrefabInstance:
   m_ObjectHideFlags: 0

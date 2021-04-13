@@ -8,6 +8,7 @@ public class HexMapEditor : MonoBehaviour {
 	public HexGrid hexGrid;
 
 	private Color activeColor;
+	public Transform mushroomPrefab;
 
 
 	void Awake () {
@@ -44,7 +45,14 @@ public class HexMapEditor : MonoBehaviour {
 	void EditCell(HexCell cell)
 	{
 		cell.Color = activeColor;
+		AddFeature(cell.Position);
 		//hexGrid.Refresh();
+	}
+
+	void AddFeature(Vector3 position)
+	{
+		Transform instance = Instantiate(mushroomPrefab);
+		instance.localPosition = position; 
 	}
 
 	public void SelectColor (int index) {
