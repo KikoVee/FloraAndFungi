@@ -98,7 +98,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
     {
         if (TrySpendSugarAmount(expansionCost))
         {
-            hexGrid.ColorCell(pos, rangeColor);
+            //hexGrid.ColorCell(pos, rangeColor);
             ChangeSugarAmount(-expansionCost);  
             Debug.Log("change color");
         }

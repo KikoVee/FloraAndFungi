@@ -19,10 +19,15 @@ public class HexCell : MonoBehaviour {
 			Refresh();
 		}
 	}
-
+	public Vector3 Position
+	{
+		get { return transform.localPosition; }
+	}
 	Color color;
 	public bool walkable;
 	public HexGridChunk chunk;
+
+	
 
 	[SerializeField] private HexCell[] neighbors;
 	

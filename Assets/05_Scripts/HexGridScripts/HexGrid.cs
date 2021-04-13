@@ -5,47 +5,30 @@ public class HexGrid : MonoBehaviour
 {
 
 	public int chunkCountX = 4;
-	public int chunkCountZ = 3;
-	private int cellCountX;
-	private int cellCountZ;
+	public int chunkCountZ = 4;
+	int cellCountX;
+	int cellCountZ;
 
 	public Color defaultColor = Color.white;
-	public Color touchedColor = Color.magenta;
 
 	public HexCell cellPrefab;
 	public Text cellLabelPrefab;
 	public HexGridChunk chunkPrefab;
+	
 	HexGridChunk[] chunks;
-	private HexMesh hexMesh;
 
 	HexCell[] cells;
 
-	//Canvas gridCanvas;
-	//HexMesh hexMesh;
-	public Camera camera;
 
 	void Awake () {
-		//gridCanvas = GetComponentInChildren<Canvas>();
-		//hexMesh = GetComponentInChildren<HexMesh>();
-
+	
 		cellCountX = chunkCountX * HexMetrics.chunkSizeX;
 		cellCountZ = chunkCountZ * HexMetrics.chunkSizeZ;
 
 		CreateChunks();
 		CreateStartCells();
-		hexMesh = GetComponentInChildren<HexMesh>();
 	}
 
-	private void CreateStartCells()
-	{
-		cells = new HexCell[cellCountZ * cellCountX];
-
-		for (int z = 0, i = 0; z < cellCountZ; z++) {
-			for (int x = 0; x < cellCountX; x++) {
-				CreateCell(x, z, i++);
-			}
-		}
-	}
 
 	void CreateChunks () {
 		chunks = new HexGridChunk[chunkCountX * chunkCountZ];
@@ -57,41 +40,29 @@ public class HexGrid : MonoBehaviour
 			}
 		}
 	}
+	void CreateStartCells()
+	{
+		cells = new HexCell[cellCountZ * cellCountX];
 
-	/*void Start () {
-		hexMesh.Triangulate(cells);
-	}*/
+		for (int z = 0, i = 0; z < cellCountZ; z++) {
+			for (int x = 0; x < cellCountX; x++) {
+				CreateCell(x, z, i++);
+			}
+		}
+	}
+
 
 	public HexCell GetCell(Vector3 position)
 	{
 		position = transform.InverseTransformPoint(position);
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-		int index = coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
-		//HexCell cell = cells[index];
+		int index =
+			coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
+		Debug.Log("index is " + index);
 		return cells[index];
 	}
 
-	public HexCell GetCell(HexCoordinates coordinates)
-	{
-		int z = coordinates.Z;
-		int x = coordinates.X + z / 2;
-		return cells[x + z * cellCountX];
-	}
-
-	public void ColorCell (Vector3 position, Color color) {
-		position = transform.InverseTransformPoint(position);
-		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-		int index = coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
-		HexCell cell = cells[index];
-		cell.Color = color;
-		cell.walkable = true;
-		//hexMesh.Triangulate(cells);
-	}
-
-	public void Refresh()
-	{
-		hexMesh.Triangulate(cells);
-	}
+		
 
 	void CreateCell (int x, int z, int i) {
 		Vector3 position;

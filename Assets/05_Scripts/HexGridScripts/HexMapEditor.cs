@@ -9,38 +9,42 @@ public class HexMapEditor : MonoBehaviour {
 
 	private Color activeColor;
 
+
 	void Awake () {
 		SelectColor(0);
 	}
 
 	void Update () {
 		if (
-			Input.GetMouseButton(0) &&
+			Input.GetMouseButtonDown(0) &&
 			!EventSystem.current.IsPointerOverGameObject()
 		) {
 			HandleInput();
 		}
 	}
 
-	public void ChangeColor(HexCell currentCell)
+	/*public void ChangeColor(HexCell currentCell)
 	{
 		Vector3 pos = currentCell.transform.position;
 		hexGrid.ColorCell(pos, activeColor);
 
-	}
+	}*/
 
 	void HandleInput () {
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit)) {
-			EditCell(hexGrid.GetCell(hit.point));
+			//if (hit.collider.gameObject == hexGrid.gameObject)
+			{
+				EditCell(hexGrid.GetCell(hit.point));
+			}
 		}
 	}
 
 	void EditCell(HexCell cell)
 	{
 		cell.Color = activeColor;
-		hexGrid.Refresh();
+		//hexGrid.Refresh();
 	}
 
 	public void SelectColor (int index) {

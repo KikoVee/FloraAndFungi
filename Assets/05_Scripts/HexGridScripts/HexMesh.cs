@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class HexMesh : MonoBehaviour {
 
 	Mesh hexMesh;
-	List<Vector3> vertices;
-	List<Color> colors;
-	List<int> triangles;
+	static List<Vector3> vertices = new List<Vector3>();
+	static List<Color> colors = new List<Color>();
+	static List<int> triangles = new List<int>();
 
 
 	MeshCollider meshCollider;
@@ -16,9 +16,9 @@ public class HexMesh : MonoBehaviour {
 		GetComponent<MeshFilter>().mesh = hexMesh = new Mesh();
 		meshCollider = gameObject.AddComponent<MeshCollider>();
 		hexMesh.name = "Hex Mesh";
-		vertices = new List<Vector3>();
-		colors = new List<Color>();
-		triangles = new List<int>();
+		//vertices = new List<Vector3>();
+		//colors = new List<Color>();
+		//triangles = new List<int>();
 	}
 
 	public void Triangulate (HexCell[] cells) {
@@ -48,7 +48,8 @@ public class HexMesh : MonoBehaviour {
 
 	void Triangulate(HexDirection direction, HexCell cell) //for color blending
 	{
-		Vector3 center = cell.transform.localPosition;
+		Vector3 center = cell.Position;
+
 		Vector3 v1 = center + HexMetrics.GetFirstSolidCorner(direction);
 		Vector3 v2 = center + HexMetrics.GetSecondSolidCorner(direction);
 		
@@ -60,26 +61,6 @@ public class HexMesh : MonoBehaviour {
 			TriangulateConnection(direction, cell, v1, v2);
 		}
 		
-		/*
-		HexCell prevNeighbor = cell.GetNeighbor(direction.Previous()) ?? cell;
-		HexCell neighbor = cell.GetNeighbor(direction) ?? cell; // get neighbor's color and if no neighbor use self
-		HexCell nextNeighbor = cell.GetNeighbor(direction.Next()) ?? cell;
-		Color bridgeColor = (cell.color + neighbor.color) * 0.5f;
-		
-
-		AddTriangle(v1, center + HexMetrics.GetFirstCorner(direction), v3); //the triangular edge connectors
-		AddTriangleColor(
-			cell.color,
-			(cell.color + prevNeighbor.color + neighbor.color) / 3f,
-			bridgeColor
-		);
-		
-		AddTriangle(v2, v4, center + HexMetrics.GetSecondCorner(direction)); //the triangular edge connectors
-		AddTriangleColor(
-			cell.color,
-			bridgeColor,
-			(cell.color + neighbor.color + nextNeighbor.color) / 3f
-		);*/
 		
 	}
 	
