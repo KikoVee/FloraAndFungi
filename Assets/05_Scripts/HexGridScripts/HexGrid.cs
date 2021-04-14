@@ -75,6 +75,7 @@ public class HexGrid : MonoBehaviour
 		cell.transform.localPosition = position;
 		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
 		cell.Color = defaultColor;
+		cell.SetType(0);
 
 		if (x > 0) //find the neighbors! 
 		{

@@ -48,6 +48,7 @@ public class TreeBehaviour : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
         {
             currentCell = hexGrid.GetCell(hit.point);
+            currentCell.SetType(1);
             Debug.Log("current cell for tree is " + currentCell);
         }
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);

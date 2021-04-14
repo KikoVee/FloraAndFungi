@@ -45,6 +45,7 @@ public class HexMapEditor : MonoBehaviour {
 	void EditCell(HexCell cell)
 	{
 		cell.Color = activeColor;
+		cell.SetType(2);
 		AddFeature(cell.Position);
 		//hexGrid.Refresh();
 	}

@@ -27,8 +27,10 @@ public class HexCell : MonoBehaviour {
 	public bool walkable;
 	public HexGridChunk chunk;
 
-	
+	enum cellType {empty, tree, fungi};
 
+	private cellType myType;
+	
 	[SerializeField] private HexCell[] neighbors;
 	
 	public HexCell GetNeighbor (HexDirection direction)
@@ -41,6 +43,7 @@ public class HexCell : MonoBehaviour {
 		neighbors[(int) direction] = cell;
 		cell.neighbors[(int) direction.Opposite()] = this;
 	}
+	
 
 	void Refresh()
 	{
@@ -57,4 +60,25 @@ public class HexCell : MonoBehaviour {
 			}
 		}
 	}
+
+	public void SetType(int type)
+	{
+		if (type == 0)
+		{
+			myType = cellType.empty;
+		}
+
+		if (type == 1)
+		{
+			myType = cellType.tree;
+		}
+
+		if (type == 2)
+		{
+			myType = cellType.fungi;
+		}
+		
+		Debug.Log("cell type is" + myType);
+	}
+
 }
