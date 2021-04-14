@@ -57,14 +57,18 @@ public class HexMapEditor : MonoBehaviour {
 
 	void EditCell(HexCell cell)
 	{
-		if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.expansionCost))
+		if (cell.myType == HexCell.cellType.empty)
 		{
-			cell.Color = activeColor;
-			cell.SetType(2);
-			AddFeature(cell.Position);
-			_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
-			//hexGrid.Refresh();
+			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.expansionCost))
+			{
+				cell.Color = activeColor;
+				cell.SetType(2);
+				AddFeature(cell.Position);
+				_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
+				//hexGrid.Refresh();
+			}
 		}
+		
 		
 	}
 
