@@ -9,11 +9,18 @@ public class HexMapEditor : MonoBehaviour {
 
 	private Color activeColor;
 	public Transform mushroomPrefab;
+	private NutrientManager _nutrientManager;
 
 
 	void Awake () {
 		SelectColor(0);
 	}
+
+	private void Start()
+	{
+		_nutrientManager = NutrientManager.currentNutrientManager;
+	}
+
 
 	void Update () {
 		if (
@@ -25,16 +32,18 @@ public class HexMapEditor : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			GameManager.currentManager.GiveTreesNutrients();
+			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.giveNutrientCost))
+			{
+				GameManager.currentManager.GiveTreesNutrients();
+				_nutrientManager.SpendSugar(_nutrientManager.giveNutrientCost);
+			}
+			else
+			{
+				Debug.Log("not enough sugar");
+			}
 		}
 	}
 
-	/*public void ChangeColor(HexCell currentCell)
-	{
-		Vector3 pos = currentCell.transform.position;
-		hexGrid.ColorCell(pos, activeColor);
-
-	}*/
 
 	void HandleInput () {
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);

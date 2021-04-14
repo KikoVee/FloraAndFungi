@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public delegate void GiveNutrientsEvent();
 
     public static GiveNutrientsEvent nutrientEvent;
-    public int nutrientValue = 5;
  
     
     private void Awake()
@@ -78,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentNutrientValue()
     {
+        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrientToSpend;
         return nutrientValue;
     }
 }

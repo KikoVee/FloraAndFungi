@@ -13,14 +13,10 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
     [SerializeField] private UIShop uiShop;
 
     private int sugarAmount;
-    private int nitrateAmount;
+    private int nutrientAmount;
     private int expansionCost = 1;
 
-    public GameObject nitrateObject;
-
-    private Transform spawnPoint;
-    public HexGrid hexGrid;
-    private Color rangeColor = Color.green;
+    public GameObject nutrientObject;
 
     private bool recordMovements = false;
     public GameObject wayPointObject;
@@ -31,7 +27,6 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
     private void Start()
     {
         _gameManager = GameManager.currentManager;
-        spawnPoint = gameObject.transform;
         wayPointList = new List<Transform>();
         timer = timeBetweenWaypoints;
     }
@@ -58,41 +53,13 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         {
             UseNitrogen();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.currentManager.GiveTreesNutrients();
+        }
 
     }
     
-    private void FixedUpdate()
-    {
-        GetLocationOnGrid();
-
-        if (recordMovements == true)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                AddWayPoint();
-                timer = timeBetweenWaypoints;
-            }
-        }
-    }
-
-    public void GetLocationOnGrid()
-    {
-        RaycastHit hit;
-
-  /*      if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
-        {
-            Vector3 pos = hit.point;
-            HexCell currentCell;
-            currentCell = hexGrid.GetCell(pos);
-            if (currentCell.walkable != true)
-            {
-                ChangeCellColor(pos);
-                // Debug.Log("current cell is " + currentCell + "is walkable");
-            }
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);
-        }*/
-    }
 
     private void ChangeCellColor(Vector3 pos)
     {
@@ -114,35 +81,10 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
     }
     public void AddNitrate(int nitrate)
     {
-        nitrateAmount += nitrate;
+        nutrientAmount += nitrate;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Collectables collectable = other.gameObject.GetComponent<Collectables>();
-        
-        if (collectable != null)
-        {
-            int points = collectable.pointValue;
-            _gameManager.AddSugar(points);
-            ChangeSugarAmount(points);
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject.CompareTag("RecordStart"))
-        {
-            recordMovements = true;
-            Debug.Log(recordMovements);
-        }
-
-        if (other.gameObject.CompareTag("RecordEnd"))
-        {
-            recordMovements = false;
-            Debug.Log(recordMovements);
-            gameObject.GetComponent<PlayerMovementReplay>().BeginReplay();
-
-        }
-    }
+    
 
     public void BoughtItem(UpgradeTypes.ItemType itemType)
     {
@@ -173,10 +115,10 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
 
     private void UseNitrogen()
     {
-        if (nitrateAmount > 0)
+        if (nutrientAmount > 0)
         {
-            nitrateAmount -= 1;
-            Instantiate(nitrateObject, gameObject.transform.position, Quaternion.identity);
+            nutrientAmount -= 1;
+            Instantiate(nutrientObject, gameObject.transform.position, Quaternion.identity);
             Debug.Log("use nitrate");
         }
         else
@@ -185,11 +127,6 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         }
     }
 
-    private void AddWayPoint()
-    {
-        GameObject newWayPoint = Instantiate(wayPointObject, transform.position, transform.rotation);
-        Transform wayPoint = newWayPoint.transform;
-        wayPointList.Add(wayPoint);
-    }
+    
     
 }
