@@ -10,6 +10,7 @@ public class HexMapEditor : MonoBehaviour {
 	private Color activeColor;
 	public Transform mushroomPrefab;
 	private NutrientManager _nutrientManager;
+	private bool fungiNeighbor;
 
 
 	void Awake () {
@@ -19,6 +20,7 @@ public class HexMapEditor : MonoBehaviour {
 	private void Start()
 	{
 		_nutrientManager = NutrientManager.currentNutrientManager;
+		fungiNeighbor = true;
 	}
 
 
@@ -57,19 +59,38 @@ public class HexMapEditor : MonoBehaviour {
 
 	void EditCell(HexCell cell)
 	{
+		
 		if (cell.myType == HexCell.cellType.empty)
 		{
-			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.expansionCost))
+			CheckCellNeightbors(cell);
+
+			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.expansionCost) && fungiNeighbor == true)
 			{
 				cell.Color = activeColor;
 				cell.SetType(2);
 				AddFeature(cell.Position);
 				_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
+				fungiNeighbor = false;
 				//hexGrid.Refresh();
 			}
+		}	
+	}
+
+	void CheckCellNeightbors(HexCell cell)
+	{
+		HexCell[] cells = cell.GetNeighbors();
+		
+		foreach (HexCell _cell in cells)
+		{
+			if (_cell.myType == HexCell.cellType.fungi)
+			{
+				fungiNeighbor = true;
+				break;
+
+			}
+				
 		}
-		
-		
+
 	}
 
 	void AddFeature(Vector3 position)
