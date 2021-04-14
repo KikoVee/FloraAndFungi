@@ -49,7 +49,6 @@ public class HexMapEditor : MonoBehaviour {
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit)) {
-			//if (hit.collider.gameObject == hexGrid.gameObject)
 			{
 				EditCell(hexGrid.GetCell(hit.point));
 			}
@@ -58,10 +57,15 @@ public class HexMapEditor : MonoBehaviour {
 
 	void EditCell(HexCell cell)
 	{
-		cell.Color = activeColor;
-		cell.SetType(2);
-		AddFeature(cell.Position);
-		//hexGrid.Refresh();
+		if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.expansionCost))
+		{
+			cell.Color = activeColor;
+			cell.SetType(2);
+			AddFeature(cell.Position);
+			_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
+			//hexGrid.Refresh();
+		}
+		
 	}
 
 	void AddFeature(Vector3 position)
