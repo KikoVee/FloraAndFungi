@@ -22,13 +22,34 @@ public class TreeBehaviour : MonoBehaviour
     private int rangeMin = 3;
     private int rangeMax = 3;
     [SerializeField] private GameObject sugarPrefab;
-    
+
+    private HexCell currentCell;
+    public HexGrid hexGrid;
+
+
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        GetCellLocation();
         currentTreeHealth = maxTreeHealth;
         GameManager.onTurnEnd += NewCycle;
         
+    }
+
+    void GetCellLocation()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+        {
+            currentCell = hexGrid.GetCell(hit.point);
+            Debug.Log("current cell for tree is " + currentCell);
+        }
     }
 
     // Update is called once per frame
