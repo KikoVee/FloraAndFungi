@@ -7,7 +7,7 @@ public class TreeBehaviour : MonoBehaviour
     private int maxTreeHealth = 100;
     [SerializeField] private int currentTreeHealth;
     
-    [SerializeField] private int treeNitrateWeight;
+    [SerializeField] private int treeNutrientWeight;
     [SerializeField] private int treeWeatherWeight;
 
     [SerializeField] private int sugarValue;
@@ -15,8 +15,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private int treeSugarWeatherWeight;
 
     private int weatherValue;
-   [SerializeField] private int currentNitrateValue;
-    private int newNitrateValue;
+   [SerializeField] private int currentNutrientValue;
     private bool isDead = false;
 
     private int rangeMin = 3;
@@ -25,12 +24,8 @@ public class TreeBehaviour : MonoBehaviour
 
     [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
+    private int currentNutrientAmount;
 
-
-    private void Awake()
-    {
-        
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +33,7 @@ public class TreeBehaviour : MonoBehaviour
         GetCellLocation();
         currentTreeHealth = maxTreeHealth;
         GameManager.onTurnEnd += NewCycle;
-        
+        GameManager.nutrientEvent += GiveNutrients;
     }
 
     void GetCellLocation()
@@ -71,12 +66,12 @@ public class TreeBehaviour : MonoBehaviour
         {
             GetCellLocation();
         }
-        
+
     }
 
 
 
-    void TakeHealth(int health)
+    /*void TakeHealth(int health)
     {
         if (currentTreeHealth <= maxTreeHealth)
         {
@@ -91,16 +86,34 @@ public class TreeBehaviour : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentTreeHealth -= damage;
-    }
+    }*/
 
     public void NewCycle()
     {
-        currentTreeHealth = currentNitrateValue * treeNitrateWeight + weatherValue * treeWeatherWeight;
-        sugarValue = currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight;
-        newNitrateValue = currentNitrateValue - 5;
-        currentNitrateValue = newNitrateValue;
+        currentTreeHealth = currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight; // sets the tree health based on the amount of nutrients available and the weather
+        sugarValue = currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight; //sets the amount of sugar tree produces based on health of tree
+        int newNutrientValue = currentNutrientValue - 5; //gradual decrease in nutrients 
+        currentNutrientValue = newNutrientValue; //sets current nutrient value to the new value
         
-        SpawnSugar();
+        //SpawnSugar();
+    }
+
+    public void GiveNutrients()
+    {
+        //check if neighboring cells are fungi, if true then add sugar
+        //HexCell neighbor = currentCell.GetNeighbor(HexDirection.W);
+        HexCell[] neighbors = currentCell.GetNeighbors();
+
+        foreach (HexCell cell in neighbors)
+        {
+            if (cell.myType == HexCell.cellType.fungi)
+            {
+                currentNutrientAmount = GameManager.currentManager.GetCurrentNutrientValue();
+                currentNutrientValue += currentNutrientAmount;
+            }
+        }
+        
+       
     }
 
     void SpawnSugar()
@@ -112,7 +125,7 @@ public class TreeBehaviour : MonoBehaviour
             var pos = new Vector3(Random.Range((center.x -rangeMin), (center.z + rangeMax)), 0, Random.Range((center.x-rangeMin), (center.z +rangeMax)));
             GameObject newSugar = Instantiate(sugarPrefab, pos, Quaternion.Euler(0,Random.Range(0,360),0)); 
         }
-        Debug.Log("spawning sugar has finished");
-        
+        Debug.Log("spawning sugar has finished");  
     }
+  
 }

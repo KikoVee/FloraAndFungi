@@ -22,6 +22,11 @@ public class HexMapEditor : MonoBehaviour {
 		) {
 			HandleInput();
 		}
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			GameManager.currentManager.GiveTreesNutrients();
+		}
 	}
 
 	/*public void ChangeColor(HexCell currentCell)

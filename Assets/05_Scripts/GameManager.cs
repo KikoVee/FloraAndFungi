@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
     public static EndTurnEvent onTurnEnd;
+
+    public delegate void GiveNutrientsEvent();
+
+    public static GiveNutrientsEvent nutrientEvent;
+    public int nutrientValue = 5;
  
     
     private void Awake()
@@ -61,5 +66,18 @@ public class GameManager : MonoBehaviour
             onTurnEnd();
         }
 
+    }
+
+    public void GiveTreesNutrients()
+    {
+        if (nutrientEvent != null)
+        {
+            nutrientEvent();
+        }
+    }
+
+    public int GetCurrentNutrientValue()
+    {
+        return nutrientValue;
     }
 }
