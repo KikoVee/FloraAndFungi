@@ -23,7 +23,7 @@ public class TreeBehaviour : MonoBehaviour
     private int rangeMax = 3;
     [SerializeField] private GameObject sugarPrefab;
 
-    private HexCell currentCell;
+    [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
 
 
@@ -50,6 +50,8 @@ public class TreeBehaviour : MonoBehaviour
             currentCell = hexGrid.GetCell(hit.point);
             Debug.Log("current cell for tree is " + currentCell);
         }
+        //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);
+
     }
 
     // Update is called once per frame
@@ -62,6 +64,11 @@ public class TreeBehaviour : MonoBehaviour
         else
         {
             isDead = false;
+        }
+
+        if (currentCell == null)
+        {
+            GetCellLocation();
         }
         
     }
