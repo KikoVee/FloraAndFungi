@@ -8,7 +8,6 @@ public class HexMapEditor : MonoBehaviour {
 	public HexGrid hexGrid;
 
 	private Color activeColor;
-	public Transform mushroomPrefab;
 	private NutrientManager _nutrientManager;
 	private bool fungiNeighbor;
 
@@ -32,7 +31,7 @@ public class HexMapEditor : MonoBehaviour {
 			HandleInput();
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space))
+		/*if (Input.GetKeyDown(KeyCode.Space))
 		{
 			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.giveNutrientCost))
 			{
@@ -43,7 +42,7 @@ public class HexMapEditor : MonoBehaviour {
 			{
 				Debug.Log("not enough sugar");
 			}
-		}
+		}*/
 	}
 
 
@@ -95,6 +94,8 @@ public class HexMapEditor : MonoBehaviour {
 
 	void AddFeature(Vector3 position)
 	{
+		Transform mushroomPrefab;
+		mushroomPrefab = GameManager.currentManager.fungiPrefab;
 		Transform instance = Instantiate(mushroomPrefab);
 		instance.localPosition = position; 
 	}

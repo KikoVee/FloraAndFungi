@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UpgradeTypes : MonoBehaviour
 {
-    public static Sprite nitrateImage;
+    public static Sprite nutrientImage;
     public static Sprite expansionImage;
     public enum ItemType 
     {
-        Nitrate,
+        Nutrient,
         Expansion,
     }
 
@@ -17,7 +17,7 @@ public class UpgradeTypes : MonoBehaviour
         switch (itemType)
         {
            default:
-           case ItemType.Nitrate: return 10;
+           case ItemType.Nutrient: return NutrientManager.currentNutrientManager.nutrientCost;
            case ItemType.Expansion: return 10;
 
         }
@@ -28,7 +28,7 @@ public class UpgradeTypes : MonoBehaviour
         switch (itemType)
         {
           default:
-          case ItemType.Nitrate: return nitrateImage; 
+          case ItemType.Nutrient: return nutrientImage; 
           case ItemType.Expansion: return expansionImage; 
 
         }

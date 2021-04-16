@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public delegate void GiveNutrientsEvent();
 
     public static GiveNutrientsEvent nutrientEvent;
+
+    public Transform fungiPrefab;
  
     
     private void Awake()
@@ -34,12 +36,6 @@ public class GameManager : MonoBehaviour
     }
    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddSugar(int increase)
     {
         sugarScore += increase;
@@ -53,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public IShopCustomer getCustomer(IShopCustomer shopCustomer)
     {
-        shopCustomer = this.GetComponent<IShopCustomer>();
+        shopCustomer = NutrientManager.currentNutrientManager.GetComponent<IShopCustomer>();
         return shopCustomer;
     }
 
@@ -77,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentNutrientValue()
     {
-        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrientToSpend;
+        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrient;
         return nutrientValue;
     }
 }

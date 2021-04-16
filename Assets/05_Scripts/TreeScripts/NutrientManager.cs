@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NutrientManager : MonoBehaviour
+public class NutrientManager : MonoBehaviour , IShopCustomer 
 {
     //this object keeps track of the amount of nutrient and sugar the player has to work with
-    public int nutrientToSpend;
-    public int sugarToSpend;
+    public int nutrient;
+    public int sugar;
 
     public int expansionCost = 5;
-    public int giveNutrientCost = 20;
+    public int nutrientCost = 10;
     
     public static NutrientManager currentNutrientManager;
+    
+    private bool storeOpen;
+    [SerializeField] private UIShop uiShop;
     
     private void Awake()
     {
@@ -24,10 +27,29 @@ public class NutrientManager : MonoBehaviour
             Destroy(this);
         }
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            IShopCustomer shopCustomer = gameObject.GetComponent<IShopCustomer>();
+
+            if (!storeOpen)
+            {
+                uiShop.Show(shopCustomer);
+                storeOpen = true;
+            }
+            else
+            {
+                uiShop.Hide();
+                storeOpen = false;
+            }    
+        }
+    }
+
     public bool TrySpendSugarAmount(int cost) //checks if enough sugar
     {
-        if (sugarToSpend >= cost)
+        if (sugar >= cost)
         {
             return true;
         }
@@ -36,14 +58,32 @@ public class NutrientManager : MonoBehaviour
             return false;
         }
     }
+    public void BoughtItem(UpgradeTypes.ItemType itemType)
+    {
+        Debug.Log("upgraded with " + itemType);
+        switch (itemType)
+        {
+            case UpgradeTypes.ItemType.Nutrient:  AddNutrient(1); break;
+            //case UpgradeTypes.ItemType.Expansion:  AddExpansion(); break;
+ 
+        }
+    }
 
     public void SpendSugar(int cost)
     {
-        sugarToSpend -= cost;
+        sugar -= cost;
     }
 
     public void AddSugar(int sugar)
     {
-        sugarToSpend += sugar;
+        this.sugar += sugar;
     }
+
+    public void AddNutrient(int nutrient)
+    {
+        this.nutrient += nutrient;
+        SpendSugar(nutrientCost);
+    }
+    
+    
 }

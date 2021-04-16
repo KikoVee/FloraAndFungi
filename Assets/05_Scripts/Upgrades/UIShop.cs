@@ -23,8 +23,8 @@ public class UIShop : MonoBehaviour
     {
         _gameManager = GameManager.currentManager;
         shopCustomer = _gameManager.getCustomer(shopCustomer); //registers player as shopper 
-        CreateItemButton(UpgradeTypes.ItemType.Nitrate, UpgradeTypes.GetSprite(UpgradeTypes.ItemType.Nitrate), "Nitrate", UpgradeTypes.GetCost(UpgradeTypes.ItemType.Nitrate), 0);
-        CreateItemButton(UpgradeTypes.ItemType.Expansion, UpgradeTypes.GetSprite(UpgradeTypes.ItemType.Expansion), "Expansion", UpgradeTypes.GetCost(UpgradeTypes.ItemType.Expansion), 2);
+        CreateItemButton(UpgradeTypes.ItemType.Nutrient, UpgradeTypes.GetSprite(UpgradeTypes.ItemType.Nutrient), "Nutrient", UpgradeTypes.GetCost(UpgradeTypes.ItemType.Nutrient), 0);
+        //CreateItemButton(UpgradeTypes.ItemType.Expansion, UpgradeTypes.GetSprite(UpgradeTypes.ItemType.Expansion), "Expansion", UpgradeTypes.GetCost(UpgradeTypes.ItemType.Expansion), 2);
 
         Hide();
     }
@@ -48,7 +48,7 @@ public class UIShop : MonoBehaviour
 
     private void TryBuyItems(UpgradeTypes.ItemType itemType)
     {
-        if (shopCustomer.TrySpendSugarAmount(UpgradeTypes.GetCost(itemType)))
+        if (NutrientManager.currentNutrientManager.TrySpendSugarAmount(UpgradeTypes.GetCost(itemType)))
         {
             shopCustomer.BoughtItem(itemType);
         }

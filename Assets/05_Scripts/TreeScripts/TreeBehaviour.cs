@@ -5,14 +5,14 @@ using UnityEngine;
 public class TreeBehaviour : MonoBehaviour
 {
     private int maxTreeHealth = 100;
-    [SerializeField] private int currentTreeHealth;
+    [SerializeField] private float currentTreeHealth;
     
-    [SerializeField] private int treeNutrientWeight;
-    [SerializeField] private int treeWeatherWeight;
+    [SerializeField] private float treeNutrientWeight;
+    [SerializeField] private float treeWeatherWeight;
 
-    [SerializeField] private int sugarValue;
-    [SerializeField] private int treeSugarWeight;
-    [SerializeField] private int treeSugarWeatherWeight;
+    [SerializeField] private float sugarValue;
+    [SerializeField] private float treeSugarWeight;
+    [SerializeField] private float treeSugarWeatherWeight;
 
     private int weatherValue;
    [SerializeField] private int currentNutrientValue;
@@ -93,13 +93,10 @@ public class TreeBehaviour : MonoBehaviour
     public void NewCycle()
     {
         
-        currentTreeHealth = currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight / 2; // sets the tree health based on the amount of nutrients available and the weather
-        currentTreeHealth = Mathf.Clamp(currentTreeHealth, 0, maxTreeHealth);
-        
-        sugarValue = currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight / 2; //sets the amount of sugar tree produces based on health of tree
-        sugarValue = Mathf.Clamp(sugarValue, 0, 100);
+        currentTreeHealth = Mathf.Clamp(currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight, 0, 100); // sets the tree health based on the amount of nutrients available and the weather
+        sugarValue = Mathf.Clamp(currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight, 0, 100); //sets the amount of sugar tree produces based on health of tree
         GiveSugar();
-        int newNutrientValue = currentNutrientValue - 5; //gradual decrease in nutrients 
+        int newNutrientValue = Mathf.Clamp(currentNutrientValue - 5, 0, 100); //gradual decrease in nutrients 
         currentNutrientValue = newNutrientValue; //sets current nutrient value to the new value
         
         //SpawnSugar();
@@ -130,16 +127,4 @@ public class TreeBehaviour : MonoBehaviour
         }
     }
 
-    void SpawnSugar()
-    {
-        for (int i = 0; i < sugarValue; i++)
-        {
-            //Debug.Log("i value is " + i);
-            Vector3 center = transform.position;
-            var pos = new Vector3(Random.Range((center.x -rangeMin), (center.z + rangeMax)), 0, Random.Range((center.x-rangeMin), (center.z +rangeMax)));
-            GameObject newSugar = Instantiate(sugarPrefab, pos, Quaternion.Euler(0,Random.Range(0,360),0)); 
-        }
-        Debug.Log("spawning sugar has finished");  
-    }
-  
 }

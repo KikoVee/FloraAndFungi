@@ -92,7 +92,7 @@ public class PlayerBehaviour : MonoBehaviour , IShopCustomer
         //insert the values for when you buy the item
         switch (itemType)
         {
-            case UpgradeTypes.ItemType.Nitrate:  AddNitrate(1); break;
+            case UpgradeTypes.ItemType.Nutrient:  AddNitrate(1); break;
             //case UpgradeTypes.ItemType.Expansion:  AddExpansion(); break;
  
         }

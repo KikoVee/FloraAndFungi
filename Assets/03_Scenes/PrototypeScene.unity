@@ -168,7 +168,7 @@ Transform:
   m_Children:
   - {fileID: 1022910975}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &147444954
 MonoBehaviour:
@@ -182,13 +182,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842644b1a3b5f4f5f89b1d85c082905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTreeHealth: 70
-  treeNutrientWeight: 1
-  treeWeatherWeight: -2
+  currentTreeHealth: 100
+  treeNutrientWeight: 10
+  treeWeatherWeight: 0.2
   sugarValue: 1
-  treeSugarWeight: 1
-  treeSugarWeatherWeight: -2
-  currentNutrientValue: 1
+  treeSugarWeight: 0.2
+  treeSugarWeatherWeight: 0.2
+  currentNutrientValue: 10
   sugarPrefab: {fileID: 6676874167290712781, guid: 86578b1d177cb441fa3f0bd1e2f2bd0f, type: 3}
   currentCell: {fileID: 0}
   hexGrid: {fileID: 396590505}
@@ -812,6 +812,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1053113513}
     m_Modifications:
+    - target: {fileID: 7934455713302498494, guid: d4ad092f9e9a34db1a28fb6c038eeb05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7934455713885812274, guid: d4ad092f9e9a34db1a28fb6c038eeb05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -899,6 +903,10 @@ PrefabInstance:
     - target: {fileID: 7934455713885812275, guid: d4ad092f9e9a34db1a28fb6c038eeb05, type: 3}
       propertyPath: m_Name
       value: UI_Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934455713885812275, guid: d4ad092f9e9a34db1a28fb6c038eeb05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ad092f9e9a34db1a28fb6c038eeb05, type: 3}
@@ -1536,7 +1544,7 @@ Transform:
   m_LocalScale: {x: 357.5, y: 1, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982666343
 GameObject:
@@ -1997,6 +2005,10 @@ PrefabInstance:
       propertyPath: colors.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1185675685659211452, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
+      propertyPath: _fungiBehavior
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1185675687401536793, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2079,53 +2091,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
---- !u!1 &1162739023
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1162739025}
-  - component: {fileID: 1162739024}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1162739024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162739023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c1f22bca3af44295b78ae8630649199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiShop: {fileID: 1822504330}
-  nutrientObject: {fileID: 0}
-  wayPointObject: {fileID: 0}
-  wayPointList: []
---- !u!4 &1162739025
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162739023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408151648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2315,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1681852735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8250899903893643389, guid: 44c33313c75de43dcb71e7fd93511472, type: 3}
+  m_PrefabInstance: {fileID: 3456871937567832169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1805327635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,9 +2484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f96f462e53cd48ffaab94cdcff523c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlayer: {fileID: 1162739023}
   sugarScoreText: {fileID: 269269838}
   nitrateScoreText: {fileID: 753157018}
+  fungiPrefab: {fileID: 1681852735}
 --- !u!4 &1947901150
 Transform:
   m_ObjectHideFlags: 0
@@ -2543,10 +2513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00b7c0ad4c0f4f69b849a6d9fdb5d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nutrientToSpend: 10
-  sugarToSpend: 10
+  nutrient: 0
+  sugar: 20
   expansionCost: 1
-  giveNutrientCost: 1
+  nutrientCost: 10
+  uiShop: {fileID: 1822504330}
 --- !u!1 &2037335957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,7 +2760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8250899903893643389, guid: 44c33313c75de43dcb71e7fd93511472, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8250899903893643389, guid: 44c33313c75de43dcb71e7fd93511472, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
