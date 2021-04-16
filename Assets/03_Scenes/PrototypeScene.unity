@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.70554465, g: 0.786211, b: 0.990566, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 195c398f3be414e5ebb6990f71e88b61, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -183,12 +183,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTreeHealth: 70
-  treeNutrientWeight: 0
-  treeWeatherWeight: 0
-  sugarValue: 0
-  treeSugarWeight: 0
-  treeSugarWeatherWeight: 0
-  currentNutrientValue: 0
+  treeNutrientWeight: 1
+  treeWeatherWeight: -2
+  sugarValue: 1
+  treeSugarWeight: 1
+  treeSugarWeatherWeight: -2
+  currentNutrientValue: 1
   sugarPrefab: {fileID: 6676874167290712781, guid: 86578b1d177cb441fa3f0bd1e2f2bd0f, type: 3}
   currentCell: {fileID: 0}
   hexGrid: {fileID: 396590505}
@@ -1989,6 +1989,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1185675685420588518, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185675685659211452, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
+      propertyPath: colors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185675687401536793, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1185675687401536797, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2332,7 +2344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660512497}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 363, y: 3, z: 147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2533,6 +2545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nutrientToSpend: 10
   sugarToSpend: 10
+  expansionCost: 1
+  giveNutrientCost: 1
 --- !u!1 &2037335957
 GameObject:
   m_ObjectHideFlags: 0

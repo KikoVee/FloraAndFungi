@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager currentManager;
 
-    public GameObject currentPlayer;
+   // public GameObject currentPlayer;
     private int sugarScore;
     [SerializeField] private TextMeshProUGUI sugarScoreText;
     private int nitrateScore;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public IShopCustomer getCustomer(IShopCustomer shopCustomer)
     {
-        shopCustomer = currentPlayer.GetComponent<IShopCustomer>();
+        shopCustomer = this.GetComponent<IShopCustomer>();
         return shopCustomer;
     }
 

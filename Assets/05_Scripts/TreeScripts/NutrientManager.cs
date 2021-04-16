@@ -8,8 +8,8 @@ public class NutrientManager : MonoBehaviour
     public int nutrientToSpend;
     public int sugarToSpend;
 
-    public int expansionCost = 1;
-    public int giveNutrientCost = 1;
+    public int expansionCost = 5;
+    public int giveNutrientCost = 20;
     
     public static NutrientManager currentNutrientManager;
     
@@ -40,5 +40,10 @@ public class NutrientManager : MonoBehaviour
     public void SpendSugar(int cost)
     {
         sugarToSpend -= cost;
+    }
+
+    public void AddSugar(int sugar)
+    {
+        sugarToSpend += sugar;
     }
 }

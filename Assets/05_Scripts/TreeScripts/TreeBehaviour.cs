@@ -25,6 +25,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
     private int currentNutrientAmount;
+    private NutrientManager _nutrientManager;
 
 
     // Start is called before the first frame update
@@ -33,7 +34,8 @@ public class TreeBehaviour : MonoBehaviour
         GetCellLocation();
         currentTreeHealth = maxTreeHealth;
         GameManager.onTurnEnd += NewCycle;
-        GameManager.nutrientEvent += GiveNutrients;
+        GameManager.nutrientEvent += GetNutrients;
+        _nutrientManager = NutrientManager.currentNutrientManager;
     }
 
     void GetCellLocation()
@@ -90,15 +92,20 @@ public class TreeBehaviour : MonoBehaviour
 
     public void NewCycle()
     {
-        currentTreeHealth = currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight; // sets the tree health based on the amount of nutrients available and the weather
-        sugarValue = currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight; //sets the amount of sugar tree produces based on health of tree
+        
+        currentTreeHealth = currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight / 2; // sets the tree health based on the amount of nutrients available and the weather
+        currentTreeHealth = Mathf.Clamp(currentTreeHealth, 0, maxTreeHealth);
+        
+        sugarValue = currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight / 2; //sets the amount of sugar tree produces based on health of tree
+        sugarValue = Mathf.Clamp(sugarValue, 0, 100);
+        GiveSugar();
         int newNutrientValue = currentNutrientValue - 5; //gradual decrease in nutrients 
         currentNutrientValue = newNutrientValue; //sets current nutrient value to the new value
         
         //SpawnSugar();
     }
 
-    public void GiveNutrients()
+    public void GetNutrients()
     {
         //check if neighboring cells are fungi, if true then add sugar
         HexCell[] neighbors = currentCell.GetNeighbors();
@@ -111,8 +118,16 @@ public class TreeBehaviour : MonoBehaviour
                 currentNutrientValue += currentNutrientAmount;
             }
         }
-        
-       
+         
+    }
+
+    private void GiveSugar()
+    {
+        for (int i = 0; i < sugarValue; i++)
+        {
+            _nutrientManager.AddSugar(1);
+            sugarValue -= 1;
+        }
     }
 
     void SpawnSugar()
