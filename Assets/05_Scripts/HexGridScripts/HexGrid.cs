@@ -58,7 +58,7 @@ public class HexGrid : MonoBehaviour
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
 		int index =
 			coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
-		Debug.Log("index is " + index);
+		//Debug.Log("index is " + index);
 		return cells[index];
 	}
 
