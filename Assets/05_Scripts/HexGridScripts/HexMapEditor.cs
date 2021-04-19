@@ -98,6 +98,7 @@ public class HexMapEditor : MonoBehaviour {
 		mushroomPrefab = GameManager.currentManager.fungiPrefab;
 		Transform instance = Instantiate(mushroomPrefab);
 		instance.localPosition = position; 
+		instance.localRotation = Quaternion.Euler(new Vector3(0, Random.Range(0,360),0));
 	}
 
 	public void SelectColor (int index) {

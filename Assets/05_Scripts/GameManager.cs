@@ -76,4 +76,6 @@ public class GameManager : MonoBehaviour
         int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrient;
         return nutrientValue;
     }
+
+   
 }
