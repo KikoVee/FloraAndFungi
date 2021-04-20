@@ -9,6 +9,7 @@ public class HexMapEditor : MonoBehaviour {
 
 	private Color activeColor;
 	private NutrientManager _nutrientManager;
+	private GameManager _gameManager;
 	private bool fungiNeighbor;
 
 
@@ -19,30 +20,25 @@ public class HexMapEditor : MonoBehaviour {
 	private void Start()
 	{
 		_nutrientManager = NutrientManager.currentNutrientManager;
+		_gameManager = GameManager.currentManager;
 		fungiNeighbor = true;
 	}
 
 
 	void Update () {
-		if (
-			Input.GetMouseButtonDown(0) &&
-			!EventSystem.current.IsPointerOverGameObject()
-		) {
-			HandleInput();
-		}
-
-		/*if (Input.GetKeyDown(KeyCode.Space))
+		
+		if (_gameManager.turnEndSequence != true)
 		{
-			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.giveNutrientCost))
-			{
-				GameManager.currentManager.GiveTreesNutrients();
-				_nutrientManager.SpendSugar(_nutrientManager.giveNutrientCost);
+			if (
+				Input.GetMouseButtonDown(0) &&
+				!EventSystem.current.IsPointerOverGameObject()
+			) {
+				HandleInput();
 			}
-			else
-			{
-				Debug.Log("not enough sugar");
-			}
-		}*/
+		}
+		
+
+		
 	}
 
 

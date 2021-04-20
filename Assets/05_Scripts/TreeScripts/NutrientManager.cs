@@ -12,6 +12,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     public int nutrientCost = 10;
     
     public static NutrientManager currentNutrientManager;
+    private GameManager _gameManager;
     
     private bool storeOpen;
     [SerializeField] private UIShop uiShop;
@@ -28,9 +29,14 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         }
     }
 
+    private void Start()
+    {
+        _gameManager = GameManager.currentManager;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && _gameManager.turnEndSequence != true)
         {
             IShopCustomer shopCustomer = gameObject.GetComponent<IShopCustomer>();
 

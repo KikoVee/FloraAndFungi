@@ -89,7 +89,7 @@ public class HexCell : MonoBehaviour {
 			myType = cellType.fungi;
 		}
 		
-		Debug.Log("cell type is" + myType);
+		//Debug.Log("cell type is" + myType);
 	}
 
 	

@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public static GiveNutrientsEvent nutrientEvent;
 
     public Transform fungiPrefab;
+
+    public bool turnEndSequence;
+    private float timer = 4f;
  
     
     private void Awake()
@@ -34,7 +37,19 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
     }
-   
+
+    private void Update()
+    {
+        if (turnEndSequence && timer > 0)
+        {
+            timer -= Time.deltaTime;
+            Debug.Log("timer is " + timer);
+        }
+        else
+        {
+            turnEndSequence = false;
+        }
+    }
 
     public void AddSugar(int increase)
     {
@@ -61,6 +76,8 @@ public class GameManager : MonoBehaviour
             onTurnEnd();
         }
 
+        turnEndSequence = true;
+        
     }
 
     public void GiveTreesNutrients()
