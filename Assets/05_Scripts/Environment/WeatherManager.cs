@@ -8,6 +8,9 @@ public class WeatherManager : MonoBehaviour
     public float weatherValue;
     public static WeatherManager currentWeatherManager;
     public GameObject dayCycles;
+    public ParticleSystem rainParticles;
+    public ParticleSystem rainDrops;
+
 
     
 
@@ -27,6 +30,7 @@ public class WeatherManager : MonoBehaviour
     {
         _currentManager = GameManager.currentManager;
         GameManager.onTurnEnd += NewCycle;
+        
 
     }
 
@@ -41,12 +45,23 @@ public class WeatherManager : MonoBehaviour
         {
             dayCycles.SetActive(false);
         }*/
+
+        if (weatherValue >= 70)
+        {
+            rainParticles.Play();
+            rainDrops.Play();
+        }
+        else
+        {
+            rainParticles.Stop();
+            rainDrops.Stop();
+        }
     }
 
     void NewCycle()
     {
         float newWeather = Random.Range(0,100);
-        //weatherValue = newWeather;
+        weatherValue = newWeather;
         
     }
 
