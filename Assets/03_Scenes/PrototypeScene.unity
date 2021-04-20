@@ -251,8 +251,8 @@ MonoBehaviour:
   hexGrid: {fileID: 396590505}
   treeMaterial:
   - {fileID: 2100000, guid: 8ea00c1d97d6848eebcf15896e6b577b, type: 2}
-  - {fileID: 2100000, guid: e385f1f1efdc4482abb72d4199fa1643, type: 2}
   - {fileID: 2100000, guid: 79608ab5ea51642bd8b945e84f41775d, type: 2}
+  - {fileID: 2100000, guid: e385f1f1efdc4482abb72d4199fa1643, type: 2}
   - {fileID: 2100000, guid: dbd118ddb08cc467483962a0635b5a58, type: 2}
 --- !u!1 &269269835
 GameObject:
@@ -2652,6 +2652,7 @@ GameObject:
   - component: {fileID: 1947901150}
   - component: {fileID: 1947901149}
   - component: {fileID: 1947901151}
+  - component: {fileID: 1947901152}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2705,6 +2706,19 @@ MonoBehaviour:
   expansionCost: 1
   nutrientCost: 10
   uiShop: {fileID: 1822504330}
+--- !u!114 &1947901152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947901148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257d180e5b5094839be9000c193d8607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherValue: 0
 --- !u!1 &2037335957
 GameObject:
   m_ObjectHideFlags: 0

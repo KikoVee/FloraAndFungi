@@ -14,7 +14,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeSugarWeight;
     [SerializeField] private float treeSugarWeatherWeight;
 
-    private int weatherValue;
+    private float weatherValue;
    [SerializeField] private int currentNutrientValue;
     private bool isDead = false;
 
@@ -26,6 +26,7 @@ public class TreeBehaviour : MonoBehaviour
     public HexGrid hexGrid;
     private int currentNutrientAmount;
     private NutrientManager _nutrientManager;
+    private WeatherManager _weatherManager;
 
     public Material[] treeMaterial;
     private Renderer treeRenderer;
@@ -39,6 +40,7 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.onTurnEnd += NewCycle;
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
+        _weatherManager = WeatherManager.currentWeatherManager;
         treeRenderer = gameObject.GetComponentInChildren<Renderer>();
         TreeVisualChange();
     }
@@ -78,7 +80,7 @@ public class TreeBehaviour : MonoBehaviour
 
     public void NewCycle()
     {
-        
+        weatherValue = _weatherManager.weatherValue;
         currentTreeHealth = Mathf.Clamp(currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight, 0, 100); // sets the tree health based on the amount of nutrients available and the weather
         sugarValue = Mathf.Clamp(currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight, 0, 100); //sets the amount of sugar tree produces based on health of tree
         GiveSugar();
@@ -116,18 +118,18 @@ public class TreeBehaviour : MonoBehaviour
 
     void TreeVisualChange()
     {
-      float  healthPercent = currentTreeHealth * 100;
+      float  healthPercent = currentTreeHealth;
 
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
         }
         
-        if (healthPercent >= 50)
+        if (healthPercent >= 50 && healthPercent <= 89)
         {
             treeRenderer.material = treeMaterial[1];
         }
-        if (healthPercent <= 49)
+        if (healthPercent >= 11 && healthPercent <= 49)
         {
             treeRenderer.material = treeMaterial[2];
         }
