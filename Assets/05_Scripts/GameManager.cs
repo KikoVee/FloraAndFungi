@@ -70,12 +70,13 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn()
     {
+        GiveTreesNutrients();
         //begins revalue cycle for all trees and skips time ahead quickly
         if (onTurnEnd != null)
         {
             onTurnEnd();
         }
-
+        
         turnEndSequence = true;
         timer = 4f;
 

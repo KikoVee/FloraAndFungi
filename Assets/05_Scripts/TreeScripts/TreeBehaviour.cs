@@ -53,6 +53,7 @@ public class TreeBehaviour : MonoBehaviour
         {
             currentCell = hexGrid.GetCell(hit.point);
             currentCell.SetType(1);
+            currentCell.Color = Color.gray;
             Debug.Log("current cell for tree is " + currentCell);
         }
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);
