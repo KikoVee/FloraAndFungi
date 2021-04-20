@@ -65,14 +65,29 @@ public class HexMapEditor : MonoBehaviour {
 
 			if (_nutrientManager.TrySpendSugarAmount(_nutrientManager.expansionCost) && fungiNeighbor == true)
 			{
-				cell.Color = activeColor;
+				cell.Color = colors[Random.Range(0,2)];
 				cell.SetType(2);
 				AddFeature(cell.Position);
 				_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
 				fungiNeighbor = false;
+				ColorNeighbors(cell);
 				//hexGrid.Refresh();
 			}
 		}	
+	}
+
+	void ColorNeighbors(HexCell cell)
+	{
+		HexCell[] cells = cell.GetNeighbors();
+		
+		foreach (HexCell _cell in cells)
+		{
+			if (_cell.myType == HexCell.cellType.empty)
+			{
+				_cell.Color = colors[Random.Range(3,5)];
+			}
+				
+		}
 	}
 
 	void CheckCellNeightbors(HexCell cell)

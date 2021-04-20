@@ -24,7 +24,7 @@ public class HexCell : MonoBehaviour {
 		get { return transform.localPosition; }
 	}
 	Color color;
-	public bool walkable;
+	public Color startColor;
 	public HexGridChunk chunk;
 
 	public enum cellType {empty, tree, fungi};
@@ -32,7 +32,12 @@ public class HexCell : MonoBehaviour {
 	public cellType myType;
 	
 	[SerializeField] private HexCell[] neighbors;
-	
+
+	private void Start()
+	{
+		color = startColor;
+	}
+
 	public HexCell GetNeighbor (HexDirection direction)
 	{
 		return neighbors [(int) direction];
