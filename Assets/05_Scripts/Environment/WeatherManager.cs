@@ -7,6 +7,8 @@ public class WeatherManager : MonoBehaviour
     private GameManager _currentManager;
     public float weatherValue;
     public static WeatherManager currentWeatherManager;
+    public GameObject dayCycles;
+
     
 
     private void Awake()
@@ -19,6 +21,7 @@ public class WeatherManager : MonoBehaviour
         {
             Destroy(this);
         }
+        
     }
     void Start()
     {
@@ -30,12 +33,26 @@ public class WeatherManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*if (_currentManager.turnEndSequence)
+        {
+            dayCycles.SetActive(true);
+        }
+        else
+        {
+            dayCycles.SetActive(false);
+        }*/
     }
 
     void NewCycle()
     {
         float newWeather = Random.Range(0,100);
-        weatherValue = newWeather;
+        //weatherValue = newWeather;
+        
     }
+
+    void WeatherCycle()
+    {
+        
+    }
+    
 }

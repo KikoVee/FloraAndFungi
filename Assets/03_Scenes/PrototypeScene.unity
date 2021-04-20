@@ -399,6 +399,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414a0fc06528949a0baff4f719b04a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &421506428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2536603411833095629, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+  m_PrefabInstance: {fileID: 1689526968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &496838018
 GameObject:
   m_ObjectHideFlags: 3
@@ -2446,6 +2451,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8250899903893643389, guid: 44c33313c75de43dcb71e7fd93511472, type: 3}
   m_PrefabInstance: {fileID: 3456871937567832169}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1689526968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2536603411833095629, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_Name
+      value: DayNightCycle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095629, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key2.r
+      value: 0.06901923
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key2.g
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key2.b
+      value: 0.23728482
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunBaseIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunVariation
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.ctime1
+      value: 10409
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key1.r
+      value: 0.537208
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key1.g
+      value: 0.6320754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key1.b
+      value: 0.53368634
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key0.r
+      value: 0.8349056
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: sunColor.key0.b
+      value: 0.91892433
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: gameSpeed
+      value: 23.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 139
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095631, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411918622567, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
 --- !u!1 &1805327635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2797,7 @@ MonoBehaviour:
   sugarScoreText: {fileID: 269269838}
   nitrateScoreText: {fileID: 753157018}
   fungiPrefab: {fileID: 1681852735}
+  turnEndSequence: 0
 --- !u!4 &1947901150
 Transform:
   m_ObjectHideFlags: 0
@@ -2719,6 +2842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weatherValue: 0
+  dayCycles: {fileID: 421506428}
 --- !u!1 &2037335957
 GameObject:
   m_ObjectHideFlags: 0

@@ -77,7 +77,8 @@ public class GameManager : MonoBehaviour
         }
 
         turnEndSequence = true;
-        
+        timer = 4f;
+
     }
 
     public void GiveTreesNutrients()
