@@ -27,6 +27,9 @@ public class TreeBehaviour : MonoBehaviour
     private int currentNutrientAmount;
     private NutrientManager _nutrientManager;
 
+    public Material[] treeMaterial;
+    private Renderer treeRenderer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,8 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.onTurnEnd += NewCycle;
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
+        treeRenderer = gameObject.GetComponentInChildren<Renderer>();
+        TreeVisualChange();
     }
 
     void GetCellLocation()
@@ -71,25 +76,6 @@ public class TreeBehaviour : MonoBehaviour
 
     }
 
-
-
-    /*void TakeHealth(int health)
-    {
-        if (currentTreeHealth <= maxTreeHealth)
-        {
-            currentTreeHealth += health;
-        }
-        else
-        {
-            Debug.Log("tree is max health");
-        }
-    }
-
-    void TakeDamage(int damage)
-    {
-        currentTreeHealth -= damage;
-    }*/
-
     public void NewCycle()
     {
         
@@ -98,6 +84,7 @@ public class TreeBehaviour : MonoBehaviour
         GiveSugar();
         int newNutrientValue = Mathf.Clamp(currentNutrientValue - 5, 0, 100); //gradual decrease in nutrients 
         currentNutrientValue = newNutrientValue; //sets current nutrient value to the new value
+        TreeVisualChange();
         
         //SpawnSugar();
     }
@@ -125,6 +112,32 @@ public class TreeBehaviour : MonoBehaviour
             _nutrientManager.AddSugar(1);
             sugarValue -= 1;
         }
+    }
+
+    void TreeVisualChange()
+    {
+      float  healthPercent = currentTreeHealth * 100;
+
+        if (healthPercent >= 90)
+        {
+            treeRenderer.material = treeMaterial[0];
+        }
+        
+        if (healthPercent >= 50)
+        {
+            treeRenderer.material = treeMaterial[1];
+        }
+        if (healthPercent <= 49)
+        {
+            treeRenderer.material = treeMaterial[2];
+        }
+
+        if (healthPercent <= 10)
+        {
+            treeRenderer.material = treeMaterial[3];
+
+        }
+      
     }
 
 }

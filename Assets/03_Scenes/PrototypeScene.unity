@@ -249,6 +249,11 @@ MonoBehaviour:
   sugarPrefab: {fileID: 6676874167290712781, guid: 86578b1d177cb441fa3f0bd1e2f2bd0f, type: 3}
   currentCell: {fileID: 0}
   hexGrid: {fileID: 396590505}
+  treeMaterial:
+  - {fileID: 2100000, guid: 8ea00c1d97d6848eebcf15896e6b577b, type: 2}
+  - {fileID: 2100000, guid: e385f1f1efdc4482abb72d4199fa1643, type: 2}
+  - {fileID: 2100000, guid: 79608ab5ea51642bd8b945e84f41775d, type: 2}
+  - {fileID: 2100000, guid: dbd118ddb08cc467483962a0635b5a58, type: 2}
 --- !u!1 &269269835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1196,7 @@ GameObject:
   - component: {fileID: 753157019}
   - component: {fileID: 753157018}
   m_Layer: 5
-  m_Name: NitrateScore
+  m_Name: NutrientScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1217,7 +1222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Nitrate: '
+  m_text: 'Nutrients: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1808,7 +1813,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79608ab5ea51642bd8b945e84f41775d, type: 2}
+  - {fileID: 2100000, guid: 8ea00c1d97d6848eebcf15896e6b577b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
