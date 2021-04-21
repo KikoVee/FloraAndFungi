@@ -91,7 +91,8 @@ public class HexCell : MonoBehaviour {
 		
 		//Debug.Log("cell type is" + myType);
 	}
-
+	
+	
 	
 
 }

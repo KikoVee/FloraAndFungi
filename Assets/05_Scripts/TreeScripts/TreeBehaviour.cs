@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TreeBehaviour : MonoBehaviour
 {
@@ -30,6 +32,8 @@ public class TreeBehaviour : MonoBehaviour
 
     public Material[] treeMaterial;
     private Renderer treeRenderer;
+
+    public TextMeshPro treeText;
 
 
     // Start is called before the first frame update
@@ -76,6 +80,10 @@ public class TreeBehaviour : MonoBehaviour
         {
             GetCellLocation();
         }
+
+        treeText.text = "H: " + currentTreeHealth  
+                        + " N: " + currentNutrientValue 
+                        + " S: " + sugarValue;
 
     }
 

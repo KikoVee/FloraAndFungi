@@ -53,6 +53,8 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         }
     }
 
+    
+
     public bool TrySpendSugarAmount(int cost) //checks if enough sugar
     {
         if (sugar >= cost)
