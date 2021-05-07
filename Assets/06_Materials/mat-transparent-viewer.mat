@@ -96,6 +96,7 @@ Material:
     - Vector1_1d61855f61024dc1979615d50e7284a9: 0
     - Vector1_2ed25e46d9544ebc8202aabd2684c10e: -1
     - Vector1_88ca42e8f0774bd4a2f919289dd38aee: 0.01
+    - Vector1_cb5c5112e9cc444599b42ff958a9801d: 0
     - Vector1_d95077e9a4a84f19a8f3d532bfaa208a: 30
     - Vector1_dc914761284f48ba9abac59f76e1a494: 0
     - _AlphaClip: 0
@@ -114,6 +115,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Health: 0
     - _Metallic: 0
     - _NoiseStrength: 1
     - _OcclusionStrength: 1
@@ -121,7 +123,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RippleSmoothing: 1
-    - _RippleSpeed: 20
+    - _RippleSpeed: 8
     - _RippleStartTime: -1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

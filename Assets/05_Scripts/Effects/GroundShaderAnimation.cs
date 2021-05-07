@@ -28,9 +28,9 @@ public class GroundShaderAnimation : MonoBehaviour
     public void AnimateShader(Vector3 center)
     {
             renderer.material.SetVector("_RipplePosition", center);
-            //currentDissolveValue = Mathf.Lerp(currentDissolveValue, targetDissolveValue, Time.deltaTime);
+            currentDissolveValue = Mathf.Lerp(currentDissolveValue, targetDissolveValue, Time.deltaTime);
             //float dissolveValue = Mathf.PingPong(Time.deltaTime, 1);
-            renderer.material.SetFloat("_RippleStartTime", Time.deltaTime); 
+            renderer.material.SetFloat("_RippleStartTime", 0); 
         
        
     }
