@@ -6,6 +6,7 @@ public class HexMapEditor : MonoBehaviour {
 	public Color[] colors;
 
 	public HexGrid hexGrid;
+	public GameObject groundVisual;
 
 	private Color activeColor;
 	private NutrientManager _nutrientManager;
@@ -48,6 +49,7 @@ public class HexMapEditor : MonoBehaviour {
 		if (Physics.Raycast(inputRay, out hit)) {
 			{
 				EditCell(hexGrid.GetCell(hit.point));
+				groundVisual.GetComponent<GroundShaderAnimation>().AnimateShader(hit.point);
 			}
 		}
 	}
