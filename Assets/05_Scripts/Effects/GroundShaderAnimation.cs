@@ -9,7 +9,7 @@ public class GroundShaderAnimation : MonoBehaviour
     
     
 
-    private float targetDissolveValue = 1;
+    public float targetDissolveValue = 1;
     private float currentDissolveValue = -1;
     
     
@@ -30,8 +30,13 @@ public class GroundShaderAnimation : MonoBehaviour
             renderer.material.SetVector("_RipplePosition", center);
             currentDissolveValue = Mathf.Lerp(currentDissolveValue, targetDissolveValue, Time.deltaTime);
             //float dissolveValue = Mathf.PingPong(Time.deltaTime, 1);
-            renderer.material.SetFloat("_RippleStartTime", 0); 
+            renderer.material.SetFloat("_RippleStartTime", currentDissolveValue); 
         
        
+    }
+
+    private void HandleHealthChange(int health, int maxHealth)
+    {
+        targetDissolveValue = (float) health / maxHealth;
     }
 }

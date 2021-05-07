@@ -31,7 +31,7 @@ public class TreeBehaviour : MonoBehaviour
     private WeatherManager _weatherManager;
 
     public Material[] treeMaterial;
-    private Renderer treeRenderer;
+    [SerializeField] private Renderer treeRenderer;
 
     public TextMeshPro treeText;
 
@@ -45,7 +45,7 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
         _weatherManager = WeatherManager.currentWeatherManager;
-        treeRenderer = gameObject.GetComponentInChildren<Renderer>();
+        
         TreeVisualChange();
     }
 

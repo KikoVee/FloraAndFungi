@@ -76,6 +76,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
   - {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
   - {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
+  treeRenderer: {fileID: 7732827796317085125}
   treeText: {fileID: 3726977479078698443}
 --- !u!1 &6756991738452855637
 GameObject:
@@ -396,6 +397,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
+    - target: {fileID: -4263992295966539132, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6827bf671dbc347c18b6850ce59bf39e, type: 2}
     - target: {fileID: 919132149155446097, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
       propertyPath: m_Name
       value: env-tree-mesh-01
@@ -404,10 +409,19 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6827bf671dbc347c18b6850ce59bf39e, type: 2}
+    - target: {fileID: 8768723958563608249, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
 --- !u!4 &1543326675098823831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+  m_PrefabInstance: {fileID: 1360164132184853372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7732827796317085125 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8768723958563608249, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
   m_PrefabInstance: {fileID: 1360164132184853372}
   m_PrefabAsset: {fileID: 0}
