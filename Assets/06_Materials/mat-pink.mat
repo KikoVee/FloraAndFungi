@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat-pink
-  m_Shader: {fileID: 4800000, guid: de78d2ec04e9f4735a68f342480140f6, type: 3}
+  m_Shader: {fileID: 4800000, guid: f7e38193b7f064d7380403618fd8b69e, type: 3}
   m_ShaderKeywords: DR_RIM_ON _ALLOWALPHAOVERFLOW_OFF _CELPRIMARYMODE_SINGLE _TEXTUREBLENDINGMODE_MULTIPLY
     _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -71,6 +75,7 @@ Material:
     - _BumpScale: 1
     - _CameraDistanceFadeClose: 0
     - _CameraDistanceFadeFar: 10
+    - _CameraDistanceImpact: 0
     - _CelExtraEnabled: 0
     - _CelNumSteps: 5
     - _CelPrimaryMode: 1
@@ -80,11 +85,11 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlatRimEdgeSmoothness: 0.37
-    - _FlatRimLightAlign: 0.013
-    - _FlatRimSize: 0.496
+    - _FlatRimLightAlign: 0.32
+    - _FlatRimSize: 0.48
     - _FlatSpecularEdgeSmoothness: 0
     - _FlatSpecularSize: 0.1
-    - _Flatness: 0.025
+    - _Flatness: 0
     - _FlatnessExtra: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -95,20 +100,22 @@ Material:
     - _GradientEnabled: 0
     - _GradientSize: 10
     - _LightContribution: 0
+    - _LightFalloffSize: 0.0001
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineDepthOffset: 0
+    - _OutlineScale: 1
     - _OutlineWidth: 0.01
     - _OverrideLightmapDir: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RimEnabled: 1
-    - _SelfShadingSize: 0.306
-    - _SelfShadingSizeExtra: 0.6
-    - _ShadowEdgeSize: 0.069
+    - _SelfShadingSize: 0.21
+    - _SelfShadingSizeExtra: 0.05
+    - _ShadowEdgeSize: 0.364
     - _ShadowEdgeSizeExtra: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 0
@@ -126,6 +133,7 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0.7735849, g: 0.5582948, b: 0.5958266, a: 1}
     - _ColorDim: {r: 0.6226415, g: 0.30838376, b: 0.30838376, a: 1}
     - _ColorDimCurve: {r: 0.9622642, g: 0.81247777, b: 0.9113368, a: 1}
@@ -133,7 +141,7 @@ Material:
     - _ColorDimSteps: {r: 0.9622642, g: 0.81247777, b: 0.9113368, a: 1}
     - _ColorGradient: {r: 0.9056604, g: 0.48273405, b: 0.76132834, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.74509805, g: 0.5647059, b: 0.5684302, a: 1}
+    - _FlatRimColor: {r: 0.735849, g: 0.47552508, b: 0.47552508, a: 1}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0.9622642, g: 0.81247777, b: 0.9113368, a: 1}
