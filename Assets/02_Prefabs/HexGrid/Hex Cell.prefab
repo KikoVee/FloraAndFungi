@@ -47,7 +47,7 @@ MonoBehaviour:
     x: 0
     z: 0
   uiRect: {fileID: 0}
-  startColor: {r: 0.26824492, g: 0.41509432, b: 0.40693602, a: 0}
+  startColor: {r: 0.11258456, g: 0.20754719, b: 0.16444801, a: 1}
   chunk: {fileID: 0}
   myType: 0
   neighbors:
