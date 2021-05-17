@@ -76,7 +76,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
   - {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
   - {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
-  treeRenderer: {fileID: 0}
+  treeRenderer: {fileID: 3074922030371785163}
   treeText: {fileID: 3726977479078698443}
 --- !u!1 &6756991738452855637
 GameObject:
@@ -2362,5 +2362,10 @@ PrefabInstance:
 --- !u!4 &2296567755135457367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfd17e40a0d5749059daa441d7d8a02e, type: 3}
+  m_PrefabInstance: {fileID: 1753506958856060860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3074922030371785163 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5550154366811425161, guid: dfd17e40a0d5749059daa441d7d8a02e, type: 3}
   m_PrefabInstance: {fileID: 1753506958856060860}
   m_PrefabAsset: {fileID: 0}
