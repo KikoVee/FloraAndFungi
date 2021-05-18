@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
    // public GameObject currentPlayer;
     private int sugarScore;
     [SerializeField] private TextMeshProUGUI sugarScoreText;
-    private int nitrateScore;
-    [SerializeField] private TextMeshProUGUI nitrateScoreText;
+    private int nutrientScore;
+    [SerializeField] private TextMeshProUGUI nutrientScoreText;
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
     public static EndTurnEvent onTurnEnd;
@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
     {
         sugarScore = sugar;
         sugarScoreText.text = "Sugar:" + sugarScore;
+    }
+    public void UpdateNutrientScore(int nutrient)
+    {
+        nutrientScore = nutrient;
+        nutrientScoreText.text = "N:" + nutrientScore;
     }
    
     public IShopCustomer getCustomer(IShopCustomer shopCustomer)

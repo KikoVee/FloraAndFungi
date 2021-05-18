@@ -33,6 +33,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         _gameManager = GameManager.currentManager;
         _gameManager.UpdateSugarScore(sugar);
+        _gameManager.UpdateNutrientScore(nutrient);
         GameManager.onTurnEnd += NewCycleSugar;
     }
 
@@ -91,17 +92,24 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         _gameManager.UpdateSugarScore(sugar);
     }
 
-    public void AddNutrient(int nutrient)
+    public void AddNutrient(int _nutrient)
     {
-        this.nutrient += nutrient;
+        nutrient += _nutrient;
         SpendSugar(nutrientCost);
+        _gameManager.UpdateNutrientScore(nutrient);
     }
 
     private void NewCycleSugar()
     {
         _gameManager.UpdateSugarScore(sugar);
     }
-    
-    
+
+    public void BuyNutrientsButton()
+    {
+        if (TrySpendSugarAmount(nutrientCost))
+        {
+            AddNutrient(1);
+        }
+    }
     
 }

@@ -180,7 +180,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &266433001
+--- !u!21 &176024637
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1681,8 +1681,8 @@ RectTransform:
   - {fileID: 269269836}
   - {fileID: 1344358882}
   - {fileID: 890911285}
-  - {fileID: 1822504328}
   - {fileID: 1408151649}
+  - {fileID: 1822504328}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2019,7 +2019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1344358884}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1947901151}
+        m_TargetAssemblyTypeName: NutrientManager, Assembly-CSharp
+        m_MethodName: BuyNutrientsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1344358884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,7 +2102,7 @@ RectTransform:
   m_Children:
   - {fileID: 516011861}
   m_Father: {fileID: 1053113513}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8051447, y: 0}
   m_AnchorMax: {x: 1, y: 0.162}
@@ -7664,7 +7676,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 266433001}
+  material: {fileID: 176024637}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7745,7 +7757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sugarScoreText: {fileID: 269269838}
-  nitrateScoreText: {fileID: 0}
+  nutrientScoreText: {fileID: 466332169}
   fungiPrefab: {fileID: 8250899903893643389, guid: 44c33313c75de43dcb71e7fd93511472, type: 3}
   turnEndSequence: 0
 --- !u!4 &1947901150
