@@ -51,17 +51,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddSugar(int increase)
+    public void UpdateSugarScore(int sugar)
     {
-        sugarScore += increase;
+        sugarScore = sugar;
         sugarScoreText.text = "Sugar:" + sugarScore;
     }
-    public void AddNitrate(int increase)
-    {
-        nitrateScore += increase;
-        nitrateScoreText.text = "Nitrate: " + nitrateScore;
-    }
-
+   
     public IShopCustomer getCustomer(IShopCustomer shopCustomer)
     {
         shopCustomer = NutrientManager.currentNutrientManager.GetComponent<IShopCustomer>();

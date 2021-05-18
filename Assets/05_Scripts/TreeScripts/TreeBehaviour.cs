@@ -12,7 +12,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeNutrientWeight;
     [SerializeField] private float treeWeatherWeight;
 
-    [SerializeField] private float sugarValue;
+    [SerializeField] private float treeSugarValue;
     [SerializeField] private float treeSugarWeight;
     [SerializeField] private float treeSugarWeatherWeight;
 
@@ -83,15 +83,15 @@ public class TreeBehaviour : MonoBehaviour
 
         treeText.text = "H: " + currentTreeHealth  
                         + " N: " + currentNutrientValue 
-                        + " S: " + sugarValue;
+                        + " S: " + treeSugarValue;
 
     }
 
     public void NewCycle()
     {
         weatherValue = _weatherManager.weatherValue;
-        currentTreeHealth = Mathf.Clamp(currentNutrientValue * treeNutrientWeight + weatherValue * treeWeatherWeight, 0, 100); // sets the tree health based on the amount of nutrients available and the weather
-        sugarValue = Mathf.Clamp(currentTreeHealth * treeSugarWeight - weatherValue * treeSugarWeatherWeight, 0, 100); //sets the amount of sugar tree produces based on health of tree
+        currentTreeHealth = Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0, 100); // sets the tree health based on the amount of nutrients available and the weather
+        treeSugarValue = Mathf.Clamp((currentTreeHealth * treeSugarWeight) - (weatherValue * treeSugarWeatherWeight), 0, 100); //sets the amount of sugar tree produces based on health of tree
         GiveSugar();
         int newNutrientValue = Mathf.Clamp(currentNutrientValue - 5, 0, 100); //gradual decrease in nutrients 
         currentNutrientValue = newNutrientValue; //sets current nutrient value to the new value
@@ -118,10 +118,10 @@ public class TreeBehaviour : MonoBehaviour
 
     private void GiveSugar()
     {
-        for (int i = 0; i < sugarValue; i++)
+        for (int i = 0; i < treeSugarValue; i++)
         {
             _nutrientManager.AddSugar(1);
-            sugarValue -= 1;
+           // treeSugarValue -= 1;
         }
     }
 
