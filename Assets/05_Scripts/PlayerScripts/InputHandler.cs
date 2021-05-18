@@ -38,6 +38,11 @@ public class InputHandler : MonoBehaviour
                     _hexEditor.HitCell(hit);
 
                 }
+
+                if (hit.collider.GetComponent<Collectables>())
+                {
+                    Destroy(hit.transform.gameObject);
+                }
             }
         }
     }
