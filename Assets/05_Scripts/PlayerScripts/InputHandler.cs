@@ -7,11 +7,13 @@ public class InputHandler : MonoBehaviour
 {
     private GameManager _gameManager;
     private HexMapEditor _hexEditor;
+    private NutrientManager _nutrientManager;
 
     private void Start()
     {
         _gameManager = GameManager.currentManager;
         _hexEditor = _gameManager._hexMapEditor;
+        _nutrientManager = NutrientManager.currentNutrientManager;
     }
 
     private void Update()
@@ -42,6 +44,8 @@ public class InputHandler : MonoBehaviour
                 if (hit.collider.GetComponent<Collectables>())
                 {
                     Destroy(hit.transform.gameObject);
+                    _nutrientManager.AddSugar(1);
+
                 }
             }
         }

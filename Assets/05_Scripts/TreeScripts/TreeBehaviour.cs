@@ -139,7 +139,7 @@ public class TreeBehaviour : MonoBehaviour
         {
             for (int i = 0; i < treeSugarValue; i++)
             {
-                _nutrientManager.AddSugar(1);
+                //_nutrientManager.AddSugar(1);
                  treeSugarValue -= 1;
                 SpawnSugar();
             }

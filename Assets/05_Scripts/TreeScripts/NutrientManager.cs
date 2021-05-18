@@ -89,7 +89,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     public void AddSugar(int sugar)
     {
         this.currentSugar += sugar;
-        _gameManager.UpdateSugarScore(sugar);
+        _gameManager.UpdateSugarScore(currentSugar);
     }
 
     public void AddNutrient(int _nutrient)
