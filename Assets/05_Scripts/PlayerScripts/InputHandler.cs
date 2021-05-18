@@ -1,28 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
-    public Vector2 InputVector { get; private set; }
-    
-    public Vector3 MousePosition { get; private set; }
+    private GameManager _gameManager;
+    private HexMapEditor _hexEditor;
 
-    public bool recording = false;
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
-            var h = Input.GetAxis("Horizontal");
-            var v = Input.GetAxis("Vertical");
-            InputVector = new Vector2(h, v);
+        _gameManager = GameManager.currentManager;
+        _hexEditor = _gameManager._hexMapEditor;
+    }
 
-            MousePosition = Input.mousePosition;
-
-        if (recording == true)
+    private void Update()
+    {
+        if (_gameManager.turnEndSequence != true)
         {
-            InputVector = new Vector2(0, 0);
+            if (
+                Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) 
+            {
+                HandleInput();
+                
+            }
+        }    
+    }
+    
+    public void HandleInput () {
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(inputRay, out hit)) {
+            {
+
+                if (hit.collider.GetComponent<HexMesh>())
+                {
+                    _hexEditor.HitCell(hit);
+
+                }
+            }
         }
     }
+    
 }

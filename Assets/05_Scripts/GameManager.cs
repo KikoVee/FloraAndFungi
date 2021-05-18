@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager currentManager;
 
    // public GameObject currentPlayer;
+    public HexMapEditor _hexMapEditor;
     private int sugarScore;
     [SerializeField] private TextMeshProUGUI sugarScoreText;
     private int nutrientScore;

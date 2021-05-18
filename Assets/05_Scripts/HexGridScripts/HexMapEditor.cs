@@ -26,32 +26,11 @@ public class HexMapEditor : MonoBehaviour {
 	}
 
 
-	void Update () {
-		
-		if (_gameManager.turnEndSequence != true)
-		{
-			if (
-				Input.GetMouseButtonDown(0) &&
-				!EventSystem.current.IsPointerOverGameObject()
-			) {
-				HandleInput();
-			}
-		}
-		
+	
 
-		
-	}
-
-
-	void HandleInput () {
-		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit)) {
-			{
-				EditCell(hexGrid.GetCell(hit.point));
-				groundVisual.GetComponent<GroundShaderAnimation>().AnimateShader(hit.point);
-			}
-		}
+	public void HitCell(RaycastHit hit)
+	{
+		EditCell(hexGrid.GetCell(hit.point));
 	}
 
 	void EditCell(HexCell cell)
