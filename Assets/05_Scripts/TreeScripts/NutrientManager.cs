@@ -5,8 +5,8 @@ using UnityEngine;
 public class NutrientManager : MonoBehaviour , IShopCustomer 
 {
     //this object keeps track of the amount of nutrient and sugar the player has to work with
-    public int nutrient;
-    public int sugar;
+    public int currentNutrient;
+    public int currentSugar;
 
     public int expansionCost = 5;
     public int nutrientCost = 10;
@@ -32,14 +32,14 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     private void Start()
     {
         _gameManager = GameManager.currentManager;
-        _gameManager.UpdateSugarScore(sugar);
-        _gameManager.UpdateNutrientScore(nutrient);
+        _gameManager.UpdateSugarScore(currentSugar);
+        _gameManager.UpdateNutrientScore(currentNutrient);
         GameManager.onTurnEnd += NewCycleSugar;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _gameManager.turnEndSequence != true)
+       /* if (Input.GetKeyDown(KeyCode.E) && _gameManager.turnEndSequence != true)
         {
             IShopCustomer shopCustomer = gameObject.GetComponent<IShopCustomer>();
 
@@ -53,14 +53,14 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
                 uiShop.Hide();
                 storeOpen = false;
             }    
-        }
+        }*/
     }
 
     
 
     public bool TrySpendSugarAmount(int cost) //checks if enough sugar
     {
-        if (sugar >= cost)
+        if (currentSugar >= cost)
         {
             return true;
         }
@@ -82,26 +82,26 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     public void SpendSugar(int cost)
     {
-        sugar -= cost;
-        _gameManager.UpdateSugarScore(sugar);
+        currentSugar -= cost;
+        _gameManager.UpdateSugarScore(currentSugar);
     }
 
     public void AddSugar(int sugar)
     {
-        this.sugar += sugar;
+        this.currentSugar += sugar;
         _gameManager.UpdateSugarScore(sugar);
     }
 
     public void AddNutrient(int _nutrient)
     {
-        nutrient += _nutrient;
+        currentNutrient += _nutrient;
         SpendSugar(nutrientCost);
-        _gameManager.UpdateNutrientScore(nutrient);
+        _gameManager.UpdateNutrientScore(currentNutrient);
     }
 
     private void NewCycleSugar()
     {
-        _gameManager.UpdateSugarScore(sugar);
+        _gameManager.UpdateSugarScore(currentSugar);
     }
 
     public void BuyNutrientsButton()

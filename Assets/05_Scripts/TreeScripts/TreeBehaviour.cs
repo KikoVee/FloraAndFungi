@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeSugarWeatherWeight;
 
     private float weatherValue;
-   [SerializeField] private int currentNutrientValue;
+   [SerializeField] private float currentNutrientValue;
     private bool isDead = false;
 
     private int rangeMin = 3;
@@ -26,7 +27,7 @@ public class TreeBehaviour : MonoBehaviour
 
     [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
-    private int currentNutrientAmount;
+    private int nutrientAmount;
     private NutrientManager _nutrientManager;
     private WeatherManager _weatherManager;
 
@@ -34,6 +35,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private Renderer treeRenderer;
 
     public TextMeshPro treeText;
+    private bool fungiNeighbor = false;
 
 
     // Start is called before the first frame update
@@ -89,15 +91,29 @@ public class TreeBehaviour : MonoBehaviour
 
     public void NewCycle()
     {
-        weatherValue = _weatherManager.weatherValue;
-        currentTreeHealth = Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0, 100); // sets the tree health based on the amount of nutrients available and the weather
-        treeSugarValue = Mathf.Clamp((currentTreeHealth * treeSugarWeight) - (weatherValue * treeSugarWeatherWeight), 0, 100); //sets the amount of sugar tree produces based on health of tree
-        GiveSugar();
-        int newNutrientValue = Mathf.Clamp(currentNutrientValue - 5, 0, 100); //gradual decrease in nutrients 
-        currentNutrientValue = newNutrientValue; //sets current nutrient value to the new value
-        TreeVisualChange();
-        
-        //SpawnSugar();
+        bool newCycle = true;
+
+        if (newCycle)
+        {
+            CheckNeighbors();
+            weatherValue = _weatherManager.weatherValue;
+            currentTreeHealth =
+                Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0,
+                    100); // sets the tree health based on the amount of nutrients available and the weather
+            treeSugarValue =
+                Mathf.Clamp((currentTreeHealth * treeSugarWeight) - (weatherValue * treeSugarWeatherWeight), 0,
+                    100); //sets the amount of sugar tree produces based on health of tree
+            Debug.Log(this.gameObject + "sugar value is " + treeSugarValue);
+            GiveSugar();
+            float newNutrientValue =
+                Mathf.Clamp(currentNutrientValue - (currentNutrientValue * 0.5f), 0,
+                    100); //gradual decrease in nutrients 
+            currentNutrientValue = newNutrientValue; //sets current nutrient value to the new valued
+            TreeVisualChange();
+            newCycle = false;
+            //SpawnSugar();
+        }
+       
     }
 
     public void GetNutrients()
@@ -109,8 +125,8 @@ public class TreeBehaviour : MonoBehaviour
         {
             if (cell.myType == HexCell.cellType.fungi)
             {
-                currentNutrientAmount = GameManager.currentManager.GetCurrentNutrientValue();
-                currentNutrientValue += currentNutrientAmount;
+                nutrientAmount = GameManager.currentManager.GetCurrentNutrientValue();
+                currentNutrientValue += nutrientAmount;
             }
         }
          
@@ -118,10 +134,13 @@ public class TreeBehaviour : MonoBehaviour
 
     private void GiveSugar()
     {
-        for (int i = 0; i < treeSugarValue; i++)
+        if (fungiNeighbor)
         {
-            _nutrientManager.AddSugar(1);
-           // treeSugarValue -= 1;
+            for (int i = 0; i < treeSugarValue; i++)
+            {
+                _nutrientManager.AddSugar(1);
+                 treeSugarValue -= 1;
+            }
         }
     }
 
@@ -149,6 +168,19 @@ public class TreeBehaviour : MonoBehaviour
 
         }
       
+    }
+
+    void CheckNeighbors()
+    {
+        HexCell[] neighbors = currentCell.GetNeighbors();
+
+        foreach (HexCell cell in neighbors)
+        {
+            if (cell.myType == HexCell.cellType.fungi)
+            {
+                fungiNeighbor = true;
+            }
+        } 
     }
 
 }

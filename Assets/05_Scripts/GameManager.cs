@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         if (turnEndSequence && timer > 0)
         {
             timer -= Time.deltaTime;
-            Debug.Log("timer is " + timer);
+            //Debug.Log("timer is " + timer);
         }
         else
         {
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentNutrientValue()
     {
-        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrient;
+        int nutrientValue = gameObject.GetComponent<NutrientManager>().currentNutrient;
         return nutrientValue;
     }
 
