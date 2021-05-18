@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class Collectables : MonoBehaviour
 {
@@ -15,7 +17,8 @@ public class Collectables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        RaycastHit hit;
+
     }
 
     public int GetValue(int amount)

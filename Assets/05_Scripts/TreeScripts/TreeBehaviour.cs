@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TreeBehaviour : MonoBehaviour
 {
@@ -16,14 +17,13 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeSugarValue;
     [SerializeField] private float treeSugarWeight;
     [SerializeField] private float treeSugarWeatherWeight;
-    [SerializeField] private GameObject sugarObject;
 
     private float weatherValue;
    [SerializeField] private float currentNutrientValue;
     private bool isDead = false;
 
-    private int rangeMin = 3;
-    private int rangeMax = 3;
+    [SerializeField]private int range = 3;
+    [SerializeField]private int rangeMax = 3;
     [SerializeField] private GameObject sugarPrefab;
 
     [SerializeField]private HexCell currentCell;
@@ -141,6 +141,7 @@ public class TreeBehaviour : MonoBehaviour
             {
                 _nutrientManager.AddSugar(1);
                  treeSugarValue -= 1;
+                SpawnSugar();
             }
         }
     }
@@ -182,6 +183,14 @@ public class TreeBehaviour : MonoBehaviour
                 fungiNeighbor = true;
             }
         } 
+    }
+
+    void SpawnSugar()
+    {
+        Vector3 center = gameObject.transform.position;
+        var pos = new Vector3(Random.Range(center.x -range, center.x + range), 1, Random.Range(center.z -range, center.z + range));
+        //var pos = new Vector3(Random.Range((center.x - rangeMin), (center.z + rangeMax)), 1, Random.Range((center.x - rangeMin), (center.z + rangeMax)));
+        GameObject newSugar = Instantiate(sugarPrefab, pos, Quaternion.Euler(0,Random.Range(0,360),0));
     }
 
 }
