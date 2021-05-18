@@ -16,6 +16,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeSugarValue;
     [SerializeField] private float treeSugarWeight;
     [SerializeField] private float treeSugarWeatherWeight;
+    [SerializeField] private GameObject sugarObject;
 
     private float weatherValue;
    [SerializeField] private float currentNutrientValue;
