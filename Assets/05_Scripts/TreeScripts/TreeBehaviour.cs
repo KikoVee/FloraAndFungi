@@ -34,6 +34,7 @@ public class TreeBehaviour : MonoBehaviour
 
     public Material[] treeMaterial;
     [SerializeField] private Renderer treeRenderer;
+    public GameObject[] treeLeaves;
 
     public TextMeshPro treeText;
     private bool fungiNeighbor = false;
@@ -153,6 +154,7 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
+
         }
         
         if (healthPercent >= 50 && healthPercent <= 89)
@@ -167,7 +169,6 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent <= 10)
         {
             treeRenderer.material = treeMaterial[3];
-
         }
       
     }

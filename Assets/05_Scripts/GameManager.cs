@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     public Transform fungiPrefab;
 
     public bool turnEndSequence;
-    private float timer = 0.2f;
+    private float timer;
+    private float time = 0.2f;
  
     
     private void Awake()
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
         
         turnEndSequence = true;
-        timer = 0.2f;
+        timer = time;
 
     }
 
