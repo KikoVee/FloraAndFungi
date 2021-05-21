@@ -33,8 +33,14 @@ public class TreeBehaviour : MonoBehaviour
     private WeatherManager _weatherManager;
 
     public Material[] treeMaterial;
+    public Material[] TreeLeavesMaterials;
     [SerializeField] private Renderer treeRenderer;
-    public GameObject[] treeLeaves;
+    public GameObject treeLeaves;
+    
+    private SkinnedMeshRenderer _skinnedMeshRenderer;
+    private Mesh skinnedMesh;
+    private int blendShapeCount;
+    public float blendSpeed;
 
     public TextMeshPro treeText;
     private bool fungiNeighbor = false;
@@ -49,6 +55,11 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
         _weatherManager = WeatherManager.currentWeatherManager;
+      
+        _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        skinnedMesh = _skinnedMeshRenderer.sharedMesh;
+        blendShapeCount = skinnedMesh.blendShapeCount;
+        
         
         TreeVisualChange();
     }
@@ -150,25 +161,37 @@ public class TreeBehaviour : MonoBehaviour
     void TreeVisualChange()
     {
       float  healthPercent = currentTreeHealth;
-
+        Renderer rend = treeLeaves.GetComponentInChildren<Renderer>();
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
-
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 100);
+            treeLeaves.SetActive(true);
+           
         }
         
         if (healthPercent >= 50 && healthPercent <= 89)
         {
             treeRenderer.material = treeMaterial[1];
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 80);
+            treeLeaves.SetActive(true);
+           
+
         }
         if (healthPercent >= 11 && healthPercent <= 49)
         {
             treeRenderer.material = treeMaterial[2];
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 20);
+            treeLeaves.SetActive(false);
         }
 
         if (healthPercent <= 10)
         {
             treeRenderer.material = treeMaterial[3];
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 0);
+            treeLeaves.SetActive(false);
+            
+
         }
       
     }
