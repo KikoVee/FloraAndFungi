@@ -50,7 +50,7 @@ public class TreeBehaviour : MonoBehaviour
     void Start()
     {
         GetCellLocation();
-        currentTreeHealth = maxTreeHealth;
+        //currentTreeHealth = maxTreeHealth;
         GameManager.onTurnEnd += NewCycle;
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
