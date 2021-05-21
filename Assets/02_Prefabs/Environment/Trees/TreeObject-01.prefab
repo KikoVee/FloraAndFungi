@@ -143,7 +143,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a1111b28fe1a948da9a0120093a14254, type: 2}
   - {fileID: 2100000, guid: 4965a6253a9364104bbfd2e993be2c27, type: 2}
   - {fileID: 2100000, guid: 4965a6253a9364104bbfd2e993be2c27, type: 2}
-  TreeLeavesMaterials: []
+  TreeLeavesMaterials:
+  - {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
+  - {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
   treeRenderer: {fileID: 6407979977452786542}
   treeLeaves: {fileID: 5274434230621715562}
   blendSpeed: 0

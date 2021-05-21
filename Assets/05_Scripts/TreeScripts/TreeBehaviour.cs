@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class TreeBehaviour : MonoBehaviour
@@ -50,7 +51,6 @@ public class TreeBehaviour : MonoBehaviour
     void Start()
     {
         GetCellLocation();
-        //currentTreeHealth = maxTreeHealth;
         GameManager.onTurnEnd += NewCycle;
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
@@ -114,7 +114,7 @@ public class TreeBehaviour : MonoBehaviour
                 Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0,
                     100); // sets the tree health based on the amount of nutrients available and the weather
             treeSugarValue =
-                Mathf.Clamp((currentTreeHealth * treeSugarWeight) - (weatherValue * treeSugarWeatherWeight), 0,
+                Mathf.Clamp((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight), 0,
                     100); //sets the amount of sugar tree produces based on health of tree
             Debug.Log(this.gameObject + "sugar value is " + treeSugarValue);
             GiveSugar();
@@ -161,13 +161,18 @@ public class TreeBehaviour : MonoBehaviour
     void TreeVisualChange()
     {
       float  healthPercent = currentTreeHealth;
-        Renderer rend = treeLeaves.GetComponentInChildren<Renderer>();
+        Renderer[] rend = treeLeaves.GetComponentsInChildren<Renderer>();
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
             _skinnedMeshRenderer.SetBlendShapeWeight(0, 0);
             treeLeaves.SetActive(true);
-           
+            foreach (Renderer renderer in rend)
+            {
+                renderer.materials[0] = TreeLeavesMaterials[1];
+
+            }
+
         }
         
         if (healthPercent >= 50 && healthPercent <= 89)
@@ -175,6 +180,11 @@ public class TreeBehaviour : MonoBehaviour
             treeRenderer.material = treeMaterial[1];
             _skinnedMeshRenderer.SetBlendShapeWeight(0, 30);
             treeLeaves.SetActive(true);
+            foreach (Renderer renderer in rend)
+            {
+                renderer.materials[0] = TreeLeavesMaterials[0];
+
+            }
            
 
         }
@@ -190,6 +200,7 @@ public class TreeBehaviour : MonoBehaviour
             treeRenderer.material = treeMaterial[3];
             _skinnedMeshRenderer.SetBlendShapeWeight(0, 100);
             treeLeaves.SetActive(false);
+            
             
 
         }
