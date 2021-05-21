@@ -165,7 +165,7 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 100);
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 0);
             treeLeaves.SetActive(true);
            
         }
@@ -173,7 +173,7 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent >= 50 && healthPercent <= 89)
         {
             treeRenderer.material = treeMaterial[1];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 80);
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 30);
             treeLeaves.SetActive(true);
            
 
@@ -181,14 +181,14 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent >= 11 && healthPercent <= 49)
         {
             treeRenderer.material = treeMaterial[2];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 20);
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 60);
             treeLeaves.SetActive(false);
         }
 
         if (healthPercent <= 10)
         {
             treeRenderer.material = treeMaterial[3];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 0);
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, 100);
             treeLeaves.SetActive(false);
             
 

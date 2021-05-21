@@ -191,32 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e363bf5181e448a78cb05f5d6a64930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &167962990
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!4 &226373446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 478a878144d7342c7ab2b63cd66c2742, type: 3}
@@ -975,6 +949,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1008848628}
     m_Modifications:
+    - target: {fileID: 1623077242786267654, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.27430093
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 10.675509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.28364456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 3.693851
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 12.191697
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 3.8828673
+      objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: hexGrid
       value: 
@@ -1291,6 +1297,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890911284}
   m_CullTransparentMesh: 0
+--- !u!21 &894418628
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &911549275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1764,38 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6827bf671dbc347c18b6850ce59bf39e, type: 2}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.27430093
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 10.675509
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.28364456
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 3.693851
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 12.191697
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 3.8828673
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4965a6253a9364104bbfd2e993be2c27, type: 2}
     - target: {fileID: 919132149155446097, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
       propertyPath: m_Name
       value: env-tree-mesh-01
@@ -7543,6 +7607,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1008848628}
     m_Modifications:
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.27430093
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 10.675509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.28364456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 3.693851
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 12.191697
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 3.8828673
+      objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: hexGrid
       value: 
@@ -7852,7 +7944,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 167962990}
+  material: {fileID: 894418628}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12905,6 +12997,38 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6105939ec90fd4775bc03c021d7973a7, type: 2}
+    - target: {fileID: 1623077242786267654, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.27430093
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 10.675509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.28364456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 3.693851
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 12.191697
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 3.8828673
+      objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: range
       value: 25
