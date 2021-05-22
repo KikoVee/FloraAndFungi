@@ -176,32 +176,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &80166817
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!114 &119738477 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1185675685659211452, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
@@ -1366,7 +1340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeWeatherWeight
-      value: 0.7
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeNutrientWeight
@@ -9105,7 +9079,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 80166817}
+  material: {fileID: 1942619806}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9258,6 +9232,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+--- !u!21 &1942619806
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1947901148
 GameObject:
   m_ObjectHideFlags: 0
@@ -9322,7 +9322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00b7c0ad4c0f4f69b849a6d9fdb5d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNutrient: 0
+  nutrientScore: 0
   currentSugar: 15
   expansionCost: 1
   nutrientCost: 10
@@ -14252,6 +14252,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
+    - target: {fileID: 6350138929549214078, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.80678177
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350138929549214078, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350138929549214078, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.81986475
+      objectReference: {fileID: 0}
     - target: {fileID: 6407979977452786542, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -14306,7 +14318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeWeatherWeight
-      value: 0.7
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeNutrientWeight

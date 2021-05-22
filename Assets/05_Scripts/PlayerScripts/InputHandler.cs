@@ -47,6 +47,11 @@ public class InputHandler : MonoBehaviour
                     _nutrientManager.AddSugar(1);
 
                 }
+
+                if (hit.collider.GetComponent<TreeBehaviour>())
+                {
+                    hit.transform.gameObject.GetComponent<TreeBehaviour>().CollectSugar();
+                }
             }
         }
     }

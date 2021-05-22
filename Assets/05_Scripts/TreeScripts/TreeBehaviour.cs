@@ -15,7 +15,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeNutrientWeight;
     [SerializeField] private float treeWeatherWeight;
 
-    [SerializeField] private float treeSugarValue;
+    [SerializeField] private int treeSugarValue;
     [SerializeField] private float treeSugarWeight;
     [SerializeField] private float treeSugarWeatherWeight;
 
@@ -45,6 +45,9 @@ public class TreeBehaviour : MonoBehaviour
 
     public TextMeshPro treeText;
     private bool fungiNeighbor = false;
+
+    private bool readToCollect = false;
+    public Outline outline;
 
 
     // Start is called before the first frame update
@@ -101,7 +104,14 @@ public class TreeBehaviour : MonoBehaviour
                         + " N: " + currentNutrientValue 
                         + " S: " + treeSugarValue;
 
-        
+        if (readToCollect)
+        {
+            outline.enabled = true;
+        }
+        else
+        {
+            outline.enabled = false;
+        }
     }
 
     public void NewCycle()
@@ -114,12 +124,15 @@ public class TreeBehaviour : MonoBehaviour
             weatherValue = _weatherManager.weatherValue;
             currentTreeHealth =
                 Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0,
-                    100); // sets the tree health based on the amount of nutrients available and the weather
+                    100); 
+            
             treeSugarValue =
-                Mathf.Clamp((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight), 0,
-                    100); //sets the amount of sugar tree produces based on health of tree
-           // Debug.Log(this.gameObject + "sugar value is " + treeSugarValue);
-            GiveSugar();
+                Mathf.CeilToInt((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight)); //sets the amount of sugar tree produces based on health of tree
+            if (treeSugarValue > 0 && fungiNeighbor)
+            {
+                readToCollect = true;
+            }
+            
             float newNutrientValue =
                 Mathf.Clamp(currentNutrientValue - (currentNutrientValue * 0.5f), 0,
                     100); //gradual decrease in nutrients 
@@ -146,18 +159,6 @@ public class TreeBehaviour : MonoBehaviour
          
     }
 
-    private void GiveSugar()
-    {
-        if (fungiNeighbor)
-        {
-            for (int i = 0; i < treeSugarValue; i++)
-            {
-                //_nutrientManager.AddSugar(1);
-                 treeSugarValue -= 1;
-                SpawnSugar();
-            }
-        }
-    }
 
     void TreeVisualChange()
     {
@@ -228,12 +229,23 @@ public class TreeBehaviour : MonoBehaviour
         
     }
 
-    void SpawnSugar()
+   /* void SpawnSugar()
     {
         Vector3 center = gameObject.transform.position;
         var pos = new Vector3(Random.Range(center.x -range, center.x + range), 1, Random.Range(center.z -range, center.z + range));
         //var pos = new Vector3(Random.Range((center.x - rangeMin), (center.z + rangeMax)), 1, Random.Range((center.x - rangeMin), (center.z + rangeMax)));
         GameObject newSugar = Instantiate(sugarPrefab, pos, Quaternion.Euler(0,Random.Range(0,360),0));
+    }*/
+
+    public void CollectSugar()
+    {
+        if (readToCollect)
+        {
+            _nutrientManager.AddSugar(treeSugarValue);
+            treeSugarValue = 0;
+            readToCollect = false;
+        }
     }
+    
 
 }
