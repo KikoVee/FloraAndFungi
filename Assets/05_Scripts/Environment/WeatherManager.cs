@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class WeatherManager : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class WeatherManager : MonoBehaviour
     public GameObject dayCycles;
     public ParticleSystem rainParticles;
     public ParticleSystem rainDrops;
-
-
+    public Volume postProcessing;
+    private VolumeProfile _volumeProfile;
+    private int speed = 1;
     
 
     private void Awake()
@@ -30,7 +33,8 @@ public class WeatherManager : MonoBehaviour
     {
         _currentManager = GameManager.currentManager;
         GameManager.onTurnEnd += NewCycle;
-        
+        _volumeProfile = postProcessing.sharedProfile;
+
 
     }
 
@@ -48,11 +52,21 @@ public class WeatherManager : MonoBehaviour
 
         if (weatherValue >= 70)
         {
+            if (postProcessing.weight <= 1)
+            {
+                postProcessing.weight += Time.deltaTime;  
+            }
+            
             rainParticles.Play();
             rainDrops.Play();
         }
         else
         {
+            if (postProcessing.weight >= 0)
+            {
+                postProcessing.weight -= Time.deltaTime;  
+            }            
+            
             rainParticles.Stop();
             rainDrops.Stop();
         }
@@ -63,11 +77,10 @@ public class WeatherManager : MonoBehaviour
         float newWeather = Random.Range(0,100);
         weatherValue = newWeather;
         
-    }
-
-    void WeatherCycle()
-    {
+        
         
     }
+
+    
     
 }

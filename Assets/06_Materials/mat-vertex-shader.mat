@@ -14,8 +14,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -132,7 +133,7 @@ Material:
     - _UVSec: 0
     - _UnityShadowMode: 0
     - _UnityShadowPower: 0.2
-    - _UnityShadowSharpness: 1
+    - _UnityShadowSharpness: 8.78
     - _VertexColorsEnabled: 1
     - _ZWrite: 1
     m_Colors:
@@ -147,5 +148,5 @@ Material:
     - _FlatRimColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
-    - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _UnityShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
