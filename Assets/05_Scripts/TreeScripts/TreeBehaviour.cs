@@ -29,7 +29,7 @@ public class TreeBehaviour : MonoBehaviour
 
     [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
-    private int nutrientAmount;
+    private int _nutrientAmount;
     private NutrientManager _nutrientManager;
     private WeatherManager _weatherManager;
 
@@ -124,10 +124,11 @@ public class TreeBehaviour : MonoBehaviour
             weatherValue = _weatherManager.weatherValue;
             currentTreeHealth =
                 Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0,
-                    100); 
+                    100);
+            treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) * treeSugarWeight);
             
-            treeSugarValue =
-                Mathf.CeilToInt((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight)); //sets the amount of sugar tree produces based on health of tree
+            //treeSugarValue =
+                //Mathf.CeilToInt((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight)); //sets the amount of sugar tree produces based on health of tree
             if (treeSugarValue > 0 && fungiNeighbor)
             {
                 readToCollect = true;
@@ -152,8 +153,9 @@ public class TreeBehaviour : MonoBehaviour
         {
             if (cell.myType == HexCell.cellType.fungi)
             {
-                nutrientAmount = GameManager.currentManager.GetCurrentNutrientValue();
-                currentNutrientValue += nutrientAmount;
+                //nutrientAmount = GameManager.currentManager.GetCurrentNutrientValue();
+                _nutrientAmount = _nutrientManager.nutrientAmount;
+                currentNutrientValue += _nutrientAmount;
             }
         }
          

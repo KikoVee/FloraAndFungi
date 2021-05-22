@@ -211,6 +211,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2cee6bce68eac4ad7a3a5795209cf6b7, type: 2}
@@ -310,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 396590505}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeSugarWeight
-      value: 0.6
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: currentTreeHealth
@@ -319,6 +323,10 @@ PrefabInstance:
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeWeatherWeight
       value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
@@ -1199,7 +1207,7 @@ PrefabInstance:
       objectReference: {fileID: 396590505}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeSugarWeight
-      value: 0.6
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentTreeHealth
@@ -1344,7 +1352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeNutrientWeight
-      value: 0.2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue
@@ -1523,6 +1531,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2cee6bce68eac4ad7a3a5795209cf6b7, type: 2}
@@ -1671,6 +1683,10 @@ PrefabInstance:
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentTreeHealth
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue
@@ -2075,6 +2091,32 @@ Transform:
   m_Father: {fileID: 1222598388}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &981655552
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &982666343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,6 +3090,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2cee6bce68eac4ad7a3a5795209cf6b7, type: 2}
@@ -3243,6 +3289,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue
       value: 80
       objectReference: {fileID: 0}
@@ -3318,11 +3368,15 @@ PrefabInstance:
       objectReference: {fileID: 396590505}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeSugarWeight
-      value: 0.6
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: currentTreeHealth
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
@@ -3440,6 +3494,10 @@ PrefabInstance:
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentTreeHealth
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue
@@ -3737,6 +3795,10 @@ PrefabInstance:
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: currentTreeHealth
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
@@ -8662,11 +8724,15 @@ PrefabInstance:
       objectReference: {fileID: 396590505}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeSugarWeight
-      value: 0.6
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentTreeHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue
@@ -8772,6 +8838,10 @@ PrefabInstance:
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentTreeHealth
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue
@@ -9079,7 +9149,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 1942619806}
+  material: {fileID: 981655552}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9167,6 +9237,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+      propertyPath: treeNutrientWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756991738248363633, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
       propertyPath: treeMaterial.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2cee6bce68eac4ad7a3a5795209cf6b7, type: 2}
@@ -9232,32 +9306,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
---- !u!21 &1942619806
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1947901148
 GameObject:
   m_ObjectHideFlags: 0
@@ -9322,10 +9370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00b7c0ad4c0f4f69b849a6d9fdb5d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nutrientScore: 0
+  nutrientAmount: 0
   currentSugar: 15
   expansionCost: 1
   nutrientCost: 10
+  nutrientUpgradeAmount: 10
   uiShop: {fileID: 1822504330}
 --- !u!114 &1947901152
 MonoBehaviour:
@@ -14322,7 +14371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: treeNutrientWeight
-      value: 0.2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6756991738248363633, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
       propertyPath: currentNutrientValue

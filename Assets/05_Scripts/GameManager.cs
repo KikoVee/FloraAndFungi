@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     public void ShowCostOfUpgrade()
     {
         int _nutrientCost = _nutrientManager.nutrientCost;
-        nutrientScoreText.text = "N:" + _nutrientCost;
+        nutrientScoreText.text = "S:" + _nutrientCost;
     }
     public void ShowUpgradeState()
     {
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentNutrientValue()
     {
-        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrientScore;
+        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrientAmount;
         return nutrientValue;
     }
 
