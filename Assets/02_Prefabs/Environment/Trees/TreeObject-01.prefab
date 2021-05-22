@@ -127,11 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTreeHealth: 100
-  treeNutrientWeight: 10
+  treeNutrientWeight: 0.2
   treeWeatherWeight: 0.2
   treeSugarValue: 0
   treeSugarWeight: 0.2
-  treeSugarWeatherWeight: 0.2
+  treeSugarWeatherWeight: 0.02
   currentNutrientValue: 10
   range: 25
   rangeMax: 1
@@ -555,6 +555,34 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6827bf671dbc347c18b6850ce59bf39e, type: 2}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.27430093
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 10.675509
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.28364456
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 3.693851
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 12.191697
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 3.8828673
+      objectReference: {fileID: 0}
     - target: {fileID: -3887185075125053422, guid: f144e634ae02347ce8ac5cf9c79d192f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -133,7 +133,6 @@ public class TreeBehaviour : MonoBehaviour
 
     public void GetNutrients()
     {
-        //check if neighboring cells are fungi, if true then add sugar
         HexCell[] neighbors = currentCell.GetNeighbors();
 
         foreach (HexCell cell in neighbors)

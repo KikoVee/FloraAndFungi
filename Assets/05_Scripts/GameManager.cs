@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
    // public GameObject currentPlayer;
     public HexMapEditor _hexMapEditor;
+    private NutrientManager _nutrientManager;
     private int sugarScore;
     [SerializeField] private TextMeshProUGUI sugarScoreText;
     private int nutrientScore;
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _nutrientManager = NutrientManager.currentNutrientManager;
+    }
+
     private void Update()
     {
         if (turnEndSequence && timer > 0)
@@ -62,6 +68,15 @@ public class GameManager : MonoBehaviour
     public void UpdateNutrientScore(int nutrient)
     {
         nutrientScore = nutrient;
+        nutrientScoreText.text = "N:" + nutrientScore;
+    }
+    public void ShowCostOfUpgrade()
+    {
+        int _nutrientCost = _nutrientManager.nutrientCost;
+        nutrientScoreText.text = "N:" + _nutrientCost;
+    }
+    public void ShowUpgradeState()
+    {
         nutrientScoreText.text = "N:" + nutrientScore;
     }
    
@@ -110,6 +125,8 @@ public class GameManager : MonoBehaviour
         int treeCount = touchedTrees.Count;
         return treeCount;
     }
+
+    
     
 
    

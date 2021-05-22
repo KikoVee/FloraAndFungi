@@ -97,6 +97,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         currentNutrient += _nutrient;
         SpendSugar(nutrientCost);
         _gameManager.UpdateNutrientScore(currentNutrient);
+        nutrientCost += 10;
     }
 
     private void NewCycleSugar()
@@ -110,6 +111,11 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         {
             AddNutrient(1);
         }
+    }
+
+    private void NutrientLevels()
+    {
+        
     }
     
 }
