@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public bool turnEndSequence;
     private float timer;
     private float time = 0.2f;
-    public List<TreeBehaviour> touchedTrees = new List<TreeBehaviour>();
+    public List<Transform> touchedTrees = new List<Transform>();
  
     
     private void Awake()
@@ -110,11 +110,11 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentNutrientValue()
     {
-        int nutrientValue = gameObject.GetComponent<NutrientManager>().currentNutrient;
+        int nutrientValue = gameObject.GetComponent<NutrientManager>().nutrientScore;
         return nutrientValue;
     }
 
-    public List<TreeBehaviour> getTouchedTrees()
+    public List<Transform> getTouchedTrees()
     {
 
         return touchedTrees;

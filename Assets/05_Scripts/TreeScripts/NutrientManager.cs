@@ -5,7 +5,8 @@ using UnityEngine;
 public class NutrientManager : MonoBehaviour , IShopCustomer 
 {
     //this object keeps track of the amount of nutrient and sugar the player has to work with
-    public int currentNutrient;
+    public int nutrientScore;
+    private int nutrientAmount;
     public int currentSugar;
 
     public int expansionCost = 5;
@@ -33,7 +34,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         _gameManager = GameManager.currentManager;
         _gameManager.UpdateSugarScore(currentSugar);
-        _gameManager.UpdateNutrientScore(currentNutrient);
+        _gameManager.UpdateNutrientScore(nutrientScore);
         GameManager.onTurnEnd += NewCycleSugar;
     }
 
@@ -94,10 +95,11 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     public void AddNutrient(int _nutrient)
     {
-        currentNutrient += _nutrient;
+        nutrientScore += _nutrient;
         SpendSugar(nutrientCost);
-        _gameManager.UpdateNutrientScore(currentNutrient);
         nutrientCost += 10;
+        _gameManager.UpdateNutrientScore(nutrientScore);
+        NutrientLevels();
     }
 
     private void NewCycleSugar()
@@ -113,9 +115,17 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         }
     }
 
-    private void NutrientLevels()
+    private void NutrientLevels() //divides up the nutrients based on number of trees around
     {
-        
+        int treeNumber = _gameManager.touchedTrees.Count;
+
+        if (treeNumber > 0)
+        {
+            nutrientAmount = nutrientScore / treeNumber;
+
+        }
+        _gameManager.UpdateNutrientScore(nutrientAmount);
+
     }
     
 }

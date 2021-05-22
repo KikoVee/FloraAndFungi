@@ -219,7 +219,7 @@ public class TreeBehaviour : MonoBehaviour
                 if (cell.myType == HexCell.cellType.fungi)
                 {
                     fungiNeighbor = true;
-                    GameManager.currentManager.touchedTrees.Add(this);
+                   // GameManager.currentManager.touchedTrees.Add(this);
                     Debug.Log(GameManager.currentManager.touchedTrees.Count);
                     break;
                 }

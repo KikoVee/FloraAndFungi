@@ -48,6 +48,7 @@ public class HexMapEditor : MonoBehaviour {
 				_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
 				fungiNeighbor = false;
 				ColorNeighbors(cell);
+				CheckForTrees(cell);
 				//hexGrid.Refresh();
 			}
 		}	
@@ -82,6 +83,26 @@ public class HexMapEditor : MonoBehaviour {
 				
 		}
 
+	}
+
+	void CheckForTrees(HexCell cell)
+	{
+		HexCell[] cells = cell.GetNeighbors();
+		
+		foreach (HexCell _cell in cells)
+		{
+			if (_cell.myType == HexCell.cellType.tree)
+			{
+				Transform tree = _cell.GetComponent<Transform>().transform;
+				if (!_gameManager.touchedTrees.Contains(tree))
+				{
+					_gameManager.touchedTrees.Add(tree);
+					Debug.Log(GameManager.currentManager.touchedTrees.Count);
+
+				}
+			}
+				
+		}
 	}
 
 	void AddFeature(Vector3 position)
