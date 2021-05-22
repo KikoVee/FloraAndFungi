@@ -61,6 +61,7 @@ public class TreeBehaviour : MonoBehaviour
         blendShapeCount = skinnedMesh.blendShapeCount;
         
         
+        
         TreeVisualChange();
     }
 
@@ -100,6 +101,7 @@ public class TreeBehaviour : MonoBehaviour
                         + " N: " + currentNutrientValue 
                         + " S: " + treeSugarValue;
 
+        
     }
 
     public void NewCycle()
@@ -116,7 +118,7 @@ public class TreeBehaviour : MonoBehaviour
             treeSugarValue =
                 Mathf.Clamp((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight), 0,
                     100); //sets the amount of sugar tree produces based on health of tree
-            Debug.Log(this.gameObject + "sugar value is " + treeSugarValue);
+           // Debug.Log(this.gameObject + "sugar value is " + treeSugarValue);
             GiveSugar();
             float newNutrientValue =
                 Mathf.Clamp(currentNutrientValue - (currentNutrientValue * 0.5f), 0,
@@ -211,13 +213,20 @@ public class TreeBehaviour : MonoBehaviour
     {
         HexCell[] neighbors = currentCell.GetNeighbors();
 
-        foreach (HexCell cell in neighbors)
+        if (!fungiNeighbor)
         {
-            if (cell.myType == HexCell.cellType.fungi)
+            foreach (HexCell cell in neighbors)
             {
-                fungiNeighbor = true;
-            }
-        } 
+                if (cell.myType == HexCell.cellType.fungi)
+                {
+                    fungiNeighbor = true;
+                    GameManager.currentManager.touchedTrees.Add(this);
+                    Debug.Log(GameManager.currentManager.touchedTrees.Count);
+                    break;
+                }
+            }  
+        }
+        
     }
 
     void SpawnSugar()

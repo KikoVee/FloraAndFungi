@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public bool turnEndSequence;
     private float timer;
     private float time = 0.2f;
+    public List<TreeBehaviour> touchedTrees = new List<TreeBehaviour>();
  
     
     private void Awake()
@@ -98,6 +99,17 @@ public class GameManager : MonoBehaviour
         return nutrientValue;
     }
 
+    public List<TreeBehaviour> getTouchedTrees()
+    {
+
+        return touchedTrees;
+    }
+
+    public int GetCurrentTouchedTreeCount()
+    {
+        int treeCount = touchedTrees.Count;
+        return treeCount;
+    }
     
 
    
