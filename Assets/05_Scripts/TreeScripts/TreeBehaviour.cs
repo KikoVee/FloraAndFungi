@@ -40,8 +40,7 @@ public class TreeBehaviour : MonoBehaviour
     
     private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
-    private int blendShapeCount;
-    public float blendSpeed;
+    
 
     public TextMeshPro treeText;
     private bool fungiNeighbor = false;
@@ -61,7 +60,6 @@ public class TreeBehaviour : MonoBehaviour
       
         _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         skinnedMesh = _skinnedMeshRenderer.sharedMesh;
-        blendShapeCount = skinnedMesh.blendShapeCount;
         
         
         

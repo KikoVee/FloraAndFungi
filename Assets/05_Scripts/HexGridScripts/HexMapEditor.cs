@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class HexMapEditor : MonoBehaviour {
 
@@ -108,7 +110,7 @@ public class HexMapEditor : MonoBehaviour {
 	void AddFeature(Vector3 position)
 	{
 		Transform mushroomPrefab;
-		mushroomPrefab = GameManager.currentManager.fungiPrefab;
+		mushroomPrefab = _gameManager.fungiPrefab[Random.Range(0, _gameManager.fungiPrefab.Length)];
 		Transform instance = Instantiate(mushroomPrefab);
 		instance.localPosition = position; 
 		instance.localRotation = Quaternion.Euler(new Vector3(0, Random.Range(0,360),0));
