@@ -26,6 +26,7 @@ public class InputHandler : MonoBehaviour
                 HandleInput();
                 
             }
+           
         }    
     }
     
@@ -54,7 +55,12 @@ public class InputHandler : MonoBehaviour
                     hit.transform.gameObject.GetComponent<TreeBehaviour>().CollectSugar();
                 }
             }
-        }
+        }            
     }
-    
+
+    private void OnMouseOver()
+    {
+        // show health of tree
+        // show needed sugar to expand
+    }
 }

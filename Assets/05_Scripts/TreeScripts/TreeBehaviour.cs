@@ -246,13 +246,7 @@ public class TreeBehaviour : MonoBehaviour
         
     }
 
-   /* void SpawnSugar()
-    {
-        Vector3 center = gameObject.transform.position;
-        var pos = new Vector3(Random.Range(center.x -range, center.x + range), 1, Random.Range(center.z -range, center.z + range));
-        //var pos = new Vector3(Random.Range((center.x - rangeMin), (center.z + rangeMax)), 1, Random.Range((center.x - rangeMin), (center.z + rangeMax)));
-        GameObject newSugar = Instantiate(sugarPrefab, pos, Quaternion.Euler(0,Random.Range(0,360),0));
-    }*/
+   
 
     public void CollectSugar()
     {
