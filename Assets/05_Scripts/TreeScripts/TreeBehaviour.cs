@@ -40,7 +40,12 @@ public class TreeBehaviour : MonoBehaviour
     
     private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
+    private float newBlendValue = 0;
+    private float oldBlendValue = 0;
+    private float blendSpeed = 3;
+   
     
+   
 
     public TextMeshPro treeText;
     private bool fungiNeighbor = false;
@@ -60,8 +65,7 @@ public class TreeBehaviour : MonoBehaviour
       
         _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         skinnedMesh = _skinnedMeshRenderer.sharedMesh;
-        
-        
+        newBlendValue = oldBlendValue;
         
         TreeVisualChange();
     }
@@ -110,6 +114,21 @@ public class TreeBehaviour : MonoBehaviour
         {
             outline.enabled = false;
         }
+
+        if (oldBlendValue != newBlendValue)
+        {
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, oldBlendValue);
+            oldBlendValue = Mathf.Lerp(oldBlendValue, newBlendValue, blendSpeed * Time.deltaTime);
+        }
+        else
+        {
+            oldBlendValue = newBlendValue;
+        }
+
+        
+
+        
+        
     }
 
     public void NewCycle()
@@ -151,7 +170,6 @@ public class TreeBehaviour : MonoBehaviour
         {
             if (cell.myType == HexCell.cellType.fungi)
             {
-                //nutrientAmount = GameManager.currentManager.GetCurrentNutrientValue();
                 _nutrientAmount = _nutrientManager.nutrientAmount;
                 currentNutrientValue += _nutrientAmount;
             }
@@ -167,7 +185,7 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 0);
+            newBlendValue = 0;
             treeLeaves.SetActive(true);
             foreach (Renderer renderer in rend)
             {
@@ -180,27 +198,26 @@ public class TreeBehaviour : MonoBehaviour
         if (healthPercent >= 50 && healthPercent <= 89)
         {
             treeRenderer.material = treeMaterial[1];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 30);
+            newBlendValue = 30;
             treeLeaves.SetActive(true);
             foreach (Renderer renderer in rend)
             {
                 renderer.materials[0] = TreeLeavesMaterials[0];
 
             }
-           
 
         }
         if (healthPercent >= 11 && healthPercent <= 49)
         {
             treeRenderer.material = treeMaterial[2];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 60);
+            newBlendValue = 60;     
             treeLeaves.SetActive(false);
         }
 
         if (healthPercent <= 10)
         {
             treeRenderer.material = treeMaterial[3];
-            _skinnedMeshRenderer.SetBlendShapeWeight(0, 100);
+            newBlendValue = 100;
             treeLeaves.SetActive(false);
             
             
