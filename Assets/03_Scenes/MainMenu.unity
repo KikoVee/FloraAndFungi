@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42860082, g: 0.5617288, b: 0.4300127, a: 1}
+  m_IndirectSpecularColor: {r: 0.41865262, g: 0.56148195, b: 0.47854573, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -997,10 +997,10 @@ RectTransform:
   m_Father: {fileID: 1882570075}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -32}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 436, y: 474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924081076
 MonoBehaviour:
@@ -1855,10 +1855,10 @@ RectTransform:
   m_Father: {fileID: 1862138038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -32}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 436, y: 474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854217887
 MonoBehaviour:
@@ -1933,15 +1933,15 @@ RectTransform:
   m_GameObject: {fileID: 1862138037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45521, y: 0.45521, z: 0.45521}
+  m_LocalScale: {x: 0.27468735, y: 0.27468735, z: 0.27468735}
   m_Children:
   - {fileID: 1854217886}
   m_Father: {fileID: 1963691000}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -376}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 4, y: 85}
   m_SizeDelta: {x: 436, y: 474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862138039
@@ -2050,10 +2050,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f444d1bab3e941bc843088b4912a5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScale: {x: 0.5, y: 0.53, z: 0.4}
+  maxScale: {x: 0.285, y: 0.285, z: 0.285}
   repeatable: 1
   speed: 2
-  duration: 5
+  duration: 3
 --- !u!1 &1882570074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,16 +2083,16 @@ RectTransform:
   m_GameObject: {fileID: 1882570074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45521, y: 0.45521, z: 0.45521}
+  m_LocalScale: {x: 0.27468735, y: 0.27468735, z: 0.27468735}
   m_Children:
   - {fileID: 924081075}
   - {fileID: 1604616878}
   m_Father: {fileID: 1963691000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -376}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 4, y: 85}
   m_SizeDelta: {x: 436, y: 474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882570076
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9238032, b: 0.48584908, a: 0.4627451}
+  m_Color: {r: 0.3372549, g: 0.5176471, b: 0.4392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2201,10 +2201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f444d1bab3e941bc843088b4912a5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScale: {x: 0.53, y: 0.5, z: 0.4}
+  maxScale: {x: 0.285, y: 0.285, z: 0.285}
   repeatable: 1
   speed: 2
-  duration: 5
+  duration: 3
 --- !u!1 &1963690996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,12 +2253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
