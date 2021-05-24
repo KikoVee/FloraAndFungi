@@ -187,32 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e363bf5181e448a78cb05f5d6a64930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &158899512
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &164609901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2330,8 +2304,8 @@ RectTransform:
   - {fileID: 269269836}
   - {fileID: 1344358882}
   - {fileID: 1408151649}
-  - {fileID: 1822504328}
   - {fileID: 2099363212}
+  - {fileID: 1822504328}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3468,6 +3442,10 @@ PrefabInstance:
     - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
       propertyPath: gameSpeed
       value: 23.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
+      propertyPath: _timeOfDay
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2536603411833095630, guid: bb400b88343f9481ea24e0ddaadcafa8, type: 3}
       propertyPath: sunVariation
@@ -8944,7 +8922,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 158899512}
+  material: {fileID: 1986378517}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9202,6 +9180,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c39120d7e8a429d9150c2268c45291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &1986378517
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &2026769953
 GameObject:
   m_ObjectHideFlags: 0
@@ -14116,7 +14120,7 @@ RectTransform:
   m_Children:
   - {fileID: 664342509}
   m_Father: {fileID: 1053113513}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8051447, y: 0}
   m_AnchorMax: {x: 1, y: 0.162}
