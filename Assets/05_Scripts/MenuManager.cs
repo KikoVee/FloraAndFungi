@@ -29,8 +29,8 @@ public class MenuManager : MonoBehaviour
         spores.Play();
     }
 
-    public void NextScene()
+    public void PlayGame()
     {
-        
+        SceneManager.LoadScene(1);
     }
 }
