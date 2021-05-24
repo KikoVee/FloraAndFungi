@@ -14,7 +14,7 @@ public class FungiBehaviour : MonoBehaviour
 
    
 
-    void UpgradeEvent()
+    public void UpgradeEvent()
     {
         spores.Play(); 
     }
