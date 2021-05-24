@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text sugarScoreText;
     private int nutrientScore;
     [SerializeField] private Text nutrientScoreText;
+    private Color originalTextColor;
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
     public static EndTurnEvent onTurnEnd;
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _nutrientManager = NutrientManager.currentNutrientManager;
+        originalTextColor = nutrientScoreText.color;
+
     }
 
     private void Update()
@@ -76,7 +79,7 @@ public class GameManager : MonoBehaviour
     public void UpdateSugarScore(int sugar)
     {
         sugarScore = sugar;
-        sugarScoreText.text = "Sugar:" + sugarScore;
+        sugarScoreText.text = "Sugar: " + sugarScore;
     }
     public void UpdateNutrientScore(int nutrient)
     {
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
     }
     public void ShowUpgradeState()
     {
-        nutrientScoreText.color = Color.white;
+        nutrientScoreText.color = originalTextColor;
         nutrientScoreText.text = "" + nutrientScore;
     }
    
