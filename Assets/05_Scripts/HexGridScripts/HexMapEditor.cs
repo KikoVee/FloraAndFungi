@@ -99,7 +99,7 @@ public class HexMapEditor : MonoBehaviour {
 				if (!_gameManager.touchedTrees.Contains(tree))
 				{
 					_gameManager.touchedTrees.Add(tree);
-					Debug.Log(GameManager.currentManager.touchedTrees.Count);
+					//Debug.Log(GameManager.currentManager.touchedTrees.Count);
 
 				}
 			}

@@ -9714,9 +9714,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8250899903893643389}
   - component: {fileID: 8674358732068394230}
-  - component: {fileID: 1557621385305119608}
   m_Layer: 0
-  m_Name: FungiObject-03
+  m_Name: FungiObject-Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9753,19 +9752,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8176895510653587652}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1557621385305119608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8176895510653587652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26a5d4c25944a43ddba862fb066508ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spores: {fileID: 898033344499479653}
 --- !u!1001 &583203397253511928
 PrefabInstance:
   m_ObjectHideFlags: 0

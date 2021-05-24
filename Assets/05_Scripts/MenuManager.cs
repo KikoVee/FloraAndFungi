@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject upgradeButton;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private ParticleSystem spores;
+    [SerializeField] private TreeMainMenu[] trees;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,12 @@ public class MenuManager : MonoBehaviour
         continueButton.SetActive(true);         
         upgradeButton.SetActive(false); 
         spores.Play();
+
+        foreach (TreeMainMenu tree in trees)
+        {
+           tree.MainMenuEffect(); 
+        }
+        
     }
 
     public void PlayGame()

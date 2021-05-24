@@ -30,7 +30,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
     private int _nutrientAmount;
-    private NutrientManager _nutrientManager;
+    [SerializeField] private NutrientManager _nutrientManager;
     private WeatherManager _weatherManager;
 
     public Material[] treeMaterial;
@@ -79,7 +79,7 @@ public class TreeBehaviour : MonoBehaviour
             currentCell = hexGrid.GetCell(hit.point);
             currentCell.SetType(1);
             currentCell.Color = Color.gray;
-            Debug.Log("current cell for tree is " + currentCell);
+            //Debug.Log("current cell for tree is " + currentCell);
         }
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *hit.distance, Color.red);
 
@@ -263,6 +263,8 @@ public class TreeBehaviour : MonoBehaviour
             readToCollect = false;
         }
     }
+
+    
     
 
 }
