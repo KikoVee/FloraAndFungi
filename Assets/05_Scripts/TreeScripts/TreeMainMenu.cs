@@ -18,7 +18,15 @@ public class TreeMainMenu : MonoBehaviour
     private float newBlendValue = 0;
     private float oldBlendValue = 0;
     private float blendSpeed = 3;
-   
+
+
+    private void Start()
+    {
+        _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        skinnedMesh = _skinnedMeshRenderer.sharedMesh;
+        newBlendValue = oldBlendValue;
+        TreeVisualChange();
+    }
 
     // Update is called once per frame
     void Update()
