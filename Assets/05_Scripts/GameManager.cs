@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
     public static EndTurnEvent onTurnEnd;
+    bool timeLapseClicked = false;
+
 
     public delegate void GiveNutrientsEvent();
 
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     public Transform[] fungiPrefab;
 
     public bool turnEndSequence;
+    private bool timelapse = false;
     private float timer;
     private float time = 0.2f;
     public List<Transform> touchedTrees = new List<Transform>();
@@ -57,6 +60,15 @@ public class GameManager : MonoBehaviour
         else
         {
             turnEndSequence = false;
+        }
+
+        if (timelapse && timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if (timelapse && timer <= 0)
+        {
+           TimeLapse(); 
         }
     }
 
@@ -97,7 +109,37 @@ public class GameManager : MonoBehaviour
         
         turnEndSequence = true;
         timer = time;
+    }
 
+    private void TimeLapse()
+    {
+        GiveTreesNutrients();
+
+        if (onTurnEnd != null)
+        {
+            onTurnEnd();
+        }
+
+        timelapse = true;
+        turnEndSequence = true;
+        timer = time;
+        timeLapseClicked = true;
+         
+    }
+
+    public void TimeLapseButton()
+    {
+        if (!timeLapseClicked)
+        {
+            TimeLapse();
+        }
+        else
+        {
+            timelapse = false;
+            turnEndSequence = false;
+            timer = 0;
+            timeLapseClicked = false;
+        }
     }
 
     public void GiveTreesNutrients()

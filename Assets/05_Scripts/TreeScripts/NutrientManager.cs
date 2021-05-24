@@ -13,6 +13,10 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     public int nutrientCost = 10;
     public int nutrientUpgradeAmount = 10;
     
+    public delegate void NutrientEvent();
+    public static NutrientEvent addNutrientEvent;
+
+    
     public static NutrientManager currentNutrientManager;
     private GameManager _gameManager;
     
@@ -101,6 +105,11 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         nutrientCost += 10;
         nutrientAmount += nutrientUpgradeAmount;
         _gameManager.UpdateNutrientScore(nutrientScore);
+        if (addNutrientEvent != null)
+        {
+            addNutrientEvent();
+        }
+        
         NutrientLevels();
     }
 
@@ -127,5 +136,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         }
 
     }
+
+    
     
 }
