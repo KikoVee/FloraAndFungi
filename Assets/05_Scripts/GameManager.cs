@@ -81,16 +81,26 @@ public class GameManager : MonoBehaviour
     public void UpdateNutrientScore(int nutrient)
     {
         nutrientScore = nutrient;
-        nutrientScoreText.text = "N:" + nutrientScore;
+        ShowUpgradeState();
     }
     public void ShowCostOfUpgrade()
     {
         int _nutrientCost = _nutrientManager.nutrientCost;
-        nutrientScoreText.text = "S:" + _nutrientCost;
+
+        if (sugarScore >= _nutrientCost)
+        {
+            nutrientScoreText.color = Color.green;
+        }
+        else
+        {
+            nutrientScoreText.color = Color.red;
+        }
+        nutrientScoreText.text = "" + _nutrientCost;
     }
     public void ShowUpgradeState()
     {
-        nutrientScoreText.text = "N:" + nutrientScore;
+        nutrientScoreText.color = Color.white;
+        nutrientScoreText.text = "" + nutrientScore;
     }
    
     public IShopCustomer getCustomer(IShopCustomer shopCustomer)
