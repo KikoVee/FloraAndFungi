@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class GameManager : MonoBehaviour
     public HexMapEditor _hexMapEditor;
     private NutrientManager _nutrientManager;
     private int sugarScore;
-    [SerializeField] private TextMeshProUGUI sugarScoreText;
+    [SerializeField] private Text sugarScoreText;
     private int nutrientScore;
-    [SerializeField] private TextMeshProUGUI nutrientScoreText;
+    [SerializeField] private Text nutrientScoreText;
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
     public static EndTurnEvent onTurnEnd;
