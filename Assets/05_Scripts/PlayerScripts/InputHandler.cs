@@ -38,6 +38,7 @@ public class InputHandler : MonoBehaviour
                 if (hit.collider.GetComponent<HexMesh>())
                 {
                     _hexEditor.HitCell(hit);
+                   
 
                 }
 

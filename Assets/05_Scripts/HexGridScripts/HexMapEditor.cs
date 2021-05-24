@@ -47,7 +47,7 @@ public class HexMapEditor : MonoBehaviour {
 				cell.Color = colors[Random.Range(0,2)];
 				cell.SetType(2);
 				AddFeature(cell.Position);
-				_nutrientManager.SpendSugar(_nutrientManager.expansionCost);
+				_nutrientManager.BuyExpansion();
 				fungiNeighbor = false;
 				ColorNeighbors(cell);
 				CheckForTrees(cell);

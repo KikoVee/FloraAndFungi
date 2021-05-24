@@ -127,6 +127,12 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         }
     }
 
+    public void BuyExpansion()
+    {
+        SpendSugar(expansionCost);
+        expansionCost += 1;
+    }
+
     private void NutrientLevels() //divides up the nutrients based on number of trees around
     {
         int treeNumber = _gameManager.touchedTrees.Count;
