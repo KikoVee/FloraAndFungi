@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text sugarScoreText;
     private int nutrientScore;
     [SerializeField] private Text nutrientScoreText;
+    [SerializeField] private GameObject timeLapsePauseImage;
+    [SerializeField] private Text timeLapsePauseText;
+
     private Color originalTextColor;
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
@@ -138,7 +142,10 @@ public class GameManager : MonoBehaviour
         turnEndSequence = true;
         timer = time;
         timeLapseClicked = true;
-         
+        timeLapsePauseText.enabled = false;
+        timeLapsePauseImage.SetActive(true);
+
+
     }
 
     public void TimeLapseButton()
@@ -153,6 +160,8 @@ public class GameManager : MonoBehaviour
             turnEndSequence = false;
             timer = 0;
             timeLapseClicked = false;
+            timeLapsePauseText.enabled = true;
+            timeLapsePauseImage.SetActive(false);
         }
     }
 
