@@ -21,6 +21,10 @@ public class Tutorial : MonoBehaviour
     private bool growing = false;
     public int growSpeed = 9;
 
+    [SerializeField] private GameObject tree;
+    [SerializeField] private ParticleSystem spores;
+
+
         
     // Start is called before the first frame update
     void Start()
@@ -83,9 +87,20 @@ public class Tutorial : MonoBehaviour
                     growing = true;
 
                 }
+
+                if (hit.collider.name.Equals("TreeObject-MainMenu-02"))
+                {
+                    tree.GetComponent<Outline>().enabled = false;
+                }
             }
 
         }
+    }
+
+    private void Upgrade()
+    {
+        spores. Play();
+        tree.GetComponent<TreeMainMenu>().MainMenuEffect();
     }
     
 }
