@@ -16,7 +16,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float treeWeatherWeight;
 
     [SerializeField] private int treeSugarValue;
-    [SerializeField] private float treeSugarWeight;
+    private float treeSugarWeight = 10;
     [SerializeField] private float treeSugarWeatherWeight;
 
     private float weatherValue;
@@ -36,7 +36,11 @@ public class TreeBehaviour : MonoBehaviour
     public Material[] treeMaterial;
     public Material[] TreeLeavesMaterials;
     [SerializeField] private Renderer treeRenderer;
-    public GameObject treeLeaves;
+    public GameObject[] treeLeaves;
+    private GameObject currentTreeLeaves;
+    int treeLeavesNumber = 0;
+    private int oldTreeLeavesNumber;
+    bool leaves;
     
     private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
@@ -66,7 +70,8 @@ public class TreeBehaviour : MonoBehaviour
         _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         skinnedMesh = _skinnedMeshRenderer.sharedMesh;
         newBlendValue = oldBlendValue;
-        
+
+        oldTreeLeavesNumber = treeLeavesNumber;
         TreeVisualChange();
     }
 
@@ -142,14 +147,13 @@ public class TreeBehaviour : MonoBehaviour
             currentTreeHealth =
                 Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0,
                     100);
-            treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) * treeSugarWeight);
-            
-            //treeSugarValue =
+            /*treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) / treeSugarWeight);
+            treeSugarValue =
                 //Mathf.CeilToInt((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight)); //sets the amount of sugar tree produces based on health of tree
             if (treeSugarValue > 0 && fungiNeighbor)
             {
                 readToCollect = true;
-            }
+            }*/
             
             float newNutrientValue =
                 Mathf.Clamp(currentNutrientValue - (currentNutrientValue * 0.5f), 0,
@@ -181,17 +185,25 @@ public class TreeBehaviour : MonoBehaviour
     void TreeVisualChange()
     {
       float  healthPercent = currentTreeHealth;
-        Renderer[] rend = treeLeaves.GetComponentsInChildren<Renderer>();
+      oldTreeLeavesNumber = treeLeavesNumber;
+      
+      
+        //Renderer[] rend = treeLeaves.GetComponentsInChildren<Renderer>();
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
             newBlendValue = 0;
-            treeLeaves.SetActive(true);
-            foreach (Renderer renderer in rend)
+            treeLeavesNumber = 0;
+            leaves = true;
+
+            
+            /*foreach (Renderer renderer in rend)
             {
                 renderer.materials[0] = TreeLeavesMaterials[1];
 
-            }
+            }*/
+
+            treeSugarValue = 10;
 
         }
         
@@ -199,31 +211,51 @@ public class TreeBehaviour : MonoBehaviour
         {
             treeRenderer.material = treeMaterial[1];
             newBlendValue = 30;
-            treeLeaves.SetActive(true);
-            foreach (Renderer renderer in rend)
+            leaves = true;
+            treeLeavesNumber = 1;
+            /*foreach (Renderer renderer in rend)
             {
                 renderer.materials[0] = TreeLeavesMaterials[0];
+            }*/
 
-            }
+            treeSugarValue = 5;
 
         }
         if (healthPercent >= 11 && healthPercent <= 49)
         {
             treeRenderer.material = treeMaterial[2];
-            newBlendValue = 60;     
-            treeLeaves.SetActive(false);
+            newBlendValue = 60;
+            leaves = false;
+
+            treeSugarValue = 1;
         }
 
         if (healthPercent <= 10)
         {
             treeRenderer.material = treeMaterial[3];
             newBlendValue = 100;
-            treeLeaves.SetActive(false);
-            
-            
+            leaves = false;
 
+            treeSugarValue = 0;
         }
-      
+        
+        if (treeSugarValue > 0 && fungiNeighbor)
+        {
+            readToCollect = true;
+        }
+
+        if (leaves == true)
+        {
+            treeLeaves[treeLeavesNumber].SetActive(true);
+            treeLeaves[oldTreeLeavesNumber].SetActive(false);
+        }
+        else
+        {
+            treeLeaves[treeLeavesNumber].SetActive(false);
+            treeLeaves[oldTreeLeavesNumber].SetActive(false);
+        }
+        
+
     }
 
     void CheckNeighbors()
@@ -245,7 +277,6 @@ public class TreeBehaviour : MonoBehaviour
         }
         
     }
-
    
 
     public void CollectSugar()

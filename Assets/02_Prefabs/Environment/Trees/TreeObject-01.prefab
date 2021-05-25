@@ -117,7 +117,6 @@ MonoBehaviour:
   treeNutrientWeight: 3
   treeWeatherWeight: 0.2
   treeSugarValue: 0
-  treeSugarWeight: 0.2
   treeSugarWeatherWeight: 0.02
   currentNutrientValue: 10
   range: 25
@@ -125,17 +124,19 @@ MonoBehaviour:
   sugarPrefab: {fileID: 6676874167290712781, guid: 86578b1d177cb441fa3f0bd1e2f2bd0f, type: 3}
   currentCell: {fileID: 0}
   hexGrid: {fileID: 0}
+  _nutrientManager: {fileID: 0}
   treeMaterial:
+  - {fileID: 2100000, guid: e5607d63972314d7096e7a89c1c6e6ac, type: 2}
   - {fileID: 2100000, guid: a1111b28fe1a948da9a0120093a14254, type: 2}
-  - {fileID: 2100000, guid: a1111b28fe1a948da9a0120093a14254, type: 2}
-  - {fileID: 2100000, guid: 4965a6253a9364104bbfd2e993be2c27, type: 2}
+  - {fileID: 2100000, guid: 2a766b91278f54d4681652c46cac32cc, type: 2}
   - {fileID: 2100000, guid: 4965a6253a9364104bbfd2e993be2c27, type: 2}
   TreeLeavesMaterials:
   - {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
   - {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
   treeRenderer: {fileID: 6407979977452786542}
-  treeLeaves: {fileID: 5274434230621715562}
-  blendSpeed: 0
+  treeLeaves:
+  - {fileID: 5274434230621715562}
+  - {fileID: 5274434230621715562}
   treeText: {fileID: 3726977479078698443}
   outline: {fileID: 6350138929549214078}
 --- !u!114 &6350138929549214078
