@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
     public static EndTurnEvent onTurnEnd;
     bool timeLapseClicked = false;
+    [SerializeField] private GameObject timeLapseImage;
 
 
     public delegate void GiveNutrientsEvent();
@@ -144,6 +145,7 @@ public class GameManager : MonoBehaviour
         timeLapseClicked = true;
         timeLapsePauseText.enabled = false;
         timeLapsePauseImage.SetActive(true);
+        timeLapseImage.SetActive(true);
 
 
     }
@@ -162,6 +164,8 @@ public class GameManager : MonoBehaviour
             timeLapseClicked = false;
             timeLapsePauseText.enabled = true;
             timeLapsePauseImage.SetActive(false);
+            timeLapseImage.SetActive(false);
+
         }
     }
 
