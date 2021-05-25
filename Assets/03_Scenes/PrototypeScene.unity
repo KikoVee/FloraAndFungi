@@ -860,6 +860,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ad092f9e9a34db1a28fb6c038eeb05, type: 3}
+--- !u!21 &568818567
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &628966838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2827,7 +2853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f444d1bab3e941bc843088b4912a5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScale: {x: 0.55, y: 0.55, z: 0.55}
+  maxScale: {x: 0.95, y: 0.95, z: 0.95}
   repeatable: 1
   speed: 2
   duration: 5
@@ -8653,32 +8679,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6756991738248363634, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
   m_PrefabInstance: {fileID: 1722288998}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1765031640
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1785064288
 GameObject:
   m_ObjectHideFlags: 0
@@ -9006,7 +9006,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 1765031640}
+  material: {fileID: 568818567}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0

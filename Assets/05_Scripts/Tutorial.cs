@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 
 
 public class Tutorial : MonoBehaviour
@@ -105,6 +107,7 @@ public class Tutorial : MonoBehaviour
                 if (hit.collider.name.Equals("TreeObject-MainMenu-02"))
                 {
                     tree.GetComponent<Outline>().enabled = false;
+                    
                 }
             }
 
@@ -117,6 +120,11 @@ public class Tutorial : MonoBehaviour
         tree.GetComponent<TreeMainMenu>().MainMenuEffect();
         continueButton.SetActive(true);
         upgradeButton.SetActive(false);
+    }
+    
+    public void Play()
+    {
+        SceneManager.LoadScene(2);
     }
     
 }
