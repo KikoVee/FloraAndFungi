@@ -1069,7 +1069,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &626857538
 PrefabInstance:
@@ -1085,6 +1085,10 @@ PrefabInstance:
     - target: {fileID: 8671758784508952947, guid: f99d7a69f87ea432ab03907c166851c0, type: 3}
       propertyPath: m_Name
       value: TreeObject-MainMenu-02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671758784508952947, guid: f99d7a69f87ea432ab03907c166851c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8671758784508952959, guid: f99d7a69f87ea432ab03907c166851c0, type: 3}
       propertyPath: m_RootOrder
@@ -3060,6 +3064,7 @@ MonoBehaviour:
   - {fileID: 1112824059}
   continueButton: {fileID: 1862138037}
   playButton: {fileID: 1481989172}
+  upgradeButton: {fileID: 1882570074}
   mushroom: {fileID: 1261613310}
   growSpeed: 15
   tree: {fileID: 626857539}
@@ -3667,9 +3672,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: TutorialUpgrade
+      - m_Target: {fileID: 1760484975}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

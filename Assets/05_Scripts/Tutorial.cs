@@ -13,6 +13,8 @@ public class Tutorial : MonoBehaviour
     private int textNumber = 0;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject playButton;
+    [SerializeField] private GameObject upgradeButton;
+
 
     [SerializeField] private GameObject mushroom;
     private SkinnedMeshRenderer _skinnedMeshRenderer;
@@ -62,12 +64,24 @@ public class Tutorial : MonoBehaviour
             textNumber += 1;
             text = tutorialText[textNumber];
             text.SetActive(true); 
-            oldText.SetActive(false);  
+            oldText.SetActive(false);
+            
         }
         else
         {
             continueButton.SetActive(false);
             playButton.SetActive(true);
+        }
+        
+        if (textNumber == 5)
+        {
+            tree.SetActive(true);    
+        }
+
+        if (textNumber == 9)
+        {
+            upgradeButton.SetActive(true);
+            continueButton.SetActive(false);
         }
         
     }
@@ -97,10 +111,12 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    private void Upgrade()
+    public void Upgrade()
     {
         spores. Play();
         tree.GetComponent<TreeMainMenu>().MainMenuEffect();
+        continueButton.SetActive(true);
+        upgradeButton.SetActive(false);
     }
     
 }
