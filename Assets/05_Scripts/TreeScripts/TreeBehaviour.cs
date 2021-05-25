@@ -40,7 +40,7 @@ public class TreeBehaviour : MonoBehaviour
     private GameObject currentTreeLeaves;
     int treeLeavesNumber = 0;
     private int oldTreeLeavesNumber;
-    bool leaves;
+    public bool leaves;
     
     private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
