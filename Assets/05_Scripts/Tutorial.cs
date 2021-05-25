@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 public class Tutorial : MonoBehaviour
 {
@@ -12,6 +14,13 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject playButton;
 
+    [SerializeField] private GameObject mushroom;
+    private SkinnedMeshRenderer _skinnedMeshRenderer;
+    private Mesh skinnedMesh;
+    private float blendShape = 100f;
+    private bool growing = false;
+    public int growSpeed = 9;
+
         
     // Start is called before the first frame update
     void Start()
@@ -20,12 +29,24 @@ public class Tutorial : MonoBehaviour
         text.SetActive(true);
         continueButton.SetActive(true);
         playButton.SetActive(false);
+        _skinnedMeshRenderer = mushroom.GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+        if (blendShape > 0 && growing)
+        {
+            _skinnedMeshRenderer.SetBlendShapeWeight(0, blendShape);
+            blendShape -= growSpeed * Time.deltaTime;
+        }
+        
+        if (
+            Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) 
+        {
+            RayCastInput();
+                
+        }
         
     }
 
@@ -46,4 +67,25 @@ public class Tutorial : MonoBehaviour
         }
         
     }
+
+    
+
+    private void RayCastInput()
+    {
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(inputRay, out hit))
+        {
+            {
+
+                if (hit.collider.name.Equals("FungiObject-Menu"))
+                {
+                    growing = true;
+
+                }
+            }
+
+        }
+    }
+    
 }

@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 511114848012247774, guid: 107ad9e84ec4b4480a6b25cf41ed9f30, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[0]
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 704796297751249083, guid: 107ad9e84ec4b4480a6b25cf41ed9f30, type: 3}
       propertyPath: m_RenderMode
@@ -1564,6 +1564,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8176895510653587652, guid: 107ad9e84ec4b4480a6b25cf41ed9f30, type: 3}
   m_PrefabInstance: {fileID: 10683936}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1059527577
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059527576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.31
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1059527579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,6 +2044,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225848440}
   m_CullTransparentMesh: 1
+--- !u!1 &1261613310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4745457181963782045, guid: 107ad9e84ec4b4480a6b25cf41ed9f30, type: 3}
+  m_PrefabInstance: {fileID: 10683936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1282696491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2982,8 @@ MonoBehaviour:
   - {fileID: 1112824059}
   continueButton: {fileID: 1862138037}
   playButton: {fileID: 1481989172}
+  mushroom: {fileID: 1261613310}
+  growSpeed: 15
 --- !u!1 &1767996365
 GameObject:
   m_ObjectHideFlags: 0
