@@ -17,6 +17,9 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         text = tutorialText[0];
+        text.SetActive(true);
+        continueButton.SetActive(true);
+        playButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class Tutorial : MonoBehaviour
 
     public void TutorialText()
     {
-        if (textNumber <= tutorialText.Length)
+        if (textNumber < tutorialText.Length - 1)
         {
             GameObject oldText = text;
             textNumber += 1;
