@@ -191,6 +191,12 @@ public class GameManager : MonoBehaviour
         return treeCount;
     }
 
+    public void AddedTree(Transform tree)
+    {
+        touchedTrees.Add(tree);
+        _nutrientManager.NutrientLevelSplit();
+    }
+
     
     
 

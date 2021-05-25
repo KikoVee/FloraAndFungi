@@ -10,13 +10,15 @@ using UnityEngine.SceneManagement;
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] public GameObject[] tutorialText;
+    [SerializeField] public int collectText;
+    [SerializeField] public int upgradeText;
+
     private GameObject text;
     private Text oldText;
     private int textNumber = 0;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject upgradeButton;
-
 
     [SerializeField] private GameObject mushroom;
     private SkinnedMeshRenderer _skinnedMeshRenderer;
@@ -75,12 +77,12 @@ public class Tutorial : MonoBehaviour
             playButton.SetActive(true);
         }
         
-        if (textNumber == 5)
+        if (textNumber == collectText)
         {
             tree.SetActive(true);    
         }
 
-        if (textNumber == 9)
+        if (textNumber == upgradeText)
         {
             upgradeButton.SetActive(true);
             continueButton.SetActive(false);

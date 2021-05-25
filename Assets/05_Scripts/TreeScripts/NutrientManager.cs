@@ -111,7 +111,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
             addNutrientEvent();
         }
         
-        NutrientLevels();
+       // NutrientLevels();
     }
 
     private void NewCycleSugar()
@@ -133,7 +133,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         //expansionCost += 1;
     }
 
-    private void NutrientLevels() //divides up the nutrients based on number of trees around
+    /*private void NutrientLevels() //divides up the nutrients based on number of trees around
     {
         int treeNumber = _gameManager.touchedTrees.Count;
 
@@ -141,7 +141,16 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         {
             nutrientAmount = nutrientAmount / treeNumber;
         }
+    }*/
 
+    public void NutrientLevelSplit()
+    {
+        int treeNumber = _gameManager.touchedTrees.Count;
+
+        if (treeNumber > 0)
+        {
+            nutrientAmount = nutrientAmount / treeNumber;
+        }
     }
     
     // expand map with more fungi

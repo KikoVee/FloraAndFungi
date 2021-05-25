@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class TreeBehaviour : MonoBehaviour
 {
     private int maxTreeHealth = 100;
-    [SerializeField] private float currentTreeHealth;
+    [SerializeField] private float currentTreeHealth = 20;
     
     [SerializeField] private float treeNutrientWeight;
     [SerializeField] private float treeWeatherWeight;
@@ -145,7 +145,7 @@ public class TreeBehaviour : MonoBehaviour
             CheckNeighbors();
             weatherValue = _weatherManager.weatherValue;
             currentTreeHealth =
-                Mathf.Clamp((currentNutrientValue * treeNutrientWeight) + (weatherValue * treeWeatherWeight), 0,
+                Mathf.Clamp((currentTreeHealth/2) + currentNutrientValue + (weatherValue), 0,
                     100);
             /*treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) / treeSugarWeight);
             treeSugarValue =

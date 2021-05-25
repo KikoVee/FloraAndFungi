@@ -50,7 +50,7 @@ public class WeatherManager : MonoBehaviour
             dayCycles.SetActive(false);
         }*/
 
-        if (weatherValue >= 70)
+        if (weatherValue >= 0)
         {
             if (postProcessing.weight <= 1)
             {
@@ -74,7 +74,7 @@ public class WeatherManager : MonoBehaviour
 
     void NewCycle()
     {
-        float newWeather = Random.Range(0,100);
+        float newWeather = Random.Range(-10,10);
         weatherValue = newWeather;
         
         

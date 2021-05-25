@@ -98,7 +98,9 @@ public class HexMapEditor : MonoBehaviour {
 				Transform tree = _cell.GetComponent<Transform>().transform;
 				if (!_gameManager.touchedTrees.Contains(tree))
 				{
-					_gameManager.touchedTrees.Add(tree);
+					
+					_gameManager.AddedTree(tree);
+				
 					//Debug.Log(GameManager.currentManager.touchedTrees.Count);
 
 				}
