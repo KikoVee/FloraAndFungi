@@ -7,7 +7,7 @@ public class DisplayUI : MonoBehaviour
 {
     public string myString;
     public Text textPrefab;
-    private Text myText;
+    public Text myText;
     public float fadeTime;
     public bool displayInfo;
     private Camera camera;

@@ -48,7 +48,7 @@ public class TreeBehaviour : MonoBehaviour
     
    
 
-    public Text treeText;
+    private Text treeText;
     private bool fungiNeighbor = false;
 
     private bool readToCollect = false;
@@ -67,8 +67,9 @@ public class TreeBehaviour : MonoBehaviour
         _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         skinnedMesh = _skinnedMeshRenderer.sharedMesh;
         newBlendValue = oldBlendValue;
-
         oldTreeLeavesNumber = treeLeavesNumber;
+        treeText = gameObject.GetComponent<DisplayUI>().myText;
+        
         TreeVisualChange();
     }
 
