@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
 
 public class TreeBehaviour : MonoBehaviour
 {
@@ -51,7 +48,7 @@ public class TreeBehaviour : MonoBehaviour
     
    
 
-    public TextMeshPro treeText;
+    public Text treeText;
     private bool fungiNeighbor = false;
 
     private bool readToCollect = false;
@@ -107,9 +104,7 @@ public class TreeBehaviour : MonoBehaviour
             GetCellLocation();
         }
 
-        treeText.text = "H: " + currentTreeHealth  
-                        + " N: " + currentNutrientValue 
-                        + " S: " + treeSugarValue;
+        treeText.text = "Tree health is: " + currentTreeHealth;
 
         if (readToCollect)
         {
