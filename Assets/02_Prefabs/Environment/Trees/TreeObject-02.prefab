@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8393726848239900371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   - {fileID: 8849410200140560475}
   - {fileID: 9034097296408625119}
   leaves: 0
-  treeText: {fileID: 7446044438828265310}
+  treeText: {fileID: 6973386561517467173, guid: ccebc95c8dc304d5fa7ce31c1e769fb7, type: 3}
   outline: {fileID: 8222234213772674636}
 --- !u!114 &8222234213772674636
 MonoBehaviour:
@@ -339,13 +339,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6756991738248363646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d457af50c9694efd9cf1eb906cc9556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myString: hello
-  myText: {fileID: 7446044438828265310}
+  textPrefab: {fileID: 6973386561517467173, guid: ccebc95c8dc304d5fa7ce31c1e769fb7, type: 3}
   fadeTime: 9
   displayInfo: 0
 --- !u!137 &7768433073576355273

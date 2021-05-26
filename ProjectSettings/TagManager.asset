@@ -8,6 +8,7 @@ TagManager:
   - RecordEnd
   - RecordStart
   - sun
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
