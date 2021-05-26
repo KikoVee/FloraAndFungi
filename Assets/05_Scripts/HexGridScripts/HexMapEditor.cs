@@ -38,7 +38,7 @@ public class HexMapEditor : MonoBehaviour {
 	void EditCell(HexCell cell)
 	{
 		
-		if (cell.myType == HexCell.cellType.empty)
+		if (cell.myType == HexCell.cellType.neighbor || cell.myType == HexCell.cellType.empty)
 		{
 			CheckCellNeightbors(cell);
 
@@ -65,6 +65,7 @@ public class HexMapEditor : MonoBehaviour {
 			if (_cell.myType == HexCell.cellType.empty)
 			{
 				_cell.Color = colors[Random.Range(3,5)];
+				_cell.myType = HexCell.cellType.neighbor;
 			}
 				
 		}

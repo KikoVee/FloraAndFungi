@@ -208,6 +208,7 @@ MonoBehaviour:
   - {r: 0.18553106, g: 0.3679245, b: 0.14057493, a: 0}
   - {r: 1, g: 1, b: 1, a: 0}
   hexGrid: {fileID: 1185675687471605278}
+  groundVisual: {fileID: 0}
 --- !u!1 &1185675685834396390
 GameObject:
   m_ObjectHideFlags: 0

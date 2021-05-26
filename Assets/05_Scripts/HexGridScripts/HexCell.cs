@@ -27,7 +27,7 @@ public class HexCell : MonoBehaviour {
 	public Color startColor;
 	public HexGridChunk chunk;
 
-	public enum cellType {empty, tree, fungi};
+	public enum cellType {empty, tree, fungi, neighbor};
 
 	public cellType myType;
 	
