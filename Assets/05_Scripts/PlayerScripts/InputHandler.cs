@@ -8,12 +8,14 @@ public class InputHandler : MonoBehaviour
     private GameManager _gameManager;
     private HexMapEditor _hexEditor;
     private NutrientManager _nutrientManager;
+    private Camera _camera;
 
     private void Start()
     {
         _gameManager = GameManager.currentManager;
         _hexEditor = _gameManager._hexMapEditor;
         _nutrientManager = NutrientManager.currentNutrientManager;
+        _camera = Camera.main;
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class InputHandler : MonoBehaviour
     }
     
     public void HandleInput () {
-        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray inputRay = _camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit)) {
             {

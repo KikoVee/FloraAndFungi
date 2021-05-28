@@ -17,7 +17,7 @@ public class DisplayUI : MonoBehaviour
     void Start()
     {
         myCanvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
-        camera = FindObjectOfType<Camera>();
+        camera = Camera.main;
         myText = Instantiate(textPrefab, myCanvas.transform).GetComponent<Text>();
         myText.color = Color.clear;
     }
