@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70afe9e12c7a7ed47911bb608a23a8ff, type: 3}
   m_Name: SplitToning
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.47597012, g: 0.5283019, b: 0.47832707, a: 1}
+    m_Value: {r: 0.58592916, g: 0.5943396, b: 0.5906898, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.990566, g: 0.65721256, b: 0.5653702, a: 1}
+    m_Value: {r: 0.34634212, g: 0.4056604, b: 0.3998709, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -79,11 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: -0.15
+    m_Value: 0.15
   contrast:
     m_OverrideState: 1
     m_Value: 1.99
