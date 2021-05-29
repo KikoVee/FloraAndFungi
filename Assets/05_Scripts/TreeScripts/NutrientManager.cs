@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
 
 public class NutrientManager : MonoBehaviour , IShopCustomer 
 {
@@ -19,6 +23,12 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     
     public static NutrientManager currentNutrientManager;
     private GameManager _gameManager;
+
+    [SerializeField] public Image nutrientButtonMask;
+    [SerializeField] public Button upgradeButton;
+    private float differenceTillUpgrade;
+    private float fillAmount;
+    private bool updateButtonVisual;
     
     private bool storeOpen;
     [SerializeField] private UIShop uiShop;
@@ -41,6 +51,11 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         _gameManager.UpdateSugarScore(currentSugar);
         _gameManager.UpdateNutrientScore(nutrientScore);
         GameManager.onTurnEnd += NewCycleSugar;
+        float maximumOffset = nutrientCost;
+        float currentOffset = currentSugar;
+        fillAmount = currentOffset/ maximumOffset;
+        updateButtonVisual = true;
+
     }
 
     private void Update()
@@ -60,9 +75,13 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
                 storeOpen = false;
             }    
         }*/
+
+        
+            UpdateNutrientVisual();
+        
+        
     }
 
-    
 
     public bool TrySpendSugarAmount(int cost) //checks if enough sugar
     {
@@ -90,12 +109,14 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         currentSugar -= cost;
         _gameManager.UpdateSugarScore(currentSugar);
+        updateButtonVisual = true;
     }
 
     public void AddSugar(int sugar)
     {
         this.currentSugar += sugar;
         _gameManager.UpdateSugarScore(currentSugar);
+        updateButtonVisual = true;
     }
 
     public void AddNutrient(int upgrade)
@@ -151,6 +172,17 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         {
             nutrientAmount = nutrientAmount / treeNumber;
         }
+    }
+
+    private void UpdateNutrientVisual()
+    {
+        float oldFillAmount = fillAmount;
+        float maximumOffset = nutrientCost;
+        float currentOffset = currentSugar;
+        fillAmount = currentOffset/ maximumOffset;
+
+        nutrientButtonMask.fillAmount = Mathf.Lerp(oldFillAmount, fillAmount, Time.deltaTime);
+        updateButtonVisual = false;
     }
     
     // expand map with more fungi
