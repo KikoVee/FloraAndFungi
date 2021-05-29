@@ -22,13 +22,13 @@ MonoBehaviour:
     showEyeDropper: 1
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.34634212, g: 0.4056604, b: 0.3998709, a: 1}
+    m_Value: {r: 0.26521894, g: 0.3773585, b: 0.36988252, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
   balance:
     m_OverrideState: 1
-    m_Value: 18
+    m_Value: 9
     min: -100
     max: 100
 --- !u!114 &-4408798861432302736
@@ -117,14 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
   m_Name: FilmGrain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   type:
     m_OverrideState: 1
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.042
+    m_Value: 0.13
     min: 0
     max: 1
   response:
