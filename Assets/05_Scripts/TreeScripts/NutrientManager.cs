@@ -54,7 +54,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         float maximumOffset = nutrientCost;
         float currentOffset = currentSugar;
         fillAmount = currentOffset/ maximumOffset;
-        UpdateNutrientVisual();
+       // UpdateNutrientVisual();
 
 
     }
@@ -100,7 +100,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         currentSugar -= cost;
         _gameManager.UpdateSugarScore(currentSugar);
-        UpdateNutrientVisual();
+       // UpdateNutrientVisual();
 
     }
 
@@ -108,7 +108,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         this.currentSugar += sugar;
         _gameManager.UpdateSugarScore(currentSugar);
-        UpdateNutrientVisual();
+      //  UpdateNutrientVisual();
     }
 
     public void AddNutrient(int upgrade)
@@ -157,7 +157,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         }
     }
 
-    private void UpdateNutrientVisual()
+    /*private void UpdateNutrientVisual()
     {
         oldFillAmount = fillAmount;
         float maximumOffset = nutrientCost-1;
@@ -174,7 +174,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
             upgradeButton.SetActive(false); 
         }
 
-    }
+    }*/
     
      
 

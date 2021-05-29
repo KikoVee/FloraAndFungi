@@ -8,6 +8,7 @@ public class TreeBehaviour : MonoBehaviour
 {
     private int maxTreeHealth = 100;
     [SerializeField] private float currentTreeHealth = 20;
+    [SerializeField] private float treeHealthWeight = 0.6f;
     
     [SerializeField] private float treeNutrientWeight;
     [SerializeField] private float treeWeatherWeight;
@@ -141,8 +142,9 @@ public class TreeBehaviour : MonoBehaviour
             CheckNeighbors();
             weatherValue = _weatherManager.weatherValue;
             currentTreeHealth =
-                Mathf.Clamp((currentTreeHealth/2) + currentNutrientValue + (weatherValue), 0,
+                Mathf.Clamp((currentTreeHealth * treeHealthWeight) + currentNutrientValue + (weatherValue), 0,
                     100);
+            
             /*treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) / treeSugarWeight);
             treeSugarValue =
                 //Mathf.CeilToInt((currentTreeHealth - (currentTreeHealth * treeSugarWeight)) - (weatherValue * treeSugarWeatherWeight)); //sets the amount of sugar tree produces based on health of tree

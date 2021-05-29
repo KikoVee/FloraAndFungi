@@ -15,6 +15,9 @@ public class WeatherManager : MonoBehaviour
     public Volume postProcessing;
     private VolumeProfile _volumeProfile;
     private int speed = 1;
+
+    public float weatherMin = -10;
+    public float weatherMax = 10;
     
 
     private void Awake()
@@ -74,7 +77,7 @@ public class WeatherManager : MonoBehaviour
 
     void NewCycle()
     {
-        float newWeather = Random.Range(-10,10);
+        float newWeather = Random.Range(weatherMin, weatherMax);
         weatherValue = newWeather;
         
         
