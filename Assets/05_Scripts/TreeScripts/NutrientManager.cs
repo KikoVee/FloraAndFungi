@@ -25,15 +25,14 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     private GameManager _gameManager;
 
     [SerializeField] public Image nutrientButtonMask;
-    [SerializeField] public Button upgradeButton;
+    [SerializeField] public GameObject upgradeButton;
     private float differenceTillUpgrade;
     private float fillAmount;
     private float oldFillAmount;
     private bool updateButtonVisual;
-    
-    private bool storeOpen;
-    [SerializeField] private UIShop uiShop;
-    
+
+    private bool tutorial;
+   
     private void Awake()
     {
         if (currentNutrientManager == null)
@@ -62,22 +61,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     private void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.E) && _gameManager.turnEndSequence != true)
-        {
-            IShopCustomer shopCustomer = gameObject.GetComponent<IShopCustomer>();
-
-            if (!storeOpen)
-            {
-                uiShop.Show(shopCustomer);
-                storeOpen = true;
-            }
-            else
-            {
-                uiShop.Hide();
-                storeOpen = false;
-            }    
-        }*/
-
+       
 
         if (updateButtonVisual)
         {
@@ -153,6 +137,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         if (TrySpendSugarAmount(nutrientCost))
         {
             AddNutrient(1);
+            upgradeButton.SetActive(false);
         }
     }
 
@@ -161,16 +146,6 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         SpendSugar(expansionCost);
         //expansionCost += 1;
     }
-
-    /*private void NutrientLevels() //divides up the nutrients based on number of trees around
-    {
-        int treeNumber = _gameManager.touchedTrees.Count;
-
-        if (treeNumber > 0)
-        {
-            nutrientAmount = nutrientAmount / treeNumber;
-        }
-    }*/
 
     public void NutrientLevelSplit()
     {
@@ -189,7 +164,23 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         float currentOffset = currentSugar-1;
         fillAmount = currentOffset/ maximumOffset;
         updateButtonVisual = true;
+        
+        if (currentSugar >= nutrientCost)
+        {
+            upgradeButton.SetActive(true); 
+        }
+        else
+        {
+            upgradeButton.SetActive(false); 
+        }
 
+    }
+    
+     
+
+    private void TutorialPopUp()
+    {
+        //add popup explanation about tree upgrades when ready to upgrade;
     }
     
     // expand map with more fungi
