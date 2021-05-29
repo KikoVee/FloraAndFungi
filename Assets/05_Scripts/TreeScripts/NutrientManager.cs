@@ -28,6 +28,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     [SerializeField] public Button upgradeButton;
     private float differenceTillUpgrade;
     private float fillAmount;
+    private float oldFillAmount;
     private bool updateButtonVisual;
     
     private bool storeOpen;
@@ -54,7 +55,8 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         float maximumOffset = nutrientCost;
         float currentOffset = currentSugar;
         fillAmount = currentOffset/ maximumOffset;
-        updateButtonVisual = true;
+        UpdateNutrientVisual();
+
 
     }
 
@@ -76,9 +78,14 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
             }    
         }*/
 
-        
-            UpdateNutrientVisual();
-        
+
+        if (updateButtonVisual)
+        {
+            
+            nutrientButtonMask.fillAmount = Mathf.Lerp(oldFillAmount, fillAmount, 3f * Time.deltaTime);
+            updateButtonVisual = false;
+        }
+                
         
     }
 
@@ -109,14 +116,15 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         currentSugar -= cost;
         _gameManager.UpdateSugarScore(currentSugar);
-        updateButtonVisual = true;
+        UpdateNutrientVisual();
+
     }
 
     public void AddSugar(int sugar)
     {
         this.currentSugar += sugar;
         _gameManager.UpdateSugarScore(currentSugar);
-        updateButtonVisual = true;
+        UpdateNutrientVisual();
     }
 
     public void AddNutrient(int upgrade)
@@ -176,13 +184,12 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     private void UpdateNutrientVisual()
     {
-        float oldFillAmount = fillAmount;
-        float maximumOffset = nutrientCost;
-        float currentOffset = currentSugar;
+        oldFillAmount = fillAmount;
+        float maximumOffset = nutrientCost-1;
+        float currentOffset = currentSugar-1;
         fillAmount = currentOffset/ maximumOffset;
+        updateButtonVisual = true;
 
-        nutrientButtonMask.fillAmount = Mathf.Lerp(oldFillAmount, fillAmount, Time.deltaTime);
-        updateButtonVisual = false;
     }
     
     // expand map with more fungi
