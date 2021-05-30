@@ -33,7 +33,6 @@ public class UIHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("The cursor entered the selectable UI element.");
         displayInfo = true;
     }
 

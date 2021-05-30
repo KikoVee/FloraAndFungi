@@ -1126,32 +1126,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!21 &522713665
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &528270214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2434,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+--- !u!21 &826556274
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &851028492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,7 +2881,7 @@ Transform:
   - {fileID: 1814728106}
   - {fileID: 679946559}
   m_Father: {fileID: 1222598388}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1052513202
 PrefabInstance:
@@ -3917,8 +3917,8 @@ Transform:
   m_Children:
   - {fileID: 911549279}
   - {fileID: 947754865}
-  - {fileID: 1833445989}
   - {fileID: 1008848628}
+  - {fileID: 1833445989}
   - {fileID: 851028493}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -11514,7 +11514,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 522713665}
+  material: {fileID: 826556274}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12019,11 +12019,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetText: {fileID: 0}
-  collectablePrefab: {fileID: 3332243926015826386, guid: ab1460133513b4df0ad6c6d00fa30499, type: 3}
+  collectablePrefab: {fileID: 2936955352079618085, guid: ab1460133513b4df0ad6c6d00fa30499, type: 3}
   target: {fileID: 1138883794}
   maxCollectables: 10
-  minAnimDuration: 0.598
-  maxAnimDuration: 1.21
+  minAnimDuration: 0.802
+  maxAnimDuration: 2
+  easeType: 0
 --- !u!1 &2026769953
 GameObject:
   m_ObjectHideFlags: 0

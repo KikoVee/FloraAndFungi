@@ -10,6 +10,8 @@ public class CollectableAnimation : MonoBehaviour
     [SerializeField] private GameObject collectablePrefab;
     [SerializeField] private Transform target;
     private int _collectables;
+    private Canvas myCanvas;
+    private Camera camera;
 
     [Space] [Header("Available collectables : (collectables to pool)")] [SerializeField]
     private int maxCollectables;
@@ -33,6 +35,8 @@ public class CollectableAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myCanvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
+        camera = Camera.main;
         targetPos = target.position;
         PrepareCollectables();
     }
@@ -43,7 +47,7 @@ public class CollectableAnimation : MonoBehaviour
         for (int i = 0; i < maxCollectables; i++)
         {
             collectable = Instantiate(collectablePrefab);
-            collectable.transform.parent = transform;
+            collectable.transform.parent = myCanvas.transform;
             collectable.SetActive(false);
             collectablesQueue.Enqueue(collectable);  
         }    
@@ -74,6 +78,8 @@ public class CollectableAnimation : MonoBehaviour
 
     public void AddCollectable(Vector3 collectablePosition, int amount)
     {
-        Animate(collectablePosition, amount);
+        Vector3 position = camera.WorldToScreenPoint(collectablePosition);
+
+        Animate(position, amount);
     }
 }
