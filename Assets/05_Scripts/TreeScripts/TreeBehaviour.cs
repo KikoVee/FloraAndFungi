@@ -30,6 +30,7 @@ public class TreeBehaviour : MonoBehaviour
     private int _nutrientAmount;
     [SerializeField] private NutrientManager _nutrientManager;
     private WeatherManager _weatherManager;
+    private CollectableAnimation _collectableManager;
 
     public Material[] treeMaterial;
     public Material[] TreeLeavesMaterials;
@@ -64,6 +65,7 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
         _weatherManager = WeatherManager.currentWeatherManager;
+        _collectableManager = GameManager.currentManager._currentCollectableManager;
       
         _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         skinnedMesh = _skinnedMeshRenderer.sharedMesh;
@@ -282,6 +284,7 @@ public class TreeBehaviour : MonoBehaviour
         if (readToCollect)
         {
             _nutrientManager.AddSugar(treeSugarValue);
+            _collectableManager.AddCollectable(transform.position,treeSugarValue);
             treeSugarValue = 0;
             readToCollect = false;
         }
