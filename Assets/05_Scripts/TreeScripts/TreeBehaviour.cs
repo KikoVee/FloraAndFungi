@@ -65,7 +65,7 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.nutrientEvent += GetNutrients;
         _nutrientManager = NutrientManager.currentNutrientManager;
         _weatherManager = WeatherManager.currentWeatherManager;
-        _collectableManager = GameManager.currentManager._currentCollectableManager;
+        _collectableManager = GameManager.currentManager._sugarCollectableAnimation;
       
         _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         skinnedMesh = _skinnedMeshRenderer.sharedMesh;

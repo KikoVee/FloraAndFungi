@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
    // public GameObject currentPlayer;
     public HexMapEditor _hexMapEditor;
     private NutrientManager _nutrientManager;
-    public CollectableAnimation _currentCollectableManager;
+    public CollectableAnimation _sugarCollectableAnimation;
     private int sugarScore;
     [SerializeField] private Text sugarScoreText;
     private int nutrientScore;

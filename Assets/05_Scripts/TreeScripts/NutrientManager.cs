@@ -119,6 +119,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         nutrientAmount += nutrientUpgradeAmount;
         _gameManager.UpdateNutrientScore(nutrientScore);
         
+        
         if (addNutrientEvent != null)
         {
             addNutrientEvent();
