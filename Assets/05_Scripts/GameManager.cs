@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text sugarScoreText;
     private int nutrientScore;
     [SerializeField] private Text nutrientScoreText;
+    [SerializeField] private Text nutrientCostText;
+    [SerializeField] private Text treeScoreText;
     [SerializeField] private GameObject timeLapsePauseImage;
     [SerializeField] private Text timeLapsePauseText;
 
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _nutrientManager = NutrientManager.currentNutrientManager;
-        originalTextColor = nutrientScoreText.color;
+        originalTextColor = nutrientCostText.color;
 
     }
 
@@ -85,37 +87,33 @@ public class GameManager : MonoBehaviour
     {
         sugarScore = sugar;
         sugarScoreText.text = "Sugar: " + sugarScore;
+        ShowCostOfUpgrade();
     }
+    
     public void UpdateNutrientScore(int nutrient)
     {
         nutrientScore = nutrient;
-        ShowUpgradeState();
+        nutrientScoreText.text = "Nutrient: " + nutrientScore;
+        ShowCostOfUpgrade();
     }
+    
     public void ShowCostOfUpgrade()
     {
         int _nutrientCost = _nutrientManager.nutrientCost;
 
         if (sugarScore >= _nutrientCost)
         {
-            nutrientScoreText.color = Color.green;
+            nutrientCostText.color = Color.green;
         }
         else
         {
-            nutrientScoreText.color = Color.red;
+            nutrientCostText.color = Color.red;
         }
-        nutrientScoreText.text = "" + _nutrientCost;
+        nutrientCostText.text = sugarScore + "/" + _nutrientCost;
     }
-    public void ShowUpgradeState()
-    {
-        nutrientScoreText.color = originalTextColor;
-        nutrientScoreText.text = "" + nutrientScore;
-    }
+    
+    
    
-    public IShopCustomer getCustomer(IShopCustomer shopCustomer)
-    {
-        shopCustomer = NutrientManager.currentNutrientManager.GetComponent<IShopCustomer>();
-        return shopCustomer;
-    }
 
     public void EndTurn()
     {
@@ -199,6 +197,7 @@ public class GameManager : MonoBehaviour
     {
         touchedTrees.Add(tree);
         _nutrientManager.NutrientLevelSplit();
+        treeScoreText.text = "Trees: " + touchedTrees.Count;
     }
 
     
