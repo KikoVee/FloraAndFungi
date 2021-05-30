@@ -37,6 +37,7 @@ public class WeatherManager : MonoBehaviour
         _currentManager = GameManager.currentManager;
         GameManager.onTurnEnd += NewCycle;
         _volumeProfile = postProcessing.sharedProfile;
+        ChangeState();
 
 
     }
@@ -59,9 +60,7 @@ public class WeatherManager : MonoBehaviour
             {
                 postProcessing.weight += Time.deltaTime;  
             }
-            
-            rainParticles.Play();
-            rainDrops.Play();
+           
         }
         else
         {
@@ -70,8 +69,8 @@ public class WeatherManager : MonoBehaviour
                 postProcessing.weight -= Time.deltaTime;  
             }            
             
-            rainParticles.Stop();
-            rainDrops.Stop();
+            
+
         }
     }
 
@@ -79,9 +78,28 @@ public class WeatherManager : MonoBehaviour
     {
         float newWeather = Random.Range(weatherMin, weatherMax);
         weatherValue = newWeather;
+        ChangeState();
         
-        
-        
+ 
+    }
+
+    void ChangeState()
+    {
+        if (weatherValue >= 0)
+        {
+           
+            rainParticles.Play();
+            rainDrops.Play();
+            FindObjectOfType<AudioManager>().Play("Rain");
+        }
+        else
+        {
+                          
+            rainParticles.Stop();
+            rainDrops.Stop();
+            FindObjectOfType<AudioManager>().Pause("Rain");
+
+        }
     }
 
     
