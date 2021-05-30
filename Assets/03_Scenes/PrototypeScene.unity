@@ -378,6 +378,24 @@ MonoBehaviour:
     pitch: 0.85
     loop: 1
     source: {fileID: 0}
+  - name: 3 tree
+    clip: {fileID: 8300000, guid: 3b8782f5bd763482a8fc7de1ee9df678, type: 3}
+    volume: 0.395
+    pitch: 0.85
+    loop: 1
+    source: {fileID: 0}
+  - name: 4 tree
+    clip: {fileID: 8300000, guid: a072cc34e89e14409998fc46f9acd185, type: 3}
+    volume: 0.395
+    pitch: 0.85
+    loop: 1
+    source: {fileID: 0}
+  - name: 5 tree
+    clip: {fileID: 8300000, guid: c09678881537341499e814e55e19713f, type: 3}
+    volume: 0.395
+    pitch: 0.85
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &91671390
 Transform:
   m_ObjectHideFlags: 0
@@ -5528,6 +5546,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656984640}
   m_CullTransparentMesh: 1
+--- !u!21 &1673676783
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &1689526968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11179,32 +11223,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748571973}
   m_CullTransparentMesh: 1
---- !u!21 &1794589531
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1797984034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11577,7 +11595,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 1794589531}
+  material: {fileID: 1673676783}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0

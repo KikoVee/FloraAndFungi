@@ -216,6 +216,21 @@ public class GameManager : MonoBehaviour
             _audioManager.Play("2 tree");
         }
         
+        if (treeNumber == 3)
+        {
+            _audioManager.Play("3 tree");
+        }
+        
+        if (treeNumber == 4)
+        {
+            _audioManager.Play("4 tree");
+        }
+        
+        if (treeNumber == 5)
+        {
+            _audioManager.Play("5 tree");
+        }
+        
     }
 
    
