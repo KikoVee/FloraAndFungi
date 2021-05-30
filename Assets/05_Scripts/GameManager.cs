@@ -230,7 +230,11 @@ public class GameManager : MonoBehaviour
         {
             _audioManager.Play("5 tree");
         }
-        
+
+        if (treeNumber == 6)
+        {
+            _audioManager.Play("Background Music");
+        }
     }
 
    
