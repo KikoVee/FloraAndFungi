@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
    // public GameObject currentPlayer;
     public HexMapEditor _hexMapEditor;
     private NutrientManager _nutrientManager;
+    private AudioManager _audioManager;
     public CollectableAnimation _sugarCollectableAnimation;
     private int sugarScore;
     [SerializeField] private Text sugarScoreText;
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         _nutrientManager = NutrientManager.currentNutrientManager;
         originalTextColor = nutrientCostText.color;
+        _audioManager = FindObjectOfType<AudioManager>();
 
     }
 
@@ -199,10 +201,22 @@ public class GameManager : MonoBehaviour
         touchedTrees.Add(tree);
         _nutrientManager.NutrientLevelSplit();
         treeScoreText.text = "Trees: " + touchedTrees.Count;
+        UpdateMusic(touchedTrees.Count);
     }
 
-    
-    
+    void UpdateMusic(int treeNumber)
+    {
+        if (treeNumber == 1)
+        {
+            _audioManager.Play("1 tree");
+        }
+
+        if (treeNumber == 2)
+        {
+            _audioManager.Play("2 tree");
+        }
+        
+    }
 
    
 }
