@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class CollectableAnimation : MonoBehaviour
 {
-    [SerializeField] private Text targetText;
+    //[SerializeField] private Text targetText;
     [SerializeField] private GameObject collectablePrefab;
     [SerializeField] private Transform target;
     private int _collectables;
@@ -21,6 +21,8 @@ public class CollectableAnimation : MonoBehaviour
     [SerializeField] [Range(0.5f, 0.9f)] float minAnimDuration;
     [SerializeField] [Range(0.9f, 2.0f)] float maxAnimDuration;
     [SerializeField] private Ease easeType;
+    [SerializeField] private Ease scaleType;
+
 
     private Vector3 targetPos;
 
@@ -65,13 +67,16 @@ public class CollectableAnimation : MonoBehaviour
                 float duration = Random.Range(minAnimDuration, maxAnimDuration);
                 
                 collectable.transform.DOMove(targetPos, duration)
-                    .SetEase(Ease.InOutBack)
+                    .SetEase(easeType)
                     .OnComplete(() =>
                 {
                     collectable.SetActive(false);
                     collectablesQueue.Enqueue(collectable);
                     Collectables++;
                 });
+
+                float scale = Random.Range(0.5f, 1f);
+                collectable.transform.DOScale(collectable.transform.localScale, scale).SetEase(scaleType);
             }
         }
     }
