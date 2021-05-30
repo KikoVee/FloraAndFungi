@@ -35,7 +35,8 @@ public class TreeBehaviour : MonoBehaviour
     public Material[] treeMaterial;
     public Material[] TreeLeavesMaterials;
     [SerializeField] private Renderer treeRenderer;
-    public GameObject[] treeLeaves;
+    public GameObject healthyLeaves;
+    public GameObject unhealthyLeaves;
     private GameObject currentTreeLeaves;
     int treeLeavesNumber = 0;
     private int oldTreeLeavesNumber;
@@ -187,22 +188,12 @@ public class TreeBehaviour : MonoBehaviour
       float  healthPercent = currentTreeHealth;
       oldTreeLeavesNumber = treeLeavesNumber;
       
-      
-        //Renderer[] rend = treeLeaves.GetComponentsInChildren<Renderer>();
         if (healthPercent >= 90)
         {
             treeRenderer.material = treeMaterial[0];
             newBlendValue = 0;
-            treeLeavesNumber = 0;
-            leaves = true;
-
-            
-            /*foreach (Renderer renderer in rend)
-            {
-                renderer.materials[0] = TreeLeavesMaterials[1];
-
-            }*/
-
+            healthyLeaves.SetActive(true);
+            unhealthyLeaves.SetActive(false);
             treeSugarValue = 10;
 
         }
@@ -211,13 +202,9 @@ public class TreeBehaviour : MonoBehaviour
         {
             treeRenderer.material = treeMaterial[1];
             newBlendValue = 30;
-            leaves = true;
-            treeLeavesNumber = 1;
-            /*foreach (Renderer renderer in rend)
-            {
-                renderer.materials[0] = TreeLeavesMaterials[0];
-            }*/
-
+            unhealthyLeaves.SetActive(true);
+            healthyLeaves.SetActive(false);
+            
             treeSugarValue = 5;
 
         }
@@ -225,8 +212,8 @@ public class TreeBehaviour : MonoBehaviour
         {
             treeRenderer.material = treeMaterial[2];
             newBlendValue = 60;
-            leaves = false;
-
+            healthyLeaves.SetActive(false);
+            unhealthyLeaves.SetActive(false);
             treeSugarValue = 1;
         }
 
@@ -234,8 +221,8 @@ public class TreeBehaviour : MonoBehaviour
         {
             treeRenderer.material = treeMaterial[3];
             newBlendValue = 100;
-            leaves = false;
-
+            healthyLeaves.SetActive(false);
+            unhealthyLeaves.SetActive(false);
             treeSugarValue = 0;
         }
         
@@ -244,16 +231,7 @@ public class TreeBehaviour : MonoBehaviour
             readToCollect = true;
         }
 
-        if (leaves == true)
-        {
-            treeLeaves[treeLeavesNumber].SetActive(true);
-            treeLeaves[oldTreeLeavesNumber].SetActive(false);
-        }
-        else
-        {
-            treeLeaves[treeLeavesNumber].SetActive(false);
-            treeLeaves[oldTreeLeavesNumber].SetActive(false);
-        }
+        
         
 
     }

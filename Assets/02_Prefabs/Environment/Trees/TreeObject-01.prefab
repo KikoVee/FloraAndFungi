@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTreeHealth: 100
+  treeHealthWeight: 0.6
   treeNutrientWeight: 3
   treeWeatherWeight: 0.2
   treeSugarValue: 0
@@ -134,9 +135,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
   - {fileID: 2100000, guid: 6ba6ca9d8044f4ec387fb43b185dd6a6, type: 2}
   treeRenderer: {fileID: 6407979977452786542}
-  treeLeaves:
-  - {fileID: 5274434230621715562}
-  - {fileID: 5274434230621715562}
+  healthyLeaves: {fileID: 5274434230621715562}
+  unhealthyLeaves: {fileID: 5274434230621715562}
   leaves: 0
   outline: {fileID: 6350138929549214078}
 --- !u!114 &6350138929549214078

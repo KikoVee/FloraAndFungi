@@ -29,8 +29,8 @@ Transform:
   m_Children:
   - {fileID: 8789342112103822264}
   - {fileID: 3321977322456151616}
-  - {fileID: 4730003800002760704}
   - {fileID: 6104075769316434991}
+  - {fileID: 4730003800002760704}
   m_Father: {fileID: 6756991738248363634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTreeHealth: 100
+  treeHealthWeight: 0.6
   treeNutrientWeight: 0.2
   treeWeatherWeight: 0.2
   treeSugarValue: 0
@@ -103,9 +104,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a825a97cf3e20413f8b29cceb7db5757, type: 2}
   - {fileID: 2100000, guid: f10058080b90944649aec69ff417d478, type: 2}
   treeRenderer: {fileID: 7768433073576355273}
-  treeLeaves:
-  - {fileID: 8849410200140560475}
-  - {fileID: 9034097296408625119}
+  healthyLeaves: {fileID: 8849410200140560475}
+  unhealthyLeaves: {fileID: 9034097296408625119}
   leaves: 0
   outline: {fileID: 8222234213772674636}
 --- !u!114 &8222234213772674636
@@ -237,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6104075769316434991
 Transform:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ Transform:
   - {fileID: 2298341620872580595}
   - {fileID: 2917967374176833328}
   m_Father: {fileID: 4527763077735843361}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9034097296408625119
 GameObject:
@@ -288,7 +288,7 @@ Transform:
   - {fileID: 4858042200334419968}
   - {fileID: 5395398399900787719}
   m_Father: {fileID: 4527763077735843361}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1760873350418557464
 PrefabInstance:
