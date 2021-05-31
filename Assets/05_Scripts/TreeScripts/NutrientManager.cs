@@ -118,6 +118,8 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         nutrientCost += 10;
         nutrientAmount += nutrientUpgradeAmount;
         _gameManager.UpdateNutrientScore(nutrientScore);
+        FindObjectOfType<AudioManager>().Play("Spores");
+
         
         
         if (addNutrientEvent != null)

@@ -22,26 +22,19 @@ public class FungiBehaviour : MonoBehaviour
 
     private void PlayStartSound()
     {
-        FindObjectOfType<AudioManager>().Play("Pop");
 
-        /*int randomChime = Random.Range(0, 4);
+        int randomChime = Random.Range(0, 2);
 
         if (randomChime == 0)
         {
-            FindObjectOfType<AudioManager>().Play("Piano Chime 1");
+            FindObjectOfType<AudioManager>().Play("Pop");
         }
         if (randomChime == 1)
         {
-            FindObjectOfType<AudioManager>().Play("Piano Chime 2");
+            FindObjectOfType<AudioManager>().Play("Pop 2");
         }
-        if (randomChime == 2)
-        {
-            FindObjectOfType<AudioManager>().Play("Piano Chime 3");
-        }
-        if (randomChime == 3)
-        {
-            FindObjectOfType<AudioManager>().Play("Piano Chime 4");
-        }*/
+       
+       
 
     }
 }

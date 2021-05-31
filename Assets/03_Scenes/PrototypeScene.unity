@@ -330,32 +330,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &85381776
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!114 &119738477 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1185675685659211452, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
@@ -4574,6 +4548,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484696883}
   m_CullTransparentMesh: 1
+--- !u!21 &1541791015
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &1547119305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11286,7 +11286,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 85381776}
+  material: {fileID: 1541791015}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17440,7 +17440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.size
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[6].clip
@@ -17469,26 +17469,34 @@ PrefabInstance:
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 5cd7bc40d437c4a78bd9e3588425eeca, type: 3}
+      objectReference: {fileID: 8300000, guid: e8bfa347d8b0f4212b598b2e57a5188f, type: 3}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].name
-      value: Pop
+      value: Spores
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[9].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 844835522e2094d5aa7904fb0d2e458b, type: 3}
+      objectReference: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[9].name
-      value: Piano Chime 3
+      value: Pop
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[10].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 844835522e2094d5aa7904fb0d2e458b, type: 3}
+      objectReference: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[10].name
-      value: Piano Chime 4
+      value: Pop 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
+      propertyPath: sounds.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e6334fb4638a643388146cfe13dabcaa, type: 3}
+    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
+      propertyPath: sounds.Array.data[11].name
+      value: Pop 3
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[6].pitch
@@ -17500,11 +17508,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].pitch
-      value: 0.7
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[9].pitch
-      value: 1.43
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[0].volume
@@ -17512,7 +17520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[10].pitch
-      value: 1.54
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
+      propertyPath: sounds.Array.data[11].pitch
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[1].volume
@@ -17540,19 +17552,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[7].volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].volume
-      value: 0.59
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[9].volume
-      value: 0.5
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[10].volume
-      value: 0.5
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
