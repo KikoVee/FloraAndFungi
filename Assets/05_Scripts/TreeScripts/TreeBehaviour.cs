@@ -263,6 +263,7 @@ public class TreeBehaviour : MonoBehaviour
         {
             _nutrientManager.AddSugar(treeSugarValue);
             _collectableManager.AddCollectable(transform.position,treeSugarValue);
+            FindObjectOfType<AudioManager>().Play("Chime");
             treeSugarValue = 0;
             readToCollect = false;
         }
