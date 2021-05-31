@@ -102,7 +102,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Spores
     clip: {fileID: 8300000, guid: e8bfa347d8b0f4212b598b2e57a5188f, type: 3}
-    volume: 0.9
+    volume: 1
     pitch: 0.85
     playOnAwake: 0
     loop: 0
@@ -117,6 +117,13 @@ MonoBehaviour:
   - name: Pop 2
     clip: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
     volume: 0.08
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
+    volume: 0.04
     pitch: 1
     playOnAwake: 0
     loop: 0

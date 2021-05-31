@@ -238,6 +238,12 @@ public class GameManager : MonoBehaviour
             _audioManager.Play("Background Music");
         }
     }
+    
+    public void PlayClick()
+    {
+        FindObjectOfType<AudioManager>().Play("Button");
+
+    }
 
    
 }

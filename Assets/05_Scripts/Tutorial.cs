@@ -129,4 +129,10 @@ public class Tutorial : MonoBehaviour
         SceneManager.LoadScene(2);
     }
     
+    public void PlayClick()
+    {
+        FindObjectOfType<AudioManager>().Play("Button");
+  
+    }
+    
 }
