@@ -14,13 +14,15 @@ public class DisplayUI : MonoBehaviour
     private Canvas myCanvas;
     
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         myCanvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
         camera = Camera.main;
         myText = Instantiate(textPrefab, myCanvas.transform).GetComponent<Text>();
-        myText.color = Color.clear;
+        myText.color = Color.clear;    
     }
+
+    
 
     // Update is called once per frame
     void Update()
