@@ -330,6 +330,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &85381776
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!114 &119738477 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1185675685659211452, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
@@ -1050,32 +1076,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!21 &535651134
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &616621720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11286,7 +11286,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 535651134}
+  material: {fileID: 85381776}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17469,7 +17469,7 @@ PrefabInstance:
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e06995f15736a45239ea55fc4d40f53a, type: 3}
+      objectReference: {fileID: 8300000, guid: 5cd7bc40d437c4a78bd9e3588425eeca, type: 3}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].name
       value: Pop
@@ -17500,7 +17500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].pitch
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[9].pitch
@@ -17516,23 +17516,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.54
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[2].volume
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[3].volume
-      value: 0.45
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[4].volume
-      value: 0.47
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[5].volume
-      value: 0.49
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[6].volume
@@ -17544,7 +17544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[8].volume
-      value: 0.21
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: sounds.Array.data[9].volume
