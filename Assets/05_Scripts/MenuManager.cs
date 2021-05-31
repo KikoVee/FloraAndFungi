@@ -14,7 +14,8 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("Background Music");
+
     }
 
     // Update is called once per frame

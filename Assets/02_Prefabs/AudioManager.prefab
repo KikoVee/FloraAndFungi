@@ -46,43 +46,78 @@ MonoBehaviour:
   sounds:
   - name: Background Music
     clip: {fileID: 8300000, guid: 2491d459c1c6449a7acadc09ef401e58, type: 3}
-    volume: 0.395
+    volume: 0.639
     pitch: 0.85
     playOnAwake: 1
     loop: 1
     source: {fileID: 0}
   - name: 1 tree
     clip: {fileID: 8300000, guid: 4e8e8804b4b174a6eba46ec45a2acd5d, type: 3}
-    volume: 0.395
+    volume: 0.6
     pitch: 0.85
     playOnAwake: 0
     loop: 1
     source: {fileID: 0}
   - name: 2 tree
     clip: {fileID: 8300000, guid: 1f20f7c181e974bceaba5d6549427ebb, type: 3}
-    volume: 0.395
+    volume: 0.7
     pitch: 0.85
     playOnAwake: 0
     loop: 1
     source: {fileID: 0}
   - name: 3 tree
     clip: {fileID: 8300000, guid: 3b8782f5bd763482a8fc7de1ee9df678, type: 3}
-    volume: 0.395
+    volume: 0.7
     pitch: 0.85
     playOnAwake: 0
     loop: 1
     source: {fileID: 0}
   - name: 4 tree
     clip: {fileID: 8300000, guid: a072cc34e89e14409998fc46f9acd185, type: 3}
-    volume: 0.395
+    volume: 0.7
     pitch: 0.85
     playOnAwake: 0
     loop: 1
     source: {fileID: 0}
   - name: 5 tree
     clip: {fileID: 8300000, guid: c09678881537341499e814e55e19713f, type: 3}
-    volume: 0.395
+    volume: 0.7
     pitch: 0.85
     playOnAwake: 0
     loop: 1
+    source: {fileID: 0}
+  - name: Rain
+    clip: {fileID: 8300000, guid: 534deffb3b9c043c9bb203425bd666b0, type: 3}
+    volume: 0.32
+    pitch: 0.57
+    playOnAwake: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Chime
+    clip: {fileID: 8300000, guid: 70f916f136a184325a1d8d0cb2b53af9, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Spores
+    clip: {fileID: 8300000, guid: e8bfa347d8b0f4212b598b2e57a5188f, type: 3}
+    volume: 0.9
+    pitch: 0.85
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
+    volume: 0.23
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop 2
+    clip: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
+    volume: 0.08
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
     source: {fileID: 0}

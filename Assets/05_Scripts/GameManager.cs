@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
         _nutrientManager = NutrientManager.currentNutrientManager;
         originalTextColor = nutrientCostText.color;
         _audioManager = FindObjectOfType<AudioManager>();
+        FindObjectOfType<AudioManager>().Stop("Background Music");
+
 
     }
 
