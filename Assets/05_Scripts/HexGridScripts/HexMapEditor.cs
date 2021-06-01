@@ -113,7 +113,7 @@ public class HexMapEditor : MonoBehaviour {
 	void AddFeature(Vector3 position)
 	{
 		Transform mushroomPrefab;
-		mushroomPrefab = _gameManager.fungiPrefab[Random.Range(0, _gameManager.fungiPrefab.Length)];
+		mushroomPrefab = _gameManager.fungiPrefab;
 		Transform instance = Instantiate(mushroomPrefab);
 		instance.localPosition = position; 
 		instance.localRotation = Quaternion.Euler(new Vector3(0, Random.Range(0,360),0));

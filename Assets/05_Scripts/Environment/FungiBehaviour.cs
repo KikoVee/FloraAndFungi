@@ -5,12 +5,15 @@ using UnityEngine;
 public class FungiBehaviour : MonoBehaviour
 {
     [SerializeField] private ParticleSystem spores;
+    [SerializeField] private GameObject[] mushroomPrefabs;
+    
     
     // Start is called before the first frame update
     void Start()
     {
         NutrientManager.addNutrientEvent += UpgradeEvent;
         PlayStartSound();
+        PickVisual();
     }
 
    
@@ -33,8 +36,12 @@ public class FungiBehaviour : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("Pop 2");
         }
-       
-       
+    }
 
+    private void PickVisual()
+    {
+        int mushroomVisual = Random.Range(0, mushroomPrefabs.Length);
+        
+        mushroomPrefabs[mushroomVisual].SetActive(true);
     }
 }

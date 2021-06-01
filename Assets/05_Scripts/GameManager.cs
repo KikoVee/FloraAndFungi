@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public static GiveNutrientsEvent nutrientEvent;
 
-    public Transform[] fungiPrefab;
+    public Transform fungiPrefab;
 
     public bool turnEndSequence;
     private bool timelapse = false;
