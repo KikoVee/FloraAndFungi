@@ -41,6 +41,9 @@ public class TreeBehaviour : MonoBehaviour
     int treeLeavesNumber = 0;
     private int oldTreeLeavesNumber;
     public bool leaves;
+
+    [SerializeField] private GameObject healthyTreeVisualsContainer;
+    private SkinnedMeshRenderer[] healthyTreeDetails;
     
     private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
@@ -73,6 +76,8 @@ public class TreeBehaviour : MonoBehaviour
         newBlendValue = oldBlendValue;
         oldTreeLeavesNumber = treeLeavesNumber;
         treeText = gameObject.GetComponent<DisplayUI>().myText;
+
+        healthyTreeDetails = healthyTreeVisualsContainer.GetComponentsInChildren<SkinnedMeshRenderer>();
         
         TreeVisualChange();
     }
@@ -123,6 +128,12 @@ public class TreeBehaviour : MonoBehaviour
         if (oldBlendValue != newBlendValue)
         {
             _skinnedMeshRenderer.SetBlendShapeWeight(0, oldBlendValue);
+           
+            foreach (SkinnedMeshRenderer meshRenderer in healthyTreeDetails)
+            {
+                meshRenderer.SetBlendShapeWeight(0, oldBlendValue);
+            }
+            
             oldBlendValue = Mathf.Lerp(oldBlendValue, newBlendValue, blendSpeed * Time.deltaTime);
         }
         else
