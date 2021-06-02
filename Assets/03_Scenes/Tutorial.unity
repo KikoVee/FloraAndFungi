@@ -442,6 +442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FungiObject-Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 8176895510653587652, guid: 107ad9e84ec4b4480a6b25cf41ed9f30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8250899903893643389, guid: 107ad9e84ec4b4480a6b25cf41ed9f30, type: 3}
       propertyPath: m_RootOrder
       value: 2
