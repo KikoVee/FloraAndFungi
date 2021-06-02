@@ -6,6 +6,10 @@ public class FungiBehaviour : MonoBehaviour
 {
     [SerializeField] private ParticleSystem spores;
     [SerializeField] private GameObject[] mushroomPrefabs;
+    [SerializeField] private Material healthyMushroom;
+    [SerializeField] private Material unhealthyMushroom;
+
+    private int mushroomVisual;
     
     
     // Start is called before the first frame update
@@ -40,8 +44,30 @@ public class FungiBehaviour : MonoBehaviour
 
     private void PickVisual()
     {
-        int mushroomVisual = Random.Range(0, mushroomPrefabs.Length);
+        mushroomVisual = Random.Range(0, mushroomPrefabs.Length);
         
         mushroomPrefabs[mushroomVisual].SetActive(true);
+    }
+
+    public void SetUnhealthy()
+    {
+        Debug.Log("set " + gameObject + " unhealthy");
+        Renderer[] childrenRenderers = mushroomPrefabs[mushroomVisual].GetComponentsInChildren<Renderer>();
+       
+        foreach (Renderer renderer in childrenRenderers)
+        {
+            renderer.material = unhealthyMushroom;
+        }
+    }
+
+    public void SetHealthy()
+    {
+        Debug.Log("set " + gameObject + " healthy");
+        Renderer[] childrenRenderers = mushroomPrefabs[mushroomVisual].GetComponentsInChildren<Renderer>();
+       
+        foreach (Renderer renderer in childrenRenderers)
+        {
+            renderer.material = healthyMushroom;
+        }
     }
 }

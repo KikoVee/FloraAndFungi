@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private float timer;
     private float time = 0.2f;
     public List<Transform> touchedTrees = new List<Transform>();
+    public List<GameObject> fungi = new List<GameObject>();
  
     
     private void Awake()
@@ -254,5 +255,26 @@ public class GameManager : MonoBehaviour
 
     }
 
-   
+    public void UnhealthyFungi(int number)
+    {
+        Debug.Log("made it to unhealthy fungi");
+        for (int i = 0; i > number; i--)
+        {
+            Debug.Log("made it to unhealthy fungi loop");
+
+            FungiBehaviour fungus = fungi[Random.Range(0, fungi.Count)].GetComponent<FungiBehaviour>();
+            fungus.SetUnhealthy();
+        }
+    }
+
+    public void HealthyFungi()
+    {
+        foreach (var _fungus in fungi)
+        {
+            FungiBehaviour fungus = _fungus.GetComponent<FungiBehaviour>();
+            fungus.SetHealthy();
+        }
+    }
+
+
 }
