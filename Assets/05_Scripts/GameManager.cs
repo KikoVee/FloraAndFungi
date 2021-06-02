@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour
     public void AddedTree(Transform tree)
     {
         touchedTrees.Add(tree);
-        _nutrientManager.NutrientLevelSplit();
+        _nutrientManager.NutrientLevelSplit(1);
         treeScoreText.text = "Trees: " + touchedTrees.Count;
         UpdateMusic(touchedTrees.Count);
     }

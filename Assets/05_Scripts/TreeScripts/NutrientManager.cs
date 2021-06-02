@@ -117,7 +117,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         SpendSugar(nutrientCost);
         nutrientCost += 10;
         nutrientAmount += nutrientUpgradeAmount;
-        _gameManager.UpdateNutrientScore(nutrientScore);
+        _gameManager.UpdateNutrientScore(nutrientAmount);
         _gameManager.GiveTreesNutrients();
         FindObjectOfType<AudioManager>().Play("Spores");
 
@@ -153,14 +153,19 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         //expansionCost += 1;
     }
 
-    public void NutrientLevelSplit()
+    public void NutrientLevelSplit(int tree)
     {
-        int treeNumber = _gameManager.touchedTrees.Count;
+        nutrientAmount -= tree;
+        _gameManager.UpdateNutrientScore(nutrientAmount);
 
-        if (treeNumber > 0)
-        {
-            nutrientAmount = nutrientAmount / treeNumber;
-        }
+        /* int treeNumber = _gameManager.touchedTrees.Count;
+ 
+         if (treeNumber > 0)
+         {
+             nutrientAmount = nutrientAmount / treeNumber;
+             _gameManager.UpdateNutrientScore(nutrientAmount);
+ 
+         }*/
     }
 
     /*private void UpdateNutrientVisual()
