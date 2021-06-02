@@ -191,24 +191,28 @@ public class TreeBehaviour : MonoBehaviour
     public void GetNutrients()
     {
         HexCell[] neighbors = currentCell.GetNeighbors();
+
+        if (GameManager.currentManager.fungiAlive)
+        {
+            foreach (HexCell cell in neighbors)
+            {
+                if (cell.myType == HexCell.cellType.fungi)
+                {
+                    _nutrientAmount = _nutrientManager.nutrientAmount;
+                    currentNutrientValue += _nutrientAmount;
+                }
+            }
+
+            if (fungiNeighbor == true)
+            {
+                foreach (var particle in upgradeParticles)
+                {
+                    particle.Play();
+                }
+
+            }
+        }
         
-        foreach (HexCell cell in neighbors)
-        {
-            if (cell.myType == HexCell.cellType.fungi)
-            {
-                _nutrientAmount = _nutrientManager.nutrientAmount;
-                currentNutrientValue += _nutrientAmount;
-            }
-        }
-
-        if (fungiNeighbor == true)
-        {
-            foreach (var particle in upgradeParticles)
-            {
-                particle.Play();
-            }
-
-        }
         
 
     }
@@ -225,7 +229,7 @@ public class TreeBehaviour : MonoBehaviour
             newBlendValue = 0;
             healthyLeaves.SetActive(true);
             unhealthyLeaves.SetActive(false);
-            treeSugarValue = 5;
+            treeSugarValue = 10;
 
         }
         
@@ -236,7 +240,7 @@ public class TreeBehaviour : MonoBehaviour
             unhealthyLeaves.SetActive(true);
             healthyLeaves.SetActive(false);
             
-            treeSugarValue = 3;
+            treeSugarValue = 5;
 
         }
         if (healthPercent >= 11 && healthPercent <= 49)
@@ -245,10 +249,18 @@ public class TreeBehaviour : MonoBehaviour
             newBlendValue = 60;
             healthyLeaves.SetActive(false);
             unhealthyLeaves.SetActive(false);
-            treeSugarValue = 1;
+            treeSugarValue = 2;
         }
 
-        if (healthPercent <= 10)
+        if (healthPercent >= 1 && healthPercent <= 10)
+        {
+            treeRenderer.material = treeMaterial[3];
+            newBlendValue = 80;
+            healthyLeaves.SetActive(false);
+            unhealthyLeaves.SetActive(false);
+            treeSugarValue = 1;
+        }
+        if (healthPercent <= 0)
         {
             treeRenderer.material = treeMaterial[3];
             newBlendValue = 100;

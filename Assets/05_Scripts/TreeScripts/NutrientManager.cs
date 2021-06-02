@@ -11,8 +11,10 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     //this object keeps track of the amount of nutrient and sugar the player has to work with
     private int nutrientScore;
     public int nutrientAmount;
+    [SerializeField] private float sugarConsumption = .1f;
     [SerializeField] private int undividedNutrientAmount;
     public int currentSugar;
+
 
     public int expansionCost = 5;
     public int nutrientCost = 10;
@@ -135,7 +137,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     private void NewCycleSugar()
     {
-        int sugar = Mathf.RoundToInt(currentSugar - (fungiCount * .5f));
+        int sugar = Mathf.RoundToInt(currentSugar - (fungiCount * sugarConsumption));
         currentSugar = Mathf.Clamp(sugar, -fungiCount, 1000);
         _gameManager.UpdateSugarScore(currentSugar);
 
@@ -148,6 +150,8 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         {
             _gameManager.HealthyFungi();
         }
+        
+
     }
 
     public void BuyNutrientsButton()

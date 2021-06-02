@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public static ExpansionEvent addExpansionEvent;
 
     public Transform fungiPrefab;
+    public bool fungiAlive = true;
+
 
     public bool turnEndSequence;
     private bool timelapse = false;
@@ -257,6 +259,15 @@ public class GameManager : MonoBehaviour
 
     public void UnhealthyFungi(int number)
     {
+        if (number == -fungi.Count)
+        {
+            fungiAlive = false;
+        }
+        else
+        {
+            fungiAlive = true;
+        }
+        
         Debug.Log("made it to unhealthy fungi");
         for (int i = 0; i > number; i--)
         {
@@ -269,6 +280,7 @@ public class GameManager : MonoBehaviour
 
     public void HealthyFungi()
     {
+        fungiAlive = true;
         foreach (var _fungus in fungi)
         {
             FungiBehaviour fungus = _fungus.GetComponent<FungiBehaviour>();
@@ -276,5 +288,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
 
 }
