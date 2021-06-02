@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour
 
 
     public delegate void GiveNutrientsEvent();
-
     public static GiveNutrientsEvent nutrientEvent;
+    public delegate void ExpansionEvent();
+    public static ExpansionEvent addExpansionEvent;
 
     public Transform fungiPrefab;
 
@@ -177,6 +178,14 @@ public class GameManager : MonoBehaviour
         if (nutrientEvent != null)
         {
             nutrientEvent();
+        }
+    }
+    
+    public void ExpandedNetwork()
+    {
+        if (addExpansionEvent != null)
+        {
+            addExpansionEvent();
         }
     }
 

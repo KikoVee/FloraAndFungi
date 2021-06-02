@@ -19,7 +19,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     
     public delegate void NutrientEvent();
     public static NutrientEvent addNutrientEvent;
-
+    
     
     public static NutrientManager currentNutrientManager;
     private GameManager _gameManager;
@@ -118,6 +118,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         nutrientCost += 10;
         nutrientAmount += nutrientUpgradeAmount;
         _gameManager.UpdateNutrientScore(nutrientScore);
+        _gameManager.GiveTreesNutrients();
         FindObjectOfType<AudioManager>().Play("Spores");
 
         
@@ -147,6 +148,8 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     public void BuyExpansion()
     {
         SpendSugar(expansionCost);
+        
+        _gameManager.ExpandedNetwork();
         //expansionCost += 1;
     }
 

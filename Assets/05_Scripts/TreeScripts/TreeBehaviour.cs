@@ -55,10 +55,12 @@ public class TreeBehaviour : MonoBehaviour
    
 
     private Text treeText;
-    private bool fungiNeighbor = false;
+    [SerializeField] private bool fungiNeighbor = false;
 
     private bool readToCollect = false;
     public Outline outline;
+    [SerializeField] private GameObject particleContainer;
+    private ParticleSystem[] upgradeParticles;
 
 
     // Start is called before the first frame update
@@ -67,6 +69,9 @@ public class TreeBehaviour : MonoBehaviour
         GetCellLocation();
         GameManager.onTurnEnd += NewCycle;
         GameManager.nutrientEvent += GetNutrients;
+        GameManager.addExpansionEvent += CheckNeighbors;
+
+
         _nutrientManager = NutrientManager.currentNutrientManager;
         _weatherManager = WeatherManager.currentWeatherManager;
         _collectableManager = GameManager.currentManager._sugarCollectableAnimation;
@@ -78,6 +83,7 @@ public class TreeBehaviour : MonoBehaviour
         treeText = gameObject.GetComponent<DisplayUI>().myText;
 
         healthyTreeDetails = healthyTreeVisualsContainer.GetComponentsInChildren<SkinnedMeshRenderer>();
+        upgradeParticles = particleContainer.GetComponentsInChildren<ParticleSystem>();
         
         TreeVisualChange();
     }
@@ -181,7 +187,7 @@ public class TreeBehaviour : MonoBehaviour
     public void GetNutrients()
     {
         HexCell[] neighbors = currentCell.GetNeighbors();
-
+        
         foreach (HexCell cell in neighbors)
         {
             if (cell.myType == HexCell.cellType.fungi)
@@ -190,7 +196,17 @@ public class TreeBehaviour : MonoBehaviour
                 currentNutrientValue += _nutrientAmount;
             }
         }
-         
+
+        if (fungiNeighbor == true)
+        {
+            foreach (var particle in upgradeParticles)
+            {
+                particle.Play();
+            }
+
+        }
+        
+
     }
 
 
