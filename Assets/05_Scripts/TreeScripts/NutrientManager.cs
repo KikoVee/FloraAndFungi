@@ -11,11 +11,13 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     //this object keeps track of the amount of nutrient and sugar the player has to work with
     private int nutrientScore;
     public int nutrientAmount;
+    [SerializeField] private int undividedNutrientAmount;
     public int currentSugar;
 
     public int expansionCost = 5;
     public int nutrientCost = 10;
     public int nutrientUpgradeAmount = 10;
+    [SerializeField] private int fungiCount;
     
     public delegate void NutrientEvent();
     public static NutrientEvent addNutrientEvent;
@@ -64,13 +66,13 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
        
 
         if (updateButtonVisual)
-        {
-            
+        {   
             nutrientButtonMask.fillAmount = Mathf.Lerp(oldFillAmount, fillAmount, 3f * Time.deltaTime);
             updateButtonVisual = false;
         }
-                
-        
+
+
+
     }
 
 
@@ -133,7 +135,15 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     private void NewCycleSugar()
     {
+        int sugar = Mathf.RoundToInt(currentSugar - (fungiCount * .5f));
+        currentSugar = Mathf.Clamp(sugar,-20, 1000);
         _gameManager.UpdateSugarScore(currentSugar);
+
+        if (currentSugar < 0)
+        {
+            //kill some of fungi
+            
+        }
     }
 
     public void BuyNutrientsButton()
@@ -147,25 +157,31 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     public void BuyExpansion()
     {
-        SpendSugar(expansionCost);
-        
+        SpendSugar(expansionCost); 
         _gameManager.ExpandedNetwork();
-        //expansionCost += 1;
+        
+        //adding nutrients with each expansion
+        nutrientAmount += 1;
+        undividedNutrientAmount += 1;
+        fungiCount += 1;
+        _gameManager.UpdateNutrientScore(nutrientAmount);
+
     }
 
     public void NutrientLevelSplit(int tree)
     {
-        nutrientAmount -= tree;
-        _gameManager.UpdateNutrientScore(nutrientAmount);
+        
+        int treeNumber = _gameManager.touchedTrees.Count;
+        int nutrientValue = undividedNutrientAmount;
 
-        /* int treeNumber = _gameManager.touchedTrees.Count;
- 
          if (treeNumber > 0)
          {
-             nutrientAmount = nutrientAmount / treeNumber;
+             
+             nutrientValue = nutrientValue / treeNumber;
+             nutrientAmount = nutrientValue;
              _gameManager.UpdateNutrientScore(nutrientAmount);
- 
-         }*/
+         }
+
     }
 
     /*private void UpdateNutrientVisual()

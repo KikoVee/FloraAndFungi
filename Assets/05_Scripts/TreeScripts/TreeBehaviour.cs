@@ -225,7 +225,7 @@ public class TreeBehaviour : MonoBehaviour
             newBlendValue = 0;
             healthyLeaves.SetActive(true);
             unhealthyLeaves.SetActive(false);
-            treeSugarValue = 10;
+            treeSugarValue = 5;
 
         }
         
@@ -236,7 +236,7 @@ public class TreeBehaviour : MonoBehaviour
             unhealthyLeaves.SetActive(true);
             healthyLeaves.SetActive(false);
             
-            treeSugarValue = 5;
+            treeSugarValue = 3;
 
         }
         if (healthPercent >= 11 && healthPercent <= 49)
