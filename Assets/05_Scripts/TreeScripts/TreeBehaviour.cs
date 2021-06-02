@@ -6,24 +6,25 @@ using UnityEngine.UI;
 
 public class TreeBehaviour : MonoBehaviour
 {
+    [Space] [Header("(Tree Traits)")]
     private int maxTreeHealth = 100;
     [SerializeField] private float currentTreeHealth = 20;
     [SerializeField] private float treeHealthWeight = 0.6f;
-    
-    [SerializeField] private float treeNutrientWeight;
-    [SerializeField] private float treeWeatherWeight;
-
+   // [SerializeField] private float treeNutrientWeight;
+    //[SerializeField] private float treeWeatherWeight;
     [SerializeField] private int treeSugarValue;
     private float treeSugarWeight = 10;
-    [SerializeField] private float treeSugarWeatherWeight;
+    //[SerializeField] private float treeSugarWeatherWeight;
+    [SerializeField] private float currentNutrientValue;
 
     private float weatherValue;
-   [SerializeField] private float currentNutrientValue;
     private bool isDead = false;
 
-    [SerializeField]private int range = 3;
-    [SerializeField]private int rangeMax = 3;
-    [SerializeField] private GameObject sugarPrefab;
+   // [SerializeField]private int range = 3;
+    //[SerializeField]private int rangeMax = 3;
+    //[SerializeField] private GameObject sugarPrefab;
+
+    [Space] [Header("(Location and Managers)")]
 
     [SerializeField]private HexCell currentCell;
     public HexGrid hexGrid;
@@ -31,6 +32,10 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private NutrientManager _nutrientManager;
     private WeatherManager _weatherManager;
     private CollectableAnimation _collectableManager;
+    [SerializeField] private bool fungiNeighbor = false;
+
+
+    [Space] [Header("(Visuals)")]
 
     public Material[] treeMaterial;
     public Material[] TreeLeavesMaterials;
@@ -55,7 +60,6 @@ public class TreeBehaviour : MonoBehaviour
    
 
     private Text treeText;
-    [SerializeField] private bool fungiNeighbor = false;
 
     private bool readToCollect = false;
     public Outline outline;
