@@ -137,19 +137,23 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     private void NewCycleSugar()
     {
-        int sugar = Mathf.RoundToInt(currentSugar - (fungiCount * sugarConsumption));
-        currentSugar = Mathf.Clamp(sugar, -fungiCount, 1000);
-        _gameManager.UpdateSugarScore(currentSugar);
+        if (_gameManager.timelapse != true)
+        {
+            int sugar = Mathf.RoundToInt(currentSugar - (fungiCount * sugarConsumption));
+            currentSugar = Mathf.Clamp(sugar, -fungiCount, 1000);
+            _gameManager.UpdateSugarScore(currentSugar);
 
-        if (currentSugar < 0)
-        {
-            //kill some of fungi
-            _gameManager.UnhealthyFungi(currentSugar);
+            if (currentSugar < 0)
+            {
+                //kill some of fungi
+                _gameManager.UnhealthyFungi(currentSugar);
+            }
+            else
+            {
+                _gameManager.HealthyFungi();
+            } 
         }
-        else
-        {
-            _gameManager.HealthyFungi();
-        }
+        
         
 
     }

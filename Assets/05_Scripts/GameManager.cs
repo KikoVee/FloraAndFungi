@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
 
     public bool turnEndSequence;
-    private bool timelapse = false;
+    public bool timelapse = false;
     private float timer;
     private float time = 0.2f;
     public List<Transform> touchedTrees = new List<Transform>();
