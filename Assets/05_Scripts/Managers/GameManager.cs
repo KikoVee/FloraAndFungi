@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private NutrientManager _nutrientManager;
     private AudioManager _audioManager;
     
-    [Space] [Header("(Scores)")]
+    [Space] [Header("(UI Elements)")]
 
     public CollectableAnimation _sugarCollectableAnimation;
     private int sugarScore;
@@ -25,20 +25,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text treeScoreText;
     [SerializeField] private GameObject timeLapsePauseImage;
     [SerializeField] private Text timeLapsePauseText;
+    [SerializeField] private GameObject timeLapseImage;
     [SerializeField] private GameObject gameOverImage;
-
+    [SerializeField] public Image ecoResilienceImage;
+    [SerializeField] public GameObject menuImage;
+    bool timeLapseClicked = false;
     private Color originalTextColor;
 
-    public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
-    public EndTurnEvent onTurnEnd;
-    bool timeLapseClicked = false;
-    [SerializeField] private GameObject timeLapseImage;
 
-
-   // public delegate void GiveNutrientsEvent();
-   // public static GiveNutrientsEvent nutrientEvent;
-    //public delegate void ExpansionEvent();
-    //public static ExpansionEvent addExpansionEvent;
+    [Space] [Header("(Game Objects and Bools)")]
 
     public Transform fungiPrefab;
     public bool fungiAlive = true;
@@ -52,7 +47,6 @@ public class GameManager : MonoBehaviour
     public List<GameObject> fungi = new List<GameObject>();
     public List<TreeBehaviour> treesInScene = new List<TreeBehaviour>();
 
-    public Image ecoResilienceImage;
     [SerializeField] private int completeTrees;
  
     
@@ -163,10 +157,7 @@ public class GameManager : MonoBehaviour
     {
         GiveTreesNutrients();
 
-        if (onTurnEnd != null)
-        {
-            onTurnEnd();
-        }
+        EndTurn();
 
         timelapse = true;
         turnEndSequence = true;
@@ -345,6 +336,22 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         FindObjectOfType<GameSceneManager>().ExitGame();
+    }
+    public void ReturnToMainMenu()
+    {
+        FindObjectOfType<GameSceneManager>().LoadMenu();
+    }
+
+    public void MenuPopup()
+    {
+        if (!menuImage.activeSelf)
+        {
+            menuImage.SetActive(true);
+        }
+        else
+        {
+            menuImage.SetActive(false);
+        }
     }
     
 

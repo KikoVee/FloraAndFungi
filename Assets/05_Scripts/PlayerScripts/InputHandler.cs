@@ -27,9 +27,14 @@ public class InputHandler : MonoBehaviour
             {
                 HandleInput();
                 
-            }
-           
-        }    
+            }  
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _gameManager.MenuPopup();
+        }
+        
     }
     
     public void HandleInput () {
