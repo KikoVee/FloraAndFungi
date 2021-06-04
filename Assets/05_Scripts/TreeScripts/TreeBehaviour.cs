@@ -70,9 +70,9 @@ public class TreeBehaviour : MonoBehaviour
     void Start()
     {
         GetCellLocation();
-        GameManager.onTurnEnd += NewCycle;
-        GameManager.nutrientEvent += GetNutrients;
-        GameManager.addExpansionEvent += CheckNeighbors;
+        //GameManager.onTurnEnd += NewCycle;
+        //GameManager.nutrientEvent += GetNutrients;
+       // GameManager.addExpansionEvent += CheckNeighbors;
         GameManager.currentManager.treesInScene.Add(this);
 
         _nutrientManager = NutrientManager.currentNutrientManager;
@@ -312,7 +312,7 @@ public class TreeBehaviour : MonoBehaviour
 
     }
 
-    void CheckNeighbors()
+    public void CheckNeighbors()
     {
         HexCell[] neighbors = currentCell.GetNeighbors();
 

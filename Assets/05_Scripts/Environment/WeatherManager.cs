@@ -36,7 +36,7 @@ public class WeatherManager : MonoBehaviour
     void Start()
     {
         _currentManager = GameManager.currentManager;
-        GameManager.onTurnEnd += NewCycle;
+        //GameManager.onTurnEnd += NewCycle;
         _volumeProfile = postProcessing.sharedProfile;
         ChangeState();
 
@@ -75,7 +75,7 @@ public class WeatherManager : MonoBehaviour
         }
     }
 
-    void NewCycle()
+    public void NewCycle()
     {
         float newWeather = Random.Range(-5, 5);
         

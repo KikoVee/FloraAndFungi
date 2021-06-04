@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager currentManager;
+    
+    [Space] [Header("(Location and Managers)")]
 
-   // public GameObject currentPlayer;
+    public static GameManager currentManager;
     public HexMapEditor _hexMapEditor;
     private NutrientManager _nutrientManager;
     private AudioManager _audioManager;
+    
+    [Space] [Header("(Scores)")]
+
     public CollectableAnimation _sugarCollectableAnimation;
     private int sugarScore;
     [SerializeField] private Text sugarScoreText;
@@ -26,15 +30,15 @@ public class GameManager : MonoBehaviour
     private Color originalTextColor;
 
     public delegate void EndTurnEvent();         //when player ends the turn it calls all other onTurnEnd events from other scripts
-    public static EndTurnEvent onTurnEnd;
+    public EndTurnEvent onTurnEnd;
     bool timeLapseClicked = false;
     [SerializeField] private GameObject timeLapseImage;
 
 
-    public delegate void GiveNutrientsEvent();
-    public static GiveNutrientsEvent nutrientEvent;
-    public delegate void ExpansionEvent();
-    public static ExpansionEvent addExpansionEvent;
+   // public delegate void GiveNutrientsEvent();
+   // public static GiveNutrientsEvent nutrientEvent;
+    //public delegate void ExpansionEvent();
+    //public static ExpansionEvent addExpansionEvent;
 
     public Transform fungiPrefab;
     public bool fungiAlive = true;
@@ -132,11 +136,24 @@ public class GameManager : MonoBehaviour
     {
         GiveTreesNutrients();
         EcosystemResilienceCheck();
+        foreach (TreeBehaviour tree in treesInScene)
+        {
+            tree.NewCycle();
+        }
+        foreach (var fungus in fungi)
+        {
+            fungus.GetComponent<FungiBehaviour>().UpgradeEvent();
+        }
+        
+        WeatherManager.currentWeatherManager.NewCycle();
+        NutrientManager.currentNutrientManager.NewCycleSugar();
+        
+        
         //begins revalue cycle for all trees and skips time ahead quickly
-        if (onTurnEnd != null)
+        /*if (onTurnEnd != null)
         {
             onTurnEnd();
-        }
+        }*/
         
         turnEndSequence = true;
         timer = time;
@@ -183,18 +200,19 @@ public class GameManager : MonoBehaviour
 
     public void GiveTreesNutrients()
     {
-        if (nutrientEvent != null)
+        foreach (TreeBehaviour tree in treesInScene)
         {
-            nutrientEvent();
+            tree.GetNutrients();
         }
     }
     
     public void ExpandedNetwork()
     {
-        if (addExpansionEvent != null)
+        foreach (TreeBehaviour tree in treesInScene)
         {
-            addExpansionEvent();
+            tree.CheckNeighbors();
         }
+        
     }
 
     public int GetCurrentNutrientValue()

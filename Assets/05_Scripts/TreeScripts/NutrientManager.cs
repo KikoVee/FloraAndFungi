@@ -21,8 +21,8 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     public int nutrientUpgradeAmount = 10;
     [SerializeField] private int fungiCount;
     
-    public delegate void NutrientEvent();
-    public static NutrientEvent addNutrientEvent;
+    //public delegate void NutrientEvent();
+    //public NutrientEvent addNutrientEvent;
     
     
     public static NutrientManager currentNutrientManager;
@@ -54,7 +54,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         _gameManager = GameManager.currentManager;
         _gameManager.UpdateSugarScore(currentSugar);
         _gameManager.UpdateNutrientScore(nutrientScore);
-        GameManager.onTurnEnd += NewCycleSugar;
+        //GameManager.onTurnEnd += NewCycleSugar;
         float maximumOffset = nutrientCost;
         float currentOffset = currentSugar;
         fillAmount = currentOffset/ maximumOffset;
@@ -127,15 +127,10 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
         
         
-        if (addNutrientEvent != null)
-        {
-            addNutrientEvent();
-        }
-        
-       // NutrientLevels();
+       
     }
 
-    private void NewCycleSugar()
+    public void NewCycleSugar()
     {
         if (_gameManager.timelapse != true)
         {
