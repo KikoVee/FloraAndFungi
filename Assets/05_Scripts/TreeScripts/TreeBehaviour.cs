@@ -123,7 +123,7 @@ public class TreeBehaviour : MonoBehaviour
             GetCellLocation();
         }
 
-        treeText.text = "Tree health is: " + currentTreeHealth;
+        treeText.text = "Tree health is: " + Mathf.RoundToInt(currentTreeHealth);
 
         if (readToCollect)
         {

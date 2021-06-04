@@ -95,7 +95,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Chime
     clip: {fileID: 8300000, guid: 70f916f136a184325a1d8d0cb2b53af9, type: 3}
-    volume: 1
+    volume: 0.05
     pitch: 1
     playOnAwake: 0
     loop: 0
@@ -109,14 +109,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pop
     clip: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
-    volume: 0.23
+    volume: 0.06
     pitch: 1
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
   - name: Pop 2
     clip: {fileID: 8300000, guid: 75a2523db8248490583f16eeeb63c41b, type: 3}
-    volume: 0.08
+    volume: 0.04
     pitch: 1
     playOnAwake: 0
     loop: 0

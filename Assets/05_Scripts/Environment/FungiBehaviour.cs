@@ -15,7 +15,7 @@ public class FungiBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NutrientManager.addNutrientEvent += UpgradeEvent;
+        GameManager.onTurnEnd += UpgradeEvent;
         PlayStartSound();
         PickVisual();
     }

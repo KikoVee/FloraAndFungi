@@ -39,7 +39,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        FindObjectOfType<GameSceneManager>().LoadIntro();
     }
 
     public void PlayClick()

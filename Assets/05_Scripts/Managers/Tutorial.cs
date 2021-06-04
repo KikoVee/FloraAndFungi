@@ -126,7 +126,7 @@ public class Tutorial : MonoBehaviour
     
     public void Play()
     {
-        SceneManager.LoadScene(2);
+        FindObjectOfType<GameSceneManager>().LoadGame();
     }
     
     public void PlayClick()

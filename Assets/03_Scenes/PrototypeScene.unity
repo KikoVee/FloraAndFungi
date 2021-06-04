@@ -359,7 +359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 70670272}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1947901149}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &70670272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1018,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 15.129, y: 70.836, z: 0.464}
+--- !u!21 &390139380
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!114 &396590505 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1185675687471605278, guid: 8ea7c7606f3cb4a4da5b0bf11a77d297, type: 3}
@@ -11926,7 +11964,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1749819282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1947901149}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1749819282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12337,7 +12387,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 2121808645}
+  material: {fileID: 390139380}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18494,32 +18544,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110237912}
   m_CullTransparentMesh: 1
---- !u!21 &2121808645
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &3746795501355990892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18690,19 +18714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104086, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
-      propertyPath: sounds.Array.data[7].volume
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
-      propertyPath: sounds.Array.data[9].volume
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 5822719405510104087, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
-      propertyPath: sounds.Array.data[10].volume
-      value: 0.04
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}

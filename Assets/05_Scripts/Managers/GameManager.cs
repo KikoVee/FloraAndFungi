@@ -318,6 +318,16 @@ public class GameManager : MonoBehaviour
         gameOverImage.SetActive(true);
         Debug.Log("game over");
     }
+
+    public void Restart()
+    {
+        FindObjectOfType<GameSceneManager>().LoadGame();
+    }
+
+    public void ExitGame()
+    {
+        FindObjectOfType<GameSceneManager>().ExitGame();
+    }
     
 
 }
