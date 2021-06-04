@@ -13,7 +13,7 @@ public class UIHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private Color myImageColor;
     [SerializeField] private Color myTextColor;
 
-    public float fadeTime;
+    private float fadeTime = 4;
     public bool displayInfo;
     
     

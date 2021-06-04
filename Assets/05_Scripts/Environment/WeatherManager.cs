@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class WeatherManager : MonoBehaviour
 {
     private GameManager _currentManager;
+    private TutorialManager _tutorialManager;
     public float weatherValue;
     public static WeatherManager currentWeatherManager;
     public GameObject dayCycles;
@@ -36,6 +37,7 @@ public class WeatherManager : MonoBehaviour
     void Start()
     {
         _currentManager = GameManager.currentManager;
+        _tutorialManager = _currentManager._tutorialManager;
         //GameManager.onTurnEnd += NewCycle;
         _volumeProfile = postProcessing.sharedProfile;
         ChangeState();
@@ -82,16 +84,19 @@ public class WeatherManager : MonoBehaviour
         if (newWeather < 0 && lastWeather < 0) //checks if multiple days in a row of drought
         {
             newWeather += -5f;
+            _tutorialManager.WasDry();
+
         }
         if (newWeather >= 0 && lastWeather >= 0) //checks if multiple days in a row of rain
         {
             newWeather += 5f;
+            _tutorialManager.WasRaining();
         }
+
         
         weatherValue = Mathf.Clamp(newWeather, weatherMin, weatherMax);
         lastWeather = weatherValue;
         ChangeState();
-        
  
     }
 

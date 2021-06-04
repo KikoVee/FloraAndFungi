@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager currentManager;
     public HexMapEditor _hexMapEditor;
+    public TutorialManager _tutorialManager;
     private NutrientManager _nutrientManager;
     private AudioManager _audioManager;
     
