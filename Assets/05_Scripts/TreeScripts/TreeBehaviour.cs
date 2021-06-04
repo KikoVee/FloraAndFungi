@@ -19,10 +19,9 @@ public class TreeBehaviour : MonoBehaviour
 
     private float weatherValue;
     private bool isDead = false;
+    public enum TreeState {incomplete, complete};
+    public TreeState treeState; 
 
-   // [SerializeField]private int range = 3;
-    //[SerializeField]private int rangeMax = 3;
-    //[SerializeField] private GameObject sugarPrefab;
 
     [Space] [Header("(Location and Managers)")]
 
@@ -74,7 +73,7 @@ public class TreeBehaviour : MonoBehaviour
         GameManager.onTurnEnd += NewCycle;
         GameManager.nutrientEvent += GetNutrients;
         GameManager.addExpansionEvent += CheckNeighbors;
-
+        GameManager.currentManager.treesInScene.Add(this);
 
         _nutrientManager = NutrientManager.currentNutrientManager;
         _weatherManager = WeatherManager.currentWeatherManager;
@@ -181,6 +180,7 @@ public class TreeBehaviour : MonoBehaviour
                 Mathf.Clamp(currentNutrientValue - (currentNutrientValue * 0.5f), 0,
                     100); //gradual decrease in nutrients 
             currentNutrientValue = newNutrientValue; //sets current nutrient value to the new valued
+            SetTreeState(); //changes tree type based on amount of available nutrients
             TreeVisualChange();
             newCycle = false;
             //SpawnSugar();
@@ -200,6 +200,7 @@ public class TreeBehaviour : MonoBehaviour
                 {
                     _nutrientAmount = _nutrientManager.nutrientAmount;
                     currentNutrientValue += _nutrientAmount;
+                    SetTreeState(); //changes tree type based on amount of available nutrients
                 }
             }
 
@@ -312,6 +313,23 @@ public class TreeBehaviour : MonoBehaviour
         }
     }
 
+    public TreeState CurrentTreeState()
+    {
+        return treeState;
+    }
+
+    private void SetTreeState()
+    {
+        if (currentNutrientValue < 10)
+        {
+            treeState = TreeState.incomplete;
+        }
+
+        if (currentNutrientValue >= 10)
+        {
+            treeState = TreeState.complete;
+        }
+    }
     
     
 

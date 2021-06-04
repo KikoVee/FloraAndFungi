@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     private float time = 0.2f;
     public List<Transform> touchedTrees = new List<Transform>();
     public List<GameObject> fungi = new List<GameObject>();
+    public List<TreeBehaviour> treesInScene = new List<TreeBehaviour>();
  
     
     private void Awake()
@@ -285,6 +286,14 @@ public class GameManager : MonoBehaviour
         {
             FungiBehaviour fungus = _fungus.GetComponent<FungiBehaviour>();
             fungus.SetHealthy();
+        }
+    }
+
+    private void EcosystemResilienceCheck()
+    {
+        foreach (TreeBehaviour tree in treesInScene)
+        {
+            //tree.CurrentTreeState();
         }
     }
 
