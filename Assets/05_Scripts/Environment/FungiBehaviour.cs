@@ -51,7 +51,7 @@ public class FungiBehaviour : MonoBehaviour
 
     public void SetUnhealthy()
     {
-        Debug.Log("set " + gameObject + " unhealthy");
+        //Debug.Log("set " + gameObject + " unhealthy");
         Renderer[] childrenRenderers = mushroomPrefabs[mushroomVisual].GetComponentsInChildren<Renderer>();
        
         foreach (Renderer renderer in childrenRenderers)
@@ -62,7 +62,7 @@ public class FungiBehaviour : MonoBehaviour
 
     public void SetHealthy()
     {
-        Debug.Log("set " + gameObject + " healthy");
+        //Debug.Log("set " + gameObject + " healthy");
         Renderer[] childrenRenderers = mushroomPrefabs[mushroomVisual].GetComponentsInChildren<Renderer>();
        
         foreach (Renderer renderer in childrenRenderers)

@@ -10206,17 +10206,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTreeHealth: 100
   treeHealthWeight: 0.6
-  treeNutrientWeight: 3
-  treeWeatherWeight: 0.2
   treeSugarValue: 0
-  treeSugarWeatherWeight: 0.02
-  currentNutrientValue: 10
-  range: 25
-  rangeMax: 1
-  sugarPrefab: {fileID: 6676874167290712781, guid: 86578b1d177cb441fa3f0bd1e2f2bd0f, type: 3}
+  currentNutrientValue: 9
+  treeState: 0
   currentCell: {fileID: 0}
   hexGrid: {fileID: 0}
   _nutrientManager: {fileID: 0}
+  fungiNeighbor: 0
   treeMaterial:
   - {fileID: 2100000, guid: e5607d63972314d7096e7a89c1c6e6ac, type: 2}
   - {fileID: 2100000, guid: a1111b28fe1a948da9a0120093a14254, type: 2}
@@ -10230,7 +10226,6 @@ MonoBehaviour:
   unhealthyLeaves: {fileID: 5274434230621715562}
   leaves: 0
   healthyTreeVisualsContainer: {fileID: 823014668634930361}
-  fungiNeighbor: 0
   outline: {fileID: 6044202636891329344}
   particleContainer: {fileID: 8289535928006881425}
 --- !u!65 &2683091329453802140

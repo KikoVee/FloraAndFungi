@@ -292,7 +292,7 @@ public class TreeBehaviour : MonoBehaviour
                 {
                     fungiNeighbor = true;
                    // GameManager.currentManager.touchedTrees.Add(this);
-                    Debug.Log(GameManager.currentManager.touchedTrees.Count);
+                    //Debug.Log(GameManager.currentManager.touchedTrees.Count);
                     break;
                 }
             }  

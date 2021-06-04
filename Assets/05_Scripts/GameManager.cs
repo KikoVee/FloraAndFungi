@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,6 +46,9 @@ public class GameManager : MonoBehaviour
     public List<Transform> touchedTrees = new List<Transform>();
     public List<GameObject> fungi = new List<GameObject>();
     public List<TreeBehaviour> treesInScene = new List<TreeBehaviour>();
+
+    public Image ecoResilienceImage;
+    [SerializeField] private int completeTrees;
  
     
     private void Awake()
@@ -128,6 +130,7 @@ public class GameManager : MonoBehaviour
     public void EndTurn()
     {
         GiveTreesNutrients();
+        EcosystemResilienceCheck();
         //begins revalue cycle for all trees and skips time ahead quickly
         if (onTurnEnd != null)
         {
@@ -269,10 +272,8 @@ public class GameManager : MonoBehaviour
             fungiAlive = true;
         }
         
-        Debug.Log("made it to unhealthy fungi");
         for (int i = 0; i > number; i--)
         {
-            Debug.Log("made it to unhealthy fungi loop");
 
             FungiBehaviour fungus = fungi[Random.Range(0, fungi.Count)].GetComponent<FungiBehaviour>();
             fungus.SetUnhealthy();
@@ -291,12 +292,25 @@ public class GameManager : MonoBehaviour
 
     private void EcosystemResilienceCheck()
     {
+        int numberComplete = 0;
         foreach (TreeBehaviour tree in treesInScene)
         {
-            //tree.CurrentTreeState();
+            if (tree.treeState == TreeBehaviour.TreeState.complete)
+            {
+                numberComplete += 1;
+            }
         }
+
+        completeTrees = numberComplete;
+        UpdateResilienceGraphic();
     }
 
+    private void UpdateResilienceGraphic()
+    {
+        float percentComplete = ((float) completeTrees / (float) treesInScene.Count) * 100;
+        ecoResilienceImage.fillAmount = percentComplete/100;
+        Debug.Log("percent complete is " + percentComplete);
+    }
     
 
 }
