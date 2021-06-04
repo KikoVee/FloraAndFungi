@@ -4879,7 +4879,6 @@ MonoBehaviour:
   textPrefab: {fileID: 616621722}
   myImageColor: {r: 0.08627451, g: 0.14117648, b: 0.11372549, a: 0.8745098}
   myTextColor: {r: 0.7411765, g: 0.9607843, b: 0.7411765, a: 1}
-  fadeTime: 15
   displayInfo: 0
 --- !u!1 &1170216383
 GameObject:
@@ -4992,7 +4991,6 @@ MonoBehaviour:
   textPrefab: {fileID: 1468612080}
   myImageColor: {r: 0.08627451, g: 0.14117648, b: 0.11372549, a: 0.8745098}
   myTextColor: {r: 0.7411765, g: 0.9607843, b: 0.7411765, a: 1}
-  fadeTime: 15
   displayInfo: 0
 --- !u!1 &1207628423
 GameObject:
@@ -5322,7 +5320,6 @@ MonoBehaviour:
   textPrefab: {fileID: 1082030955}
   myImageColor: {r: 0.08627451, g: 0.14117648, b: 0.11372549, a: 0.8745098}
   myTextColor: {r: 0.7411765, g: 0.9607843, b: 0.7411765, a: 1}
-  fadeTime: 15
   displayInfo: 0
 --- !u!1 &1272149152
 GameObject:
@@ -6748,32 +6745,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656984640}
   m_CullTransparentMesh: 1
---- !u!21 &1667007517
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &1689526968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13502,7 +13473,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 1667007517}
+  material: {fileID: 1918394857}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13970,7 +13941,6 @@ MonoBehaviour:
   textPrefab: {fileID: 2098232968}
   myImageColor: {r: 0.08627451, g: 0.14117648, b: 0.11372549, a: 0.8745098}
   myTextColor: {r: 0.7411765, g: 0.9607843, b: 0.7411765, a: 1}
-  fadeTime: 15
   displayInfo: 0
 --- !u!222 &1892409692
 CanvasRenderer:
@@ -14120,6 +14090,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdebdfa882cc9435bbdea3318c46c070, type: 3}
+--- !u!21 &1918394857
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1947901148
 GameObject:
   m_ObjectHideFlags: 0
