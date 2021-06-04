@@ -42,7 +42,6 @@ public class WeatherManager : MonoBehaviour
         _volumeProfile = postProcessing.sharedProfile;
         ChangeState();
 
-
     }
 
     // Update is called once per frame
@@ -92,7 +91,6 @@ public class WeatherManager : MonoBehaviour
             newWeather += 5f;
             _tutorialManager.WasRaining();
         }
-
         
         weatherValue = Mathf.Clamp(newWeather, weatherMin, weatherMax);
         lastWeather = weatherValue;

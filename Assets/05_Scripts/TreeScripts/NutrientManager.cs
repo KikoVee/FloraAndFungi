@@ -112,6 +112,11 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     {
         this.currentSugar += sugar;
         _gameManager.UpdateSugarScore(currentSugar);
+        
+        if (_gameManager._tutorialManager.tutorial == true)
+        {
+            _gameManager._tutorialManager.collectedSugar = true;
+        }
       //  UpdateNutrientVisual();
     }
 
@@ -125,9 +130,6 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         _gameManager.GiveTreesNutrients();
         FindObjectOfType<AudioManager>().Play("Spores");
 
-        
-        
-       
     }
 
     public void NewCycleSugar()

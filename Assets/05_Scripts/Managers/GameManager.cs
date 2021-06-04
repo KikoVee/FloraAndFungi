@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     public List<TreeBehaviour> treesInScene = new List<TreeBehaviour>();
 
     [SerializeField] private int completeTrees;
+
+    public bool tutorial = true;
  
     
     private void Awake()
@@ -100,6 +102,7 @@ public class GameManager : MonoBehaviour
         sugarScore = sugar;
         sugarScoreText.text = "Sugar: " + sugarScore;
         ShowCostOfUpgrade();
+        
     }
     
     public void UpdateNutrientScore(int nutrient)
@@ -354,6 +357,14 @@ public class GameManager : MonoBehaviour
             menuImage.SetActive(false);
         }
     }
-    
+
+    public void FirstClick()
+    {
+        if (_tutorialManager != null && _tutorialManager.firstClick == false)
+        {
+            _tutorialManager.firstClick = true;
+            Debug.Log("first click");
+        }
+    }
 
 }
