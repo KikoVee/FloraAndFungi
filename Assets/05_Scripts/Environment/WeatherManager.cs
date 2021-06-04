@@ -16,7 +16,7 @@ public class WeatherManager : MonoBehaviour
     private VolumeProfile _volumeProfile;
     private int speed = 1;
 
-    public float weatherMin = -5;
+    public float weatherMin = -10;
     public float weatherMax = 10;
     private float lastWeather = 0;
     
@@ -77,14 +77,18 @@ public class WeatherManager : MonoBehaviour
 
     void NewCycle()
     {
-        float newWeather = Random.Range(weatherMin, weatherMax);
+        float newWeather = Random.Range(-5, 5);
         
-        if (lastWeather < 0) //checks if multiple days in a row of drought
+        if (newWeather < 0 && lastWeather < 0) //checks if multiple days in a row of drought
         {
             newWeather += -5f;
         }
+        if (newWeather >= 0 && lastWeather >= 0) //checks if multiple days in a row of rain
+        {
+            newWeather += 5f;
+        }
         
-        weatherValue = Mathf.Clamp(newWeather, -10, weatherMax);
+        weatherValue = Mathf.Clamp(newWeather, weatherMin, weatherMax);
         lastWeather = weatherValue;
         ChangeState();
         

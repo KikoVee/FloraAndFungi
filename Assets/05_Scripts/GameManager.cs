@@ -309,7 +309,6 @@ public class GameManager : MonoBehaviour
     {
         float percentComplete = ((float) completeTrees / (float) treesInScene.Count) * 100;
         ecoResilienceImage.fillAmount = percentComplete/100;
-        Debug.Log("percent complete is " + percentComplete);
     }
     
 

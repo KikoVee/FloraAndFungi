@@ -165,7 +165,7 @@ public class TreeBehaviour : MonoBehaviour
             CheckNeighbors();
             weatherValue = _weatherManager.weatherValue;
             currentTreeHealth =
-                Mathf.Clamp((currentTreeHealth * treeHealthWeight) + currentNutrientValue + (weatherValue), 0,
+                Mathf.Clamp((currentTreeHealth * treeHealthWeight) + (currentNutrientValue * 0.8f)+ (weatherValue), 0,
                     100);
             
             /*treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) / treeSugarWeight);
@@ -230,7 +230,7 @@ public class TreeBehaviour : MonoBehaviour
             newBlendValue = 0;
             healthyLeaves.SetActive(true);
             unhealthyLeaves.SetActive(false);
-            treeSugarValue = 10;
+            treeSugarValue = 5;
 
         }
         
@@ -241,7 +241,7 @@ public class TreeBehaviour : MonoBehaviour
             unhealthyLeaves.SetActive(true);
             healthyLeaves.SetActive(false);
             
-            treeSugarValue = 5;
+            treeSugarValue = 3;
 
         }
         if (healthPercent >= 11 && healthPercent <= 49)
