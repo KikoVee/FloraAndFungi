@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text treeScoreText;
     [SerializeField] private GameObject timeLapsePauseImage;
     [SerializeField] private Text timeLapsePauseText;
+    [SerializeField] private GameObject gameOverImage;
 
     private Color originalTextColor;
 
@@ -266,6 +267,7 @@ public class GameManager : MonoBehaviour
         if (number == -fungi.Count)
         {
             fungiAlive = false;
+            GameOver(); //no more fungi  == no more game
         }
         else
         {
@@ -309,6 +311,12 @@ public class GameManager : MonoBehaviour
     {
         float percentComplete = ((float) completeTrees / (float) treesInScene.Count) * 100;
         ecoResilienceImage.fillAmount = percentComplete/100;
+    }
+
+    private void GameOver()
+    {
+        gameOverImage.SetActive(true);
+        Debug.Log("game over");
     }
     
 
