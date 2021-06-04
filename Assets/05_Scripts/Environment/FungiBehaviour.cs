@@ -24,7 +24,11 @@ public class FungiBehaviour : MonoBehaviour
 
     public void UpgradeEvent()
     {
-        spores.Play(); 
+        if (spores != null)
+        {
+            spores.Play(); 
+        }
+        
     }
 
     private void PlayStartSound()

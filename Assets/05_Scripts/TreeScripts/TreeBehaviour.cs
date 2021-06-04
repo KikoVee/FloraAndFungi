@@ -49,7 +49,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private GameObject healthyTreeVisualsContainer;
     private SkinnedMeshRenderer[] healthyTreeDetails;
     
-    private SkinnedMeshRenderer _skinnedMeshRenderer;
+    [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
     private float newBlendValue = 0;
     private float oldBlendValue = 0;
@@ -208,14 +208,14 @@ public class TreeBehaviour : MonoBehaviour
             {
                 foreach (var particle in upgradeParticles)
                 {
-                    particle.Play();
+                    if (particle != null)
+                    {
+                        particle.Play();
+                    }
                 }
 
             }
-        }
-        
-        
-
+        }    
     }
 
 
@@ -226,47 +226,79 @@ public class TreeBehaviour : MonoBehaviour
       
         if (healthPercent >= 90)
         {
-            treeRenderer.material = treeMaterial[0];
+            if (_skinnedMeshRenderer != null)
+            {
+                _skinnedMeshRenderer.material = treeMaterial[0]; 
+            }
             newBlendValue = 0;
-            healthyLeaves.SetActive(true);
-            unhealthyLeaves.SetActive(false);
+            if (healthyLeaves != null && unhealthyLeaves != null)
+            {
+                healthyLeaves.SetActive(true);
+                unhealthyLeaves.SetActive(false);  
+            }
+            
             treeSugarValue = 5;
 
         }
         
         if (healthPercent >= 50 && healthPercent <= 89)
         {
-            treeRenderer.material = treeMaterial[1];
+            if (_skinnedMeshRenderer != null)
+            {
+                _skinnedMeshRenderer.material = treeMaterial[1]; 
+            }
             newBlendValue = 30;
-            unhealthyLeaves.SetActive(true);
-            healthyLeaves.SetActive(false);
-            
+            if (healthyLeaves != null && unhealthyLeaves != null)
+            {
+                unhealthyLeaves.SetActive(true);
+                healthyLeaves.SetActive(false);
+            }
             treeSugarValue = 3;
 
         }
         if (healthPercent >= 11 && healthPercent <= 49)
         {
-            treeRenderer.material = treeMaterial[2];
+            if (_skinnedMeshRenderer != null)
+            {
+                _skinnedMeshRenderer.material = treeMaterial[2]; 
+            }
             newBlendValue = 60;
-            healthyLeaves.SetActive(false);
-            unhealthyLeaves.SetActive(false);
+            if (healthyLeaves != null && unhealthyLeaves != null)
+            {
+                healthyLeaves.SetActive(false);
+                unhealthyLeaves.SetActive(false);
+            }
+            
             treeSugarValue = 2;
         }
 
         if (healthPercent >= 1 && healthPercent <= 10)
         {
-            treeRenderer.material = treeMaterial[3];
+            if (_skinnedMeshRenderer != null)
+            {
+                _skinnedMeshRenderer.material = treeMaterial[3]; 
+            }
             newBlendValue = 80;
-            healthyLeaves.SetActive(false);
-            unhealthyLeaves.SetActive(false);
+            if (healthyLeaves != null && unhealthyLeaves != null)
+            {
+                healthyLeaves.SetActive(false);
+                unhealthyLeaves.SetActive(false);
+            }
             treeSugarValue = 1;
         }
         if (healthPercent <= 0)
         {
-            treeRenderer.material = treeMaterial[3];
+            if (_skinnedMeshRenderer != null)
+            {
+                _skinnedMeshRenderer.material = treeMaterial[3]; 
+            }
+            
             newBlendValue = 100;
-            healthyLeaves.SetActive(false);
-            unhealthyLeaves.SetActive(false);
+            if (healthyLeaves != null && unhealthyLeaves != null)
+            {
+                healthyLeaves.SetActive(false);
+                unhealthyLeaves.SetActive(false);
+            }
             treeSugarValue = 0;
         }
         
