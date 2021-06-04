@@ -28,6 +28,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorial;
     public bool firstClick = false;
     public bool collectedSugar = false;
+    private float tutorialTimer = 5f;
 
     
     
@@ -45,7 +46,7 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialPopups[0].SetActive(true);
             NextButton.SetActive(false);
-
+            weatherChangeExplanation.SetActive(false);
         }
     }
 
@@ -106,7 +107,6 @@ public class TutorialManager : MonoBehaviour
             if (tutorialPopups[0].activeSelf && GameManager.currentManager.fungi.Count == 1)
             {
                 tutorialPopups[0].SetActive(false);
-                weatherChangeExplanation.SetActive(false);
                 sugarText.SetActive(false); // toggles the ui elements on and off
                 tutorialPopups[1].SetActive(true);
             }
@@ -142,7 +142,33 @@ public class TutorialManager : MonoBehaviour
                 tutorialPopups[5].SetActive(false);
                 tutorialPopups[6].SetActive(true);
             }
+
+            if (tutorialPopups[6].activeSelf)
+            {
+                tutorialTimer -= Time.deltaTime;
+
+                if (tutorialTimer <= 0)
+                {
+                    TutorialEnd();
+                }
+            }
         }
+        
+    }
+
+    public void TutorialEnd()
+    {
+        foreach (var popUp in tutorialPopups)
+        {
+            popUp.SetActive(false);
+        }
+
+        tutorial = false;
+        weatherChangeExplanation.SetActive(true);
+        NextButton.SetActive(true);
+
+        
+        
     }
     
 }
