@@ -14,6 +14,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     [SerializeField] private float sugarConsumption = .1f;
     [SerializeField] private int undividedNutrientAmount;
     public int currentSugar;
+    private int sugarNeededConsumption;
 
 
     public int expansionCost = 5;
@@ -34,6 +35,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     private float fillAmount;
     private float oldFillAmount;
     private bool updateButtonVisual;
+    [SerializeField] private Text SugarText;
 
     private bool tutorial;
    
@@ -72,9 +74,16 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
             nutrientButtonMask.fillAmount = Mathf.Lerp(oldFillAmount, fillAmount, 3f * Time.deltaTime);
             updateButtonVisual = false;
         }
+        
+    
+    }
 
-
-
+    public void UpdateSugarNeededText()
+    {
+        sugarNeededConsumption = Mathf.RoundToInt(fungiCount * sugarConsumption);
+        SugarText.text = ("This is the amount of sugar your fungal network has. " +
+                          "Sugars are food and energy for the fungi and are given by the trees. " + 
+                          "Your fungi currently need to consume " + sugarNeededConsumption + " amount of sugar.");
     }
 
 

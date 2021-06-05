@@ -367,4 +367,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddFungiToList(GameObject fungus)
+    {
+       fungi.Add(fungus);
+       _nutrientManager.UpdateSugarNeededText();
+    }
+
 }

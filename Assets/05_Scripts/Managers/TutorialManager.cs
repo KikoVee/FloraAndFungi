@@ -17,6 +17,7 @@ public class TutorialManager : MonoBehaviour
 
 
     [SerializeField] private GameObject[] tutorialPopups;
+    [SerializeField] private GameObject TutorialQuestion;
     
     
     [SerializeField] private Color myImageColor;
@@ -25,6 +26,7 @@ public class TutorialManager : MonoBehaviour
     public bool displayInfo;
     private float timer;
     [SerializeField] private float displayTime = 6;
+    
     public bool tutorial;
     public bool firstClick = false;
     public bool collectedSugar = false;
@@ -35,19 +37,31 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tutorial = true;
+        TutorialQuestion.SetActive(true);
         weatherExplanationImage = weatherChangeExplanation.GetComponentInChildren<Image>();
         weatherExplanationText = weatherChangeExplanation.GetComponentInChildren<Text>();
 
         weatherExplanationImage.color = Color.clear;
         weatherExplanationText.color = Color.clear;
         
+    }
+
+    public void YesTutorial()
+    {
+        tutorial = true;
         if (tutorial)
         {
             tutorialPopups[0].SetActive(true);
             NextButton.SetActive(false);
             weatherChangeExplanation.SetActive(false);
         }
+        TutorialQuestion.SetActive(false);
+    }
+
+    public void NoTutorial()
+    {
+        tutorial = false;
+        TutorialQuestion.SetActive(false);
     }
 
     // Update is called once per frame
@@ -111,14 +125,14 @@ public class TutorialManager : MonoBehaviour
                 tutorialPopups[1].SetActive(true);
             }
 
-            if (tutorialPopups[1].activeSelf && GameManager.currentManager.fungi.Count >= 3)
+            if (tutorialPopups[1].activeSelf && GameManager.currentManager.fungi.Count >= 2)
             {
                 tutorialPopups[1].SetActive(false);
                 sugarText.SetActive(true);
                 tutorialPopups[2].SetActive(true);
             }
 
-            if (tutorialPopups[2].activeSelf && GameManager.currentManager.touchedTrees.Count >= 1)
+            if (tutorialPopups[2].activeSelf && GameManager.currentManager.touchedTrees.Count >= 1 && GameManager.currentManager.fungi.Count >= 3)
             {
                 NextButton.SetActive(true);
                 tutorialPopups[2].SetActive(false);
@@ -141,6 +155,7 @@ public class TutorialManager : MonoBehaviour
             {
                 tutorialPopups[5].SetActive(false);
                 tutorialPopups[6].SetActive(true);
+                weatherChangeExplanation.SetActive(true);
             }
 
             if (tutorialPopups[6].activeSelf)

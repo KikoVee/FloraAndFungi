@@ -183,7 +183,6 @@ public class TreeBehaviour : MonoBehaviour
             SetTreeState(); //changes tree type based on amount of available nutrients
             TreeVisualChange();
             newCycle = false;
-            //SpawnSugar();
         }
        
     }
