@@ -16,6 +16,8 @@ public class TreeBehaviour : MonoBehaviour
     private float treeSugarWeight = 10;
     //[SerializeField] private float treeSugarWeatherWeight;
     [SerializeField] private float currentNutrientValue;
+    [SerializeField] private float nutrientWeight = 0.65f;
+
 
     private float weatherValue;
     private bool isDead = false;
@@ -165,7 +167,7 @@ public class TreeBehaviour : MonoBehaviour
             CheckNeighbors();
             weatherValue = _weatherManager.weatherValue;
             currentTreeHealth =
-                Mathf.Clamp((currentTreeHealth * treeHealthWeight) + (currentNutrientValue * 0.8f)+ (weatherValue), 0,
+                Mathf.Clamp((currentTreeHealth * treeHealthWeight) + (currentNutrientValue * nutrientWeight)+ (weatherValue), 0,
                     100);
             
             /*treeSugarValue = Mathf.CeilToInt((currentTreeHealth - (weatherValue * treeSugarWeatherWeight)) / treeSugarWeight);
