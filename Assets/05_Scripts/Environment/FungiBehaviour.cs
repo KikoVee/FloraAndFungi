@@ -8,6 +8,9 @@ public class FungiBehaviour : MonoBehaviour
     [SerializeField] private GameObject[] mushroomPrefabs;
     [SerializeField] private Material healthyMushroom;
     [SerializeField] private Material unhealthyMushroom;
+    public enum FungiState {healthy, unhealthy};
+
+    public FungiState fungiState;
 
     private int mushroomVisual;
     
@@ -62,6 +65,8 @@ public class FungiBehaviour : MonoBehaviour
         {
             renderer.material = unhealthyMushroom;
         }
+
+        fungiState = FungiState.unhealthy;
     }
 
     public void SetHealthy()
@@ -73,5 +78,9 @@ public class FungiBehaviour : MonoBehaviour
         {
             renderer.material = healthyMushroom;
         }
+        fungiState = FungiState.unhealthy;
+
     }
+    
+    
 }

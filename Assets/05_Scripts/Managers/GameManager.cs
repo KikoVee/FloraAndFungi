@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviour
     public void AddedTree(Transform tree)
     {
         touchedTrees.Add(tree);
-        _nutrientManager.NutrientLevelSplit(1);
+        _nutrientManager.NutrientLevelSplit();
         treeScoreText.text = "Trees: " + touchedTrees.Count;
         UpdateMusic(touchedTrees.Count);
     }
@@ -277,7 +277,7 @@ public class GameManager : MonoBehaviour
 
     public void UnhealthyFungi(int number)
     {
-        if (number == -fungi.Count)
+        if (number == -fungi.Count) //if not enough sugar to feed fungi count 
         {
             fungiAlive = false;
             GameOver(); //no more fungi  == no more game
@@ -293,6 +293,8 @@ public class GameManager : MonoBehaviour
             FungiBehaviour fungus = fungi[Random.Range(0, fungi.Count)].GetComponent<FungiBehaviour>();
             fungus.SetUnhealthy();
         }
+        FungiNutrientCount(number); 
+
     }
 
     public void HealthyFungi()
@@ -303,8 +305,22 @@ public class GameManager : MonoBehaviour
             FungiBehaviour fungus = _fungus.GetComponent<FungiBehaviour>();
             fungus.SetHealthy();
         }
+        FungiNutrientCount(0);
     }
 
+    private void FungiNutrientCount(int count)
+    {
+        int healthyCount = fungi.Count + count;
+        _nutrientManager.HealthyFungiCount(healthyCount);
+        
+    }
+    
+    public void AddFungiToList(GameObject fungus)
+    {
+       fungi.Add(fungus);
+       _nutrientManager.UpdateSugarNeededText();
+    }
+   
     private void EcosystemResilienceCheck()
     {
         int numberComplete = 0;
@@ -367,10 +383,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddFungiToList(GameObject fungus)
-    {
-       fungi.Add(fungus);
-       _nutrientManager.UpdateSugarNeededText();
-    }
+    
 
 }

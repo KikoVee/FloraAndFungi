@@ -138,8 +138,9 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         _gameManager.UpdateNutrientScore(nutrientAmount);
         _gameManager.GiveTreesNutrients();
         FindObjectOfType<AudioManager>().Play("Spores");
-
     }
+
+    
 
     public void NewCycleSugar()
     {
@@ -159,8 +160,6 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
                 _gameManager.HealthyFungi();
             } 
         }
-        
-        
 
     }
 
@@ -183,10 +182,15 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
         undividedNutrientAmount += 1;
         fungiCount += 1;
         _gameManager.UpdateNutrientScore(nutrientAmount);
-
     }
 
-    public void NutrientLevelSplit(int tree)
+    public void HealthyFungiCount(int count)
+    {
+        undividedNutrientAmount = count; 
+        NutrientLevelSplit();
+    }
+
+    public void NutrientLevelSplit() //divides nutrients among trees
     {
         
         int treeNumber = _gameManager.touchedTrees.Count;
@@ -194,34 +198,12 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
          if (treeNumber > 0)
          {
-             
              nutrientValue = nutrientValue / treeNumber;
-             nutrientAmount = nutrientValue;
-             _gameManager.UpdateNutrientScore(nutrientAmount);
          }
+        nutrientAmount = nutrientValue;
+        _gameManager.UpdateNutrientScore(nutrientAmount);
 
     }
-
-    /*private void UpdateNutrientVisual()
-    {
-        oldFillAmount = fillAmount;
-        float maximumOffset = nutrientCost-1;
-        float currentOffset = currentSugar-1;
-        fillAmount = currentOffset/ maximumOffset;
-        updateButtonVisual = true;
-        
-        if (currentSugar >= nutrientCost)
-        {
-            upgradeButton.SetActive(true); 
-        }
-        else
-        {
-            upgradeButton.SetActive(false); 
-        }
-
-    }*/
-    
-     
 
     private void TutorialPopUp()
     {
