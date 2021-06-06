@@ -4871,7 +4871,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4527763077735843361}
-  - component: {fileID: 8239664682153480733}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -4897,24 +4896,6 @@ Transform:
   m_Father: {fileID: 6756991738248363634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8239664682153480733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385293754793761103}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.81960785, g: 0.9254902, b: 0.80784315, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &2746611012424590158
 GameObject:
   m_ObjectHideFlags: 0
@@ -9861,6 +9842,7 @@ MonoBehaviour:
   treeHealthWeight: 0.6
   treeSugarValue: 0
   currentNutrientValue: 9
+  nutrientWeight: 0.65
   treeState: 0
   currentCell: {fileID: 0}
   hexGrid: {fileID: 0}
@@ -9879,7 +9861,8 @@ MonoBehaviour:
   unhealthyLeaves: {fileID: 9034097296408625119}
   leaves: 0
   healthyTreeVisualsContainer: {fileID: 8963611153897987083}
-  outline: {fileID: 8239664682153480733}
+  _skinnedMeshRenderer: {fileID: 0}
+  outline: {fileID: 108440752543247993}
   particleContainer: {fileID: 8053835293500639550}
 --- !u!65 &1494371719607247366
 BoxCollider:
@@ -10009,6 +9992,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 0
+--- !u!114 &108440752543247993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264620685924772098}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.81960785, g: 0.9254902, b: 0.80784315, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8849410200140560475
 GameObject:
   m_ObjectHideFlags: 0
