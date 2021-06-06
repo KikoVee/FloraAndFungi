@@ -353,12 +353,12 @@ public class TreeBehaviour : MonoBehaviour
 
     private void SetTreeState()
     {
-        if (currentNutrientValue < 10)
+        if (currentNutrientValue < 10 + (10-(10 * nutrientWeight)))
         {
             treeState = TreeState.incomplete;
         }
 
-        if (currentNutrientValue >= 10)
+        if (currentNutrientValue >= 10 + (10-(10 * nutrientWeight)) && currentTreeHealth >= 99)
         {
             treeState = TreeState.complete;
         }
