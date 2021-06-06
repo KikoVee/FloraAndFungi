@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TreeBehaviour : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class TreeBehaviour : MonoBehaviour
     public Material[] treeMaterial;
     public Material[] TreeLeavesMaterials;
     [SerializeField] private Renderer treeRenderer;
+    [SerializeField] private GameObject[] mushrooms;
     public GameObject healthyLeaves;
     public GameObject unhealthyLeaves;
     private GameObject currentTreeLeaves;
@@ -48,8 +50,8 @@ public class TreeBehaviour : MonoBehaviour
     private int oldTreeLeavesNumber;
     public bool leaves;
 
-    [SerializeField] private GameObject healthyTreeVisualsContainer;
-    private SkinnedMeshRenderer[] healthyTreeDetails;
+    //[SerializeField] private GameObject healthyTreeVisualsContainer;
+    //private SkinnedMeshRenderer[] healthyTreeDetails;
     
     [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
     private Mesh skinnedMesh;
@@ -87,7 +89,7 @@ public class TreeBehaviour : MonoBehaviour
         oldTreeLeavesNumber = treeLeavesNumber;
         treeText = gameObject.GetComponent<DisplayUI>().myText;
 
-        healthyTreeDetails = healthyTreeVisualsContainer.GetComponentsInChildren<SkinnedMeshRenderer>();
+        //healthyTreeDetails = healthyTreeVisualsContainer.GetComponentsInChildren<SkinnedMeshRenderer>();
         upgradeParticles = particleContainer.GetComponentsInChildren<ParticleSystem>();
         
         TreeVisualChange();
@@ -140,10 +142,10 @@ public class TreeBehaviour : MonoBehaviour
         {
             _skinnedMeshRenderer.SetBlendShapeWeight(0, oldBlendValue);
            
-            foreach (SkinnedMeshRenderer meshRenderer in healthyTreeDetails)
+            /*foreach (SkinnedMeshRenderer meshRenderer in healthyTreeDetails)
             {
                 meshRenderer.SetBlendShapeWeight(0, oldBlendValue);
-            }
+            }*/
             
             oldBlendValue = Mathf.Lerp(oldBlendValue, newBlendValue, blendSpeed * Time.deltaTime);
         }
@@ -324,6 +326,10 @@ public class TreeBehaviour : MonoBehaviour
                 if (cell.myType == HexCell.cellType.fungi)
                 {
                     fungiNeighbor = true;
+                    if (mushrooms != null)
+                    {
+                        mushrooms[Random.Range(0,mushrooms.Length)].SetActive(true);
+                    }
                    // GameManager.currentManager.touchedTrees.Add(this);
                     //Debug.Log(GameManager.currentManager.touchedTrees.Count);
                     break;
