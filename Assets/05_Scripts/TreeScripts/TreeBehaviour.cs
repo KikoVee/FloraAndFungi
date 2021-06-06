@@ -43,6 +43,9 @@ public class TreeBehaviour : MonoBehaviour
     public Material[] TreeLeavesMaterials;
     [SerializeField] private Renderer treeRenderer;
     [SerializeField] private GameObject[] mushrooms;
+    [SerializeField] private Material mushroomsDead;
+    private int activeMushrooms;
+
     public GameObject healthyLeaves;
     public GameObject unhealthyLeaves;
     private GameObject currentTreeLeaves;
@@ -328,7 +331,8 @@ public class TreeBehaviour : MonoBehaviour
                     fungiNeighbor = true;
                     if (mushrooms != null)
                     {
-                        mushrooms[Random.Range(0,mushrooms.Length)].SetActive(true);
+                        activeMushrooms = Random.Range(0, mushrooms.Length);
+                        mushrooms[activeMushrooms].SetActive(true);
                     }
                    // GameManager.currentManager.touchedTrees.Add(this);
                     //Debug.Log(GameManager.currentManager.touchedTrees.Count);
@@ -367,6 +371,14 @@ public class TreeBehaviour : MonoBehaviour
         if (currentNutrientValue >= 10 + (10-(10 * nutrientWeight)) && currentTreeHealth >= 99)
         {
             treeState = TreeState.complete;
+        }
+    }
+
+    public void ChangeMushroomVisual()
+    { 
+        foreach (Renderer mushroom in mushrooms[activeMushrooms].GetComponentsInChildren<Renderer>())
+        {
+            mushroom.material = mushroomsDead;
         }
     }
     

@@ -10040,6 +10040,7 @@ MonoBehaviour:
   mushrooms:
   - {fileID: 4747541766244745773}
   - {fileID: 6621647574546367978}
+  mushroomsDead: {fileID: 2100000, guid: e6efafedbf87b4e68a3dc5a253133b76, type: 2}
   healthyLeaves: {fileID: 8849410200140560475}
   unhealthyLeaves: {fileID: 9034097296408625119}
   leaves: 0

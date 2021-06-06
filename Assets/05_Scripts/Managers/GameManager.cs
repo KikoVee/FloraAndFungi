@@ -344,6 +344,11 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        foreach (var tree in treesInScene)
+        {
+            tree.GetComponent<TreeBehaviour>().ChangeMushroomVisual();
+        }
+        
         gameOverImage.SetActive(true);
         Debug.Log("game over");
     }
