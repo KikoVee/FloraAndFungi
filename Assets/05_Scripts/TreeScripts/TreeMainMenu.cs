@@ -18,6 +18,7 @@ public class TreeMainMenu : MonoBehaviour
     private float newBlendValue = 0;
     private float oldBlendValue = 0;
     private float blendSpeed = 3;
+    [SerializeField] private GameObject particles;
 
 
     private void Start()
@@ -46,6 +47,12 @@ public class TreeMainMenu : MonoBehaviour
     {
         currentTreeHealth = 100f;
         TreeVisualChange();
+       ParticleSystem[] _particles = particles.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (var par in _particles)
+        {
+            par.Play();
+        }
     }
 
     void TreeVisualChange()

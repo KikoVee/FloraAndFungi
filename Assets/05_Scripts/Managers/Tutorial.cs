@@ -29,6 +29,7 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] private GameObject tree;
     [SerializeField] private ParticleSystem spores;
+    [SerializeField] private CollectableAnimation _collectableManager;
 
 
         
@@ -54,7 +55,7 @@ public class Tutorial : MonoBehaviour
         if (
             Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) 
         {
-            RayCastInput();
+           RayCastInput();
                 
         }
         
@@ -79,7 +80,9 @@ public class Tutorial : MonoBehaviour
         
         if (textNumber == collectText)
         {
+            
             tree.SetActive(true);    
+
         }
 
         if (textNumber == upgradeText)
@@ -109,6 +112,7 @@ public class Tutorial : MonoBehaviour
                 if (hit.collider.name.Equals("TreeObject-MainMenu-02"))
                 {
                     tree.GetComponent<Outline>().enabled = false;
+                    _collectableManager.AddCollectable(hit.collider.transform.position,5);
                     
                 }
             }
@@ -119,7 +123,10 @@ public class Tutorial : MonoBehaviour
     public void Upgrade()
     {
         spores. Play();
+        
         tree.GetComponent<TreeMainMenu>().MainMenuEffect();
+        
+        
         continueButton.SetActive(true);
         upgradeButton.SetActive(false);
     }
