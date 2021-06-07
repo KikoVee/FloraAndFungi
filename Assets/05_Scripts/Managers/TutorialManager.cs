@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         TutorialQuestion.SetActive(true);
+        weatherChangeExplanation.SetActive(true);
         weatherExplanationImage = weatherChangeExplanation.GetComponentInChildren<Image>();
         weatherExplanationText = weatherChangeExplanation.GetComponentInChildren<Text>();
 
@@ -105,6 +106,7 @@ public class TutorialManager : MonoBehaviour
         {
             weatherExplanationImage.color = Color.Lerp(weatherExplanationImage.color, myImageColor, fadeTime * Time.deltaTime);
             weatherExplanationText.color = Color.Lerp(weatherExplanationText.color, myTextColor, fadeTime * Time.deltaTime);
+            Debug.Log("weather text");
         }
         else
         {

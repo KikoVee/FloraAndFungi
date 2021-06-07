@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         _nutrientManager = NutrientManager.currentNutrientManager;
         originalTextColor = nutrientCostText.color;
         _audioManager = FindObjectOfType<AudioManager>();
-        FindObjectOfType<AudioManager>().Stop("Background Music");
+        StopMusic();
 
 
     }
@@ -176,7 +176,8 @@ public class GameManager : MonoBehaviour
         timeLapsePlayImage.SetActive(false);
         timeLapsePauseImage.SetActive(true);
         timeLapseImage.SetActive(true);
-
+        gameWinImage.SetActive(false);
+        gameOverImage.SetActive(false);
 
     }
 
@@ -242,6 +243,16 @@ public class GameManager : MonoBehaviour
         UpdateMusic(touchedTrees.Count);
     }
 
+    void StopMusic()
+    {
+        _audioManager.Stop("1 tree");
+        _audioManager.Stop("2 tree");
+        _audioManager.Stop("3 tree");
+        _audioManager.Stop("4 tree");
+        _audioManager.Stop("5 tree");
+        _audioManager.Stop("Background Music");
+
+    }
     void UpdateMusic(int treeNumber)
     {
         if (treeNumber == 1)
@@ -272,6 +283,8 @@ public class GameManager : MonoBehaviour
         if (treeNumber == 6)
         {
             _audioManager.Play("Background Music");
+            _audioManager.Pause("1 tree");
+
         }
     }
     
