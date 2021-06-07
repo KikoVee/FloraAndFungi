@@ -43,9 +43,10 @@ public class GameManager : MonoBehaviour
 
 
     public bool turnEndSequence;
+    [SerializeField] private GameObject sun;
     public bool timelapse = false;
     private float timer;
-    private float time = 0.2f;
+    private float time = 3f; //time in inbetween sequence
     public List<Transform> touchedTrees = new List<Transform>();
     public List<GameObject> fungi = new List<GameObject>();
     public List<TreeBehaviour> treesInScene = new List<TreeBehaviour>();
@@ -82,11 +83,13 @@ public class GameManager : MonoBehaviour
         if (turnEndSequence && timer > 0)
         {
             timer -= Time.deltaTime;
+            sun.GetComponent<DayCycles>().ChangeGameSpeed(30f);
             //Debug.Log("timer is " + timer);
         }
         else
         {
             turnEndSequence = false;
+            sun.GetComponent<DayCycles>().ChangeGameSpeed(1f);
         }
 
         if (timelapse && timer > 0)
