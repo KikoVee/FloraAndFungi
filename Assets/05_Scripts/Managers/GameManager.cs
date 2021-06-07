@@ -150,6 +150,7 @@ public class GameManager : MonoBehaviour
         
         WeatherManager.currentWeatherManager.NewCycle();
         NutrientManager.currentNutrientManager.NewCycleSugar();
+        _audioManager.Play("Spores");
         
         
         //begins revalue cycle for all trees and skips time ahead quickly
