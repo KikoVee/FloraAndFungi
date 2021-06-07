@@ -25,9 +25,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text nutrientCostText;
     [SerializeField] private Text treeScoreText;
     [SerializeField] private GameObject timeLapsePauseImage;
-    [SerializeField] private Text timeLapsePauseText;
+    [SerializeField] private GameObject timeLapsePlayImage;
     [SerializeField] private GameObject timeLapseImage;
     [SerializeField] private GameObject gameOverImage;
+    [SerializeField] private GameObject gameWinImage;
     [SerializeField] public Image ecoResilienceImage;
     [SerializeField] public GameObject menuImage;
     bool timeLapseClicked = false;
@@ -167,7 +168,7 @@ public class GameManager : MonoBehaviour
         turnEndSequence = true;
         timer = time;
         timeLapseClicked = true;
-        timeLapsePauseText.enabled = false;
+        timeLapsePlayImage.SetActive(false);
         timeLapsePauseImage.SetActive(true);
         timeLapseImage.SetActive(true);
 
@@ -186,7 +187,7 @@ public class GameManager : MonoBehaviour
             turnEndSequence = false;
             timer = 0;
             timeLapseClicked = false;
-            timeLapsePauseText.enabled = true;
+            timeLapsePlayImage.SetActive(true);
             timeLapsePauseImage.SetActive(false);
             timeLapseImage.SetActive(false);
 
@@ -334,6 +335,10 @@ public class GameManager : MonoBehaviour
 
         completeTrees = numberComplete;
         UpdateResilienceGraphic();
+        if (completeTrees == treesInScene.Count)
+        {
+            GameWin();
+        }
     }
 
     private void UpdateResilienceGraphic()
@@ -342,6 +347,12 @@ public class GameManager : MonoBehaviour
         ecoResilienceImage.fillAmount = percentComplete/100;
     }
 
+    private void GameWin()
+    {
+        gameWinImage.SetActive(true);
+
+    }
+    
     private void GameOver()
     {
         foreach (var tree in treesInScene)
