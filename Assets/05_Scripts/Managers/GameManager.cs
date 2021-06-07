@@ -296,6 +296,10 @@ public class GameManager : MonoBehaviour
 
     public void UnhealthyFungi(int number)
     {
+        if (_tutorialManager.firstHurtFungi != true)
+        {
+            _tutorialManager.LostFungi();   
+        }
         if (number == -fungi.Count) //if not enough sugar to feed fungi count 
         {
             fungiAlive = false;

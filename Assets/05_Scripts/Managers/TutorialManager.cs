@@ -30,6 +30,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorial;
     public bool firstClick = false;
     public bool collectedSugar = false;
+    public bool firstHurtFungi = false;
     private float tutorialTimer = 5f;
 
     
@@ -100,13 +101,19 @@ public class TutorialManager : MonoBehaviour
         weatherExplanationText.text = "The drought damaged the trees.";
     }
 
+    public void LostFungi()
+    {
+        timer = displayTime;
+        weatherExplanationText.text = "Not enough sugar to feed fungi.";
+        firstHurtFungi = true;
+    }
+
     private void FadeText()
     {
         if (displayInfo)
         {
             weatherExplanationImage.color = Color.Lerp(weatherExplanationImage.color, myImageColor, fadeTime * Time.deltaTime);
             weatherExplanationText.color = Color.Lerp(weatherExplanationText.color, myTextColor, fadeTime * Time.deltaTime);
-            Debug.Log("weather text");
         }
         else
         {
