@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         else
         {
             turnEndSequence = false;
-            sun.GetComponent<DayCycles>().ChangeGameSpeed(1f);
+            sun.GetComponent<DayCycles>().ChangeGameSpeed(.5f);
         }
 
         if (timelapse && timer > 0)
