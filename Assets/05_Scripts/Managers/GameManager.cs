@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameWinImage;
     [SerializeField] public Image ecoResilienceImage;
     [SerializeField] public GameObject menuImage;
+    [SerializeField] public GameObject nextButton;
     bool timeLapseClicked = false;
     private Color originalTextColor;
 
@@ -361,6 +362,7 @@ public class GameManager : MonoBehaviour
         }
         
         gameOverImage.SetActive(true);
+        nextButton.SetActive(false);
         Debug.Log("game over");
     }
 
