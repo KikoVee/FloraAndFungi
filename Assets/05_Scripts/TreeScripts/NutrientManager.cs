@@ -144,7 +144,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
 
     public void NewCycleSugar()
     {
-        if (_gameManager.timelapse != true)
+        if (_gameManager.timelapse != true && _gameManager.gameOver != true && _gameManager.gameWin != true)
         {
             int sugar = Mathf.RoundToInt(currentSugar - (fungiCount * sugarConsumption));
             currentSugar = Mathf.Clamp(sugar, -fungiCount, 1000);

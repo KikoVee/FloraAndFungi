@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public CollectableAnimation _sugarCollectableAnimation;
     private int sugarScore;
+    private int sugarBeforeTimelapse;
     [SerializeField] private Text sugarScoreText;
     private int nutrientScore;
     [SerializeField] private Text nutrientScoreText;
@@ -54,6 +55,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int completeTrees;
 
     public bool tutorial = true;
+    public bool gameOver = false;
+    public bool gameWin = false;
  
     
     private void Awake()
@@ -165,6 +168,7 @@ public class GameManager : MonoBehaviour
 
     private void TimeLapse()
     {
+        sugarBeforeTimelapse = sugarScore;
         GiveTreesNutrients();
 
         EndTurn();
@@ -196,6 +200,14 @@ public class GameManager : MonoBehaviour
             timeLapsePlayImage.SetActive(true);
             timeLapsePauseImage.SetActive(false);
             timeLapseImage.SetActive(false);
+            if (gameWin)
+            {
+                gameWinImage.SetActive(true);
+            }
+            if (gameOver)
+            {
+                gameOverImage.SetActive(true);
+            }
 
         }
     }
@@ -372,6 +384,7 @@ public class GameManager : MonoBehaviour
     private void GameWin()
     {
         gameWinImage.SetActive(true);
+        gameWin = true;
 
     }
     
@@ -381,7 +394,8 @@ public class GameManager : MonoBehaviour
         {
             tree.GetComponent<TreeBehaviour>().ChangeMushroomVisual();
         }
-        
+
+        gameOver = true;
         gameOverImage.SetActive(true);
         nextButton.SetActive(false);
         Debug.Log("game over");
