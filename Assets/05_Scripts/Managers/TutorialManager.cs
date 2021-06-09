@@ -18,6 +18,7 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] private GameObject[] tutorialPopups;
     [SerializeField] private GameObject TutorialQuestion;
+    public GameObject controlsPopup;
     
     
     [SerializeField] private Color myImageColor;
@@ -127,47 +128,56 @@ public class TutorialManager : MonoBehaviour
     {
         if (tutorial)
         {
-            if (tutorialPopups[0].activeSelf && GameManager.currentManager.fungi.Count == 1)
+            if (tutorialPopups[0].activeSelf)
             {
-                tutorialPopups[0].SetActive(false);
-                sugarText.SetActive(false); // toggles the ui elements on and off
-                tutorialPopups[1].SetActive(true);
+                if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+                {
+                    tutorialPopups[0].SetActive(false);
+                    tutorialPopups[1].SetActive(true);
+                } 
             }
-
-            if (tutorialPopups[1].activeSelf && GameManager.currentManager.fungi.Count >= 2)
+            
+            if (tutorialPopups[1].activeSelf && GameManager.currentManager.fungi.Count == 1)
             {
                 tutorialPopups[1].SetActive(false);
-                sugarText.SetActive(true);
+                sugarText.SetActive(false); // toggles the ui elements on and off
                 tutorialPopups[2].SetActive(true);
             }
 
-            if (tutorialPopups[2].activeSelf && GameManager.currentManager.touchedTrees.Count >= 1 && GameManager.currentManager.fungi.Count >= 3)
+            if (tutorialPopups[2].activeSelf && GameManager.currentManager.fungi.Count >= 2)
             {
-                NextButton.SetActive(true);
                 tutorialPopups[2].SetActive(false);
+                sugarText.SetActive(true);
                 tutorialPopups[3].SetActive(true);
             }
 
-            if (tutorialPopups[3].activeSelf && firstClick)
+            if (tutorialPopups[3].activeSelf && GameManager.currentManager.touchedTrees.Count >= 1 && GameManager.currentManager.fungi.Count >= 3)
             {
+                NextButton.SetActive(true);
                 tutorialPopups[3].SetActive(false);
                 tutorialPopups[4].SetActive(true);
-                tutorialPopups[5].SetActive(true);
-
             }
-            if (tutorialPopups[4].activeSelf && collectedSugar)
+
+            if (tutorialPopups[4].activeSelf && firstClick)
             {
                 tutorialPopups[4].SetActive(false);
+                tutorialPopups[5].SetActive(true);
+                tutorialPopups[6].SetActive(true);
+
             }
-            
-            if (tutorialPopups[5].activeSelf && GameManager.currentManager.touchedTrees.Count >= 2)
+            if (tutorialPopups[5].activeSelf && collectedSugar)
             {
                 tutorialPopups[5].SetActive(false);
-                tutorialPopups[6].SetActive(true);
+            }
+            
+            if (tutorialPopups[6].activeSelf && GameManager.currentManager.touchedTrees.Count >= 2)
+            {
+                tutorialPopups[6].SetActive(false);
+                tutorialPopups[7].SetActive(true);
                 weatherChangeExplanation.SetActive(true);
             }
 
-            if (tutorialPopups[6].activeSelf)
+            if (tutorialPopups[7].activeSelf)
             {
                 tutorialTimer -= Time.deltaTime;
 
