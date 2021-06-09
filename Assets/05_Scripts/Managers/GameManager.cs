@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         originalTextColor = nutrientCostText.color;
         _audioManager = FindObjectOfType<AudioManager>();
         StopMusic();
+        treeScoreText.text = "Trees: " + touchedTrees.Count + "/" + treesInScene.Count;
 
 
     }
@@ -251,7 +252,7 @@ public class GameManager : MonoBehaviour
     {
         touchedTrees.Add(tree);
         _nutrientManager.NutrientLevelSplit();
-        treeScoreText.text = "Trees: " + touchedTrees.Count;
+        treeScoreText.text = "Trees: " + touchedTrees.Count + "/" + treesInScene.Count;
         UpdateMusic(touchedTrees.Count);
     }
 

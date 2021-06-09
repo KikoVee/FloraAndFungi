@@ -81,9 +81,9 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     public void UpdateSugarNeededText()
     {
         sugarNeededConsumption = Mathf.RoundToInt(fungiCount * sugarConsumption);
-        SugarText.text = ("This is the amount of sugar your fungal network has. " +
-                          "Sugars are food and energy for the fungi and are given by the trees. " + 
-                          "Your fungi currently need to consume " + sugarNeededConsumption + " amount of sugar.");
+        SugarText.text = ("This is the amount of sugar your fungal network has. Sugar is energy for the fungi and is given by the trees. " + 
+                          "\n" + "\n" +
+                          "Your fungi currently need to consume " + sugarNeededConsumption + " sugar.");
     }
 
 

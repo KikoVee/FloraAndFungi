@@ -3228,7 +3228,8 @@ PrefabInstance:
     - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_Text
       value: "This is the amount of sugar your fungal network has. Sugars are food
-        and energy for the fungi and are given by the trees. \n"
+        and energy for the fungi and are given by the trees. \n\nYour fungi currently
+        need to consume 0  sugar."
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_FontData.m_MinSize
@@ -3238,13 +3239,17 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3746795500805528143, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 152.5
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500805528143, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 130.71
+      value: 136.9
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500805528143, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3260,7 +3265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500805528143, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32.2
+      value: -26.7
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500963513496, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_Sprite
@@ -3269,6 +3274,10 @@ PrefabInstance:
     - target: {fileID: 3746795500963513496, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746795500963513503, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 223.25
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500963513503, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3281,6 +3290,10 @@ PrefabInstance:
     - target: {fileID: 3746795500963513503, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746795500963513503, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.1
       objectReference: {fileID: 0}
     - target: {fileID: 3746795502286652060, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_Name
@@ -7489,6 +7502,10 @@ PrefabInstance:
     - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500963513496, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_PreserveAspect
@@ -16897,6 +16914,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748571973}
   m_CullTransparentMesh: 1
+--- !u!21 &1782413934
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1792857593
 GameObject:
   m_ObjectHideFlags: 0
@@ -17467,7 +17510,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 1975299105}
+  material: {fileID: 1782413934}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18515,6 +18558,8 @@ MonoBehaviour:
   treesInScene: []
   completeTrees: 0
   tutorial: 1
+  gameOver: 0
+  gameWin: 0
 --- !u!4 &1947901150
 Transform:
   m_ObjectHideFlags: 0
@@ -18637,32 +18682,6 @@ MonoBehaviour:
   firstClick: 0
   collectedSugar: 0
   firstHurtFungi: 0
---- !u!21 &1975299105
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1995488038
 GameObject:
   m_ObjectHideFlags: 0
@@ -24315,6 +24334,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3746795500963513496, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
@@ -24740,6 +24763,10 @@ PrefabInstance:
     - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746795500805528136, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3746795500963513496, guid: 92664ab2dba3e47419260bcc7e1dfc1c, type: 3}
       propertyPath: m_PreserveAspect
