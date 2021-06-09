@@ -56,6 +56,7 @@ public class TutorialManager : MonoBehaviour
         if (tutorial)
         {
             tutorialPopups[0].SetActive(true);
+            tutorialPopups[1].SetActive(true);
             NextButton.SetActive(false);
             weatherChangeExplanation.SetActive(false);
         }
@@ -134,7 +135,6 @@ public class TutorialManager : MonoBehaviour
                 if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
                 {
                     tutorialPopups[0].SetActive(false);
-                    tutorialPopups[1].SetActive(true);
                 } 
             }
             
