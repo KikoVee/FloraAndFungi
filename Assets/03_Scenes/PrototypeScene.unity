@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 147499018}
   - component: {fileID: 147499017}
   m_Layer: 5
-  m_Name: End
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1947901149}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3289,7 +3289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: End Game
+  m_Text: Main Menu
 --- !u!222 &552502197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4703,32 +4703,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700742733}
   m_CullTransparentMesh: 1
---- !u!21 &710088338
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &711955816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7582,6 +7556,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6756991738248363634, guid: cd7b6f51a01ae4694afac0403542bdc9, type: 3}
   m_PrefabInstance: {fileID: 628966838}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1061618313
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1066547939
 GameObject:
   m_ObjectHideFlags: 0
@@ -9037,7 +9037,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: End Game
+  m_Text: Main Menu
 --- !u!222 &1294673033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17845,7 +17845,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 1
   distanceHeightBlend: 0.71
-  material: {fileID: 710088338}
+  material: {fileID: 1061618313}
 --- !u!114 &1805327642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18998,7 +18998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nutrientAmount: 0
-  sugarConsumption: 0.4
+  sugarConsumption: 0.3
   undividedNutrientAmount: 0
   currentSugar: 15
   sugarNeededConsumption: 0
@@ -19256,7 +19256,7 @@ GameObject:
   - component: {fileID: 1995492226}
   - component: {fileID: 1995492225}
   m_Layer: 5
-  m_Name: End
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19328,7 +19328,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1947901149}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25337,7 +25337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822719405510104086, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c8ccb58dc884cb590b82d0c5a584a9, type: 3}

@@ -314,7 +314,7 @@ public class GameManager : MonoBehaviour
         {
             _tutorialManager.LostFungi();   
         }
-        if (number == -fungi.Count) //if not enough sugar to feed fungi count 
+        if (number <= -fungi.Count) //if not enough sugar to feed fungi count 
         {
             fungiAlive = false;
             GameOver(); //no more fungi  == no more game

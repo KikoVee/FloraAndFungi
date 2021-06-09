@@ -33,6 +33,7 @@ public class TutorialManager : MonoBehaviour
     public bool collectedSugar = false;
     public bool firstHurtFungi = false;
     private float tutorialTimer = 5f;
+    
 
     
     
@@ -163,7 +164,6 @@ public class TutorialManager : MonoBehaviour
                 tutorialPopups[4].SetActive(false);
                 tutorialPopups[5].SetActive(true);
                 tutorialPopups[6].SetActive(true);
-
             }
             if (tutorialPopups[5].activeSelf && collectedSugar)
             {
