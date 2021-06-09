@@ -15,7 +15,8 @@ public class UIHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private float fadeTime = 4;
     public bool displayInfo;
-    
+    private float timer;
+    private bool displayTimer =false;
     
     void Start()
     {
@@ -29,6 +30,16 @@ public class UIHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Update()
     {
         FadeText();
+        
+        if (timer > 0)
+        {
+            displayTimer = true;
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            displayTimer = false;
+        }
     }
     
     public void OnPointerEnter(PointerEventData eventData)
@@ -41,12 +52,15 @@ public class UIHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         displayInfo = false;
 
     }
-
+    public void DisplayForSeconds()
+    {
+        timer = 4f;
+    }
     
 
     private void FadeText()
     {
-        if (displayInfo)
+        if (displayInfo || displayTimer)
         {
             myImage.color = Color.Lerp(myImage.color, myImageColor, fadeTime * Time.deltaTime);
             myText.color = Color.Lerp(myText.color, myTextColor, fadeTime * Time.deltaTime);

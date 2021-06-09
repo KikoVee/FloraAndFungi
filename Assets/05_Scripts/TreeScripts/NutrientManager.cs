@@ -14,7 +14,7 @@ public class NutrientManager : MonoBehaviour , IShopCustomer
     [SerializeField] private float sugarConsumption = .1f;
     [SerializeField] private int undividedNutrientAmount;
     public int currentSugar;
-    private int sugarNeededConsumption;
+    public int sugarNeededConsumption;
 
 
     public int expansionCost = 5;

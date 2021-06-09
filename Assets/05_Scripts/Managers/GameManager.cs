@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private int sugarScore;
     private int sugarBeforeTimelapse;
     [SerializeField] private Text sugarScoreText;
+    [SerializeField] private GameObject sugarLossText;
     private int nutrientScore;
     [SerializeField] private Text nutrientScoreText;
     [SerializeField] private Text nutrientCostText;

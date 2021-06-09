@@ -13,6 +13,7 @@ public class DisplayUI : MonoBehaviour
     private Camera camera;
     private Canvas myCanvas;
     
+    
     // Start is called before the first frame update
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class DisplayUI : MonoBehaviour
     {
         myText.transform.position = camera.WorldToScreenPoint(transform.position);
         FadeText();
+        
     }
 
     void OnMouseOver()
@@ -41,6 +43,8 @@ public class DisplayUI : MonoBehaviour
     {
         displayInfo = false;
     }
+
+    
 
     private void FadeText()
     {
