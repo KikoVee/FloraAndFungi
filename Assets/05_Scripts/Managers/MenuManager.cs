@@ -14,13 +14,15 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject credits;
     [SerializeField] private GameObject info;
     [SerializeField] private GameObject menu;
+    [SerializeField] private AudioManager _audioManager;
 
     
     // Start is called before the first frame update
     void Start()
     {
+        _audioManager = FindObjectOfType<AudioManager>();
         FindObjectOfType<AudioManager>().Play("Background Music");
-
+        StopTreeMusic();
     }
 
     // Update is called once per frame
@@ -77,5 +79,15 @@ public class MenuManager : MonoBehaviour
     public void OpenURL()
     {
         Application.OpenURL("https://www.sciencemag.org/news/2020/08/hidden-webs-fungi-protect-some-forests-drought-leave-others-vulnerable");
+    }
+
+    private void StopTreeMusic()
+    {
+        _audioManager.Stop("1 tree");
+        _audioManager.Stop("2 tree");
+        _audioManager.Stop("3 tree");
+        _audioManager.Stop("4 tree");
+        _audioManager.Stop("5 tree");
+        _audioManager.Stop("Rain");
     }
 }
