@@ -310,11 +310,21 @@ public class GameManager : MonoBehaviour
 
     public void UnhealthyFungi(int number)
     {
+        int numberDeadFungi = 0;
+
+        foreach (var fungus in fungi) // check if all fungi are dead
+        {
+            if (fungus.GetComponent<FungiBehaviour>().fungiState == FungiBehaviour.FungiState.unhealthy)
+            {
+                numberDeadFungi += 1;
+            }
+        }
+        
         if (_tutorialManager.firstHurtFungi != true)
         {
             _tutorialManager.LostFungi();   
         }
-        if (number <= -fungi.Count) //if not enough sugar to feed fungi count 
+        if (number <= -fungi.Count || numberDeadFungi == fungi.Count) //if not enough sugar to feed fungi count 
         {
             fungiAlive = false;
             GameOver(); //no more fungi  == no more game
@@ -330,6 +340,8 @@ public class GameManager : MonoBehaviour
             FungiBehaviour fungus = fungi[Random.Range(0, fungi.Count)].GetComponent<FungiBehaviour>();
             fungus.SetUnhealthy();
         }
+
+        
         FungiNutrientCount(number); 
 
     }
